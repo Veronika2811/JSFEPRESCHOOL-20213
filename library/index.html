@@ -11,6 +11,151 @@
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <div class="header__logo">
+        <h1 class="logo">Brooklyn Public Library</h1>
+      </div>
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li>
+            <a href="#about" class="navigation__link">About</a>
+          </li>
+          <li>
+            <a href="#favorites" class="navigation__link">Favorites</a>
+          </li>
+          <li>
+            <a href="#coffee-shop" class="navigation__link">Coffee shop</a>
+          </li>
+          <li>
+            <a href="#contacts" class="navigation__link">Contacts</a>
+          </li>
+          <li>
+            <a href="#library-card" class="navigation__link">Library Card</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__user-profile">
+        <div class="user-profile"></div>
+      </div>
+      <div class="header__hamburger hamburger">
+        <span class="hamburger__line"></span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="welcome">
+      <div class="overlay"></div>
+      <div class="wrapper welcome__wrapper">
+        <div class="welcome__content">
+          <p class="welcome__title">Welcome<br>to the Brooklyn<br>Library</p>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="wrapper">
+        <h2 class="title">About</h2>
+        <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+        <div class="about__slider">
+          <img src="/images/jpg/about/1.jpg" alt="image">
+          <img src="/images/jpg/about/2.jpg" alt="image">
+          <img src="/images/jpg/about/5.jpg" alt="image">
+        </div>
+        <div class="about__controls">
+          <input class="about__control" name="control" type="radio" id="control-1" value="control-1" checked>
+          <label for="control-1"></label>
+          <input class="about__control" name="control" type="radio" id="control-2" value="control-2">
+          <label for="control-2"></label>
+          <input class="about__control" name="control" type="radio" id="control-3" value="control-3">
+          <label for="control-3"></label>
+        </div>
+      </div>
+    </section>
+    <section class="favorites">
+      <div class="wrapper">
+        <h2 class="title">Favorites</h2>
+        <p class="favorites__text">Pick favorites of season</p>
+        <div class="favorites__controls season">
+          <input class="season__control" name="winter" type="radio" id="winter" value="winter" checked>
+          <label for="winter"><span>Winter</span></label>
+          <input class="season__control" name="spring" type="radio" id="spring" value="spring">
+          <label for="spring"><span>Spring</span></label>
+          <input class="season__control" name="summer" type="radio" id="summer" value="summer">
+          <label for="summer"><span>Summer</span></label>
+          <input class="season__control" name="autumn" type="radio" id="autumn" value="autumn">
+          <label for="autumn"><span>Autumn</span></label>
+        </div>
+        <div class="favorites__cards">
+          <div class="card">
+            <div class="card__content">
+              <p class="card__title">Staff Picks</p>
+              <h3 class="card__book-title">The Book Eaters</h3>
+              <h3 class="card__book-author">By Sunyi Dean</h3>
+              <p class="card__book-description">
+                An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.
+              </p>
+              <button type="button" class="button__card">Buy</button>
+            </div>
+            <img class="card__book" src="./images/jpg/favorites/book-1.jpg" alt="book">
+          </div>
+          <div class="card">
+            <div class="card__content">
+              <p class="card__title">Staff Picks</p>
+              <h3 class="card__book-title">Cackle</h3>
+              <h3 class="card__book-author">By Rachel Harrison</h3>
+              <p class="card__book-description">
+                Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
+              </p>
+              <button type="button" class="button__card">Buy</button>
+            </div>
+            <img class="card__book" src="./images/jpg/favorites/book-2.jpg" alt="book">
+          </div>
+          <div class="card">
+            <div class="card__content">
+              <p class="card__title">Staff Picks</p>
+              <h3 class="card__book-title">Dante: Poet of the Secular World</h3>
+              <h3 class="card__book-author">By Erich Auerbach</h3>
+              <p class="card__book-description">
+                Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+              </p>
+              <button type="button" class="button__card">Buy</button>
+            </div>
+            <img class="card__book" src="./images/jpg/favorites/book-3.jpg" alt="book">
+          </div>
+          <div class="card">
+            <div class="card__content">
+              <p class="card__title">Staff Picks</p>
+              <h3 class="card__book-title">The Last Queen</h3>
+              <h3 class="card__book-author">By Clive Irving</h3>
+              <p class="card__book-description">
+                A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved
+                and thrived as the modern world has changed around them.
+              </p>
+              <button type="button" class="button__card">Buy</button>
+            </div>
+            <img class="card__book" src="./images/jpg/favorites/book-4.jpg" alt="book">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="coffe-shop">
+      <div class="wrapper">
+        <h2 class="title">Coffee Shop</h2>
+        <p class="coffe-shop__text">
+          In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.<br>
+          You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts<br>
+          from bakery.
+        </p>
+        <div class="coffe-shop__menu menu">
+          <div class="menu__left-side">
+            <h3 class="menu__title">Coffee & Tea</h3>
+          </div>
+          <div class="menu__right-side">
+            <h3 class="menu__title">Desserts & Cakes</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

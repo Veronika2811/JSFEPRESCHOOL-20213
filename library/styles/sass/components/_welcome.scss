@@ -1,0 +1,22 @@
+.welcome {
+  background-image: url('/images/jpg/welcome.jpg');
+
+  &__wrapper {
+    padding: 220px 0 160px;
+  }
+
+  &__content {
+    max-width: 600px;
+    margin-left: -20px;
+    padding: 35px 40px;
+    background-color: $color-primary;
+  }
+
+  &__title {
+    @extend %font-additional;
+    @include font($size: 4rem, $height: 5rem, $weight: 400, $letter: 3px);
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-light;
+  }
+}

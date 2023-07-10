@@ -1,0 +1,19 @@
+.header {
+  background-color: $color-primary;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.header__user-profile {
+  padding-left: 40px;
+}
+
+.user-profile {
+  width: 28px;
+  height: 28px;
+  background-image: url('/images/svg/icon_profile.svg');
+}

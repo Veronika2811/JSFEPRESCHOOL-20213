@@ -1,0 +1,20 @@
+.title {
+  position: relative;
+  margin-bottom: 61px;
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
+  text-align: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -21px;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 50px;
+    height: 1px;
+    margin: 0 auto;
+    background-color: $color-primary;
+  }
+}

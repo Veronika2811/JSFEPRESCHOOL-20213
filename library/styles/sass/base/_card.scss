@@ -1,0 +1,51 @@
+.card {
+  position: relative;
+  max-width: 550px;
+  height: 555px;
+  border: 1px solid $color-additional;
+
+  &__content {
+    padding: 15px 172px 13px 19px;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 19px;
+    @extend %font-additional;
+    @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      width: 60px;
+      height: 1px;
+      background-color: $color-hovered;
+    }
+  }
+
+  &__book-title {
+    @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+    text-transform: uppercase;
+  }
+
+  &__book-author {
+    padding-bottom: 20px;
+    @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+  }
+
+  &__book-description {
+    padding-bottom: 7px;
+    @include font($size: 1.5rem, $height: 4rem, $weight: 400, $letter: 2px);
+    text-transform: capitalize;
+  }
+
+  &__book {
+    position: absolute;
+    bottom: 0;
+    right: -41px;
+  }
+}

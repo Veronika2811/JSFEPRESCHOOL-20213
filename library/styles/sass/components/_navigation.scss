@@ -1,0 +1,18 @@
+.header__navigation {
+  margin-left: auto;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+.navigation__link {
+  color: $color-light;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-hovered;
+  }
+}
