@@ -1,26 +1,35 @@
 .about {
-  padding: 20px 0 60px;
+  padding: 20px 0 55px;
 
   &__text {
     padding-bottom: 20px;
+    color: $color-additional;
     text-align: center;
   }
 
   &__slider {
     display: flex;
     gap: 25px;
-    padding-bottom: 40px;
+    padding-bottom: 35px;
   }
 
   &__controls {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    color: $color-additional;
   }
 }
 
 .about__control {
   display: none;
+
+  &+label {
+    padding: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   &+label::before {
     content: "";

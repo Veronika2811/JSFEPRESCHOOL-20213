@@ -2,14 +2,16 @@
   padding-bottom: 60px;
 
   &__text {
-    padding-bottom: 32px;
+    padding: 0px 0.5px 32px 0px;
+    margin-top: -0.5px;
     @include font($size: 2rem, $height: normal, $weight: 700);
+    color: $color-additional;
   }
 
   &__controls {
     display: flex;
     gap: 91px;
-    padding-bottom: 31px;
+    padding-bottom: 32px;
   }
 
   &__cards {
@@ -24,26 +26,43 @@
 .season__control {
   display: none;
 
+  &+label {
+    padding: 5px;
+    margin: -5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &+label::before {
     content: '';
     display: inline-block;
     width: 13px;
     height: 13px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    border: 2px solid $color-additional;
-    border-radius: 50%;
-    margin-right: 20px;
+    margin: 0px 20px 0px 0px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
+    border: 2px solid $color-additional;
+    border-radius: 50%;
+    vertical-align: middle;
   }
 
   &:checked+label::before {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e");
+    vertical-align: middle;
   }
 
   &:checked+label span {
     font-weight: 700;
+  }
+}
+
+.favorites {
+  &__spring,
+  &__summer,
+  &__autumn {
+    display: none;
   }
 }

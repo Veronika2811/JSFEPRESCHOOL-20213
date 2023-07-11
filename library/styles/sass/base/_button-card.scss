@@ -1,9 +1,0 @@
-.button__card {
-  padding: 8px 26px;
-  @include font($size: 1rem, $height: normal, $weight: 700, $letter: 1px);
-  background-color: transparent;
-  border: 1px solid $color-primary;
-  border-radius: 2px;
-  position: absolute;
-  bottom: 14px;
-}

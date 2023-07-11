@@ -9,13 +9,14 @@
 @import "base/base";
 @import "base/logo";
 @import "base/hamburger";
-@import "base/title";
 @import "base/card";
-@import "base/button-card";
+@import "base/button-small";
 
 // Layouts
 @import "layouts/wrapper";
 @import "layouts/header";
+@import "layouts/columns";
+@import "layouts/footer";
 
 // Components
 @import "components/navigation";
@@ -23,3 +24,5 @@
 @import "components/about";
 @import "components/favorites";
 @import "components/coffe-shop";
+@import "components/contacts";
+@import "components/library-card";
