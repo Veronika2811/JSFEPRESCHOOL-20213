@@ -1,0 +1,46 @@
+.about {
+  padding: 20px 0 55px;
+
+  &__text {
+    padding-bottom: 20px;
+    color: $color-additional;
+    text-align: center;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 25px;
+    padding-bottom: 35px;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    color: $color-additional;
+  }
+}
+
+.about__control {
+  display: none;
+
+  &+label {
+    padding: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &+label::before {
+    content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: $color-primary;
+      border-radius: 50%;
+  }
+
+  &:checked+label::before {
+    background-color: $color-hovered;
+  }
+}

@@ -1,0 +1,35 @@
+.header__navigation {
+  margin-left: auto;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+  width: 584px;
+}
+
+.navigation__link {
+  position: relative;
+  line-height: 1px;
+  color: $color-light;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-hovered;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-hovered;
+    transition: width 0.3s ease-out;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}

@@ -1,0 +1,25 @@
+.header {
+  background-color: $color-primary;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+  }
+
+  &__user-profile {
+    padding-left: 40px;
+  }
+}
+
+.user-profile {
+  width: 28px;
+  height: 28px;
+  background-image: url('/images/svg/icon_profile.svg');
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
+    cursor: pointer;
+  }
+}
