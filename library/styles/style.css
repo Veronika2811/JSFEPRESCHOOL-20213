@@ -587,7 +587,7 @@ h2::after {
 }
 
 .footer {
-  padding: 19.5px 20px 40px 20px;
+  padding: 19.5px 20px 44px 20px;
   background-color: #0C0C0E;
   color: #FFFFFF;
 }
@@ -615,6 +615,7 @@ h2::after {
   display: block;
   width: 24px;
   height: 24px;
+  transition: filter 0.3s;
 }
 .ico_twitter {
   background-image: url("/images/svg/social/twitter.svg");
@@ -624,6 +625,9 @@ h2::after {
 }
 .ico_facebook {
   background-image: url("/images/svg/social/facebook.svg");
+}
+.ico:hover {
+  filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg) brightness(94%) contrast(92%);
 }
 
 .work-time {
@@ -650,7 +654,7 @@ h2::after {
   background: #FFFFFF;
 }
 
-.footer__link {
+.footer__text {
   font-size: 2rem;
   font-style: normal;
   font-weight: 400;
@@ -662,6 +666,13 @@ h2::after {
 
 .link__rs {
   padding-left: 93px;
+}
+
+.footer__link {
+  transition: color 0.3s;
+}
+.footer__link:hover {
+  color: #BB945F;
 }
 
 .header__navigation {

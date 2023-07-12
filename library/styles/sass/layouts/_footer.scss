@@ -24,6 +24,7 @@
   display: block;
   width: 24px;
   height: 24px;
+  transition: filter 0.3s;
 
   &_twitter {
     background-image: url('/images/svg/social/twitter.svg');
@@ -35,6 +36,10 @@
 
   &_facebook {
     background-image: url('/images/svg/social/facebook.svg');
+  }
+
+  &:hover {
+    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg) brightness(94%) contrast(92%);
   }
 }
 
@@ -62,7 +67,7 @@
   background: $color-light;
 }
 
-.footer__link {
+.footer__text {
   @include font($size: 2rem, $height: 2rem, $weight: 400, $letter: 2px);
   color: $color-light;
   text-decoration: none;
@@ -70,4 +75,12 @@
 
 .link__rs {
   padding-left: 93px;
+}
+
+.footer__link {
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-hovered;
+  }
 }
