@@ -27,15 +27,15 @@
   transition: filter 0.3s;
 
   &_twitter {
-    background-image: url('/images/svg/social/twitter.svg');
+    background-image: url('../images/svg/social/twitter.svg');
   }
 
   &_instagram {
-    background-image: url('/images/svg/social/instagram.svg');
+    background-image: url('../images/svg/social/instagram.svg');
   }
 
   &_facebook {
-    background-image: url('/images/svg/social/facebook.svg');
+    background-image: url('../images/svg/social/facebook.svg');
   }
 
   &:hover {

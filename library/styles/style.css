@@ -573,7 +573,7 @@ h2::after {
 .user-profile {
   width: 28px;
   height: 28px;
-  background-image: url("/images/svg/icon_profile.svg");
+  background-image: url("../images/svg/icon_profile.svg");
   transition: filter 0.3s;
 }
 .user-profile:hover {
@@ -618,13 +618,13 @@ h2::after {
   transition: filter 0.3s;
 }
 .ico_twitter {
-  background-image: url("/images/svg/social/twitter.svg");
+  background-image: url("../images/svg/social/twitter.svg");
 }
 .ico_instagram {
-  background-image: url("/images/svg/social/instagram.svg");
+  background-image: url("../images/svg/social/instagram.svg");
 }
 .ico_facebook {
-  background-image: url("/images/svg/social/facebook.svg");
+  background-image: url("../images/svg/social/facebook.svg");
 }
 .ico:hover {
   filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg) brightness(94%) contrast(92%);
@@ -710,7 +710,7 @@ h2::after {
 
 .welcome {
   max-width: 1440px;
-  background: url("/images/jpg/welcome.jpg") no-repeat;
+  background: url("../images/jpg/welcome.jpg") no-repeat;
 }
 .welcome__wrapper {
   padding: 220px 0 160px;
