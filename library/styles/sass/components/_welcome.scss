@@ -1,6 +1,5 @@
 .welcome {
-  max-width: 1440px;
-  background: url('../images/jpg/welcome.jpg') no-repeat;
+  background: linear-gradient(180deg, $color-primary 0%, $color-primary 0.01%, rgba(18, 18, 21, 0.1) 50%, transparent 50%, transparent 100%), url('../images/jpg/welcome.jpg') no-repeat center/cover;
 
   &__wrapper {
     padding: 220px 0 160px;
@@ -9,10 +8,12 @@
   &__content {
     max-width: 600px;
     padding: 35px 40px;
+    margin-left: -19px;
     background-color: $color-primary;
   }
 
   &__title {
+    margin: 0px;
     @extend %font-additional;
     @include font($size: 4rem, $height: 5rem, $weight: 400, $letter: 3px);
     color: $color-light;

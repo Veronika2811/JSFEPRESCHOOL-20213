@@ -413,7 +413,6 @@ html {
 }
 
 body {
-  max-width: 1440px;
   margin: auto;
   font-size: 2rem;
   font-style: normal;
@@ -421,14 +420,6 @@ body {
   letter-spacing: normal;
   line-height: 4rem;
   color: #0C0C0E;
-}
-
-.overlay {
-  position: absolute;
-  max-width: 1440px;
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%);
 }
 
 h2 {
@@ -564,10 +555,8 @@ h2::after {
 .header__wrapper {
   display: flex;
   align-items: center;
+  gap: 40px;
   padding: 20px 0px;
-}
-.header__user-profile {
-  padding-left: 40px;
 }
 
 .user-profile {
@@ -587,7 +576,9 @@ h2::after {
 }
 
 .footer {
+  max-width: 1440px;
   padding: 19.5px 20px 44px 20px;
+  margin: auto;
   background-color: #0C0C0E;
   color: #FFFFFF;
 }
@@ -665,7 +656,7 @@ h2::after {
 }
 
 .link__rs {
-  padding-left: 93px;
+  padding-left: 143px;
 }
 
 .footer__link {
@@ -709,8 +700,7 @@ h2::after {
 }
 
 .welcome {
-  max-width: 1440px;
-  background: url("../images/jpg/welcome.jpg") no-repeat;
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 50%, transparent 50%, transparent 100%), url("../images/jpg/welcome.jpg") no-repeat center/cover;
 }
 .welcome__wrapper {
   padding: 220px 0 160px;
@@ -718,9 +708,11 @@ h2::after {
 .welcome__content {
   max-width: 600px;
   padding: 35px 40px;
+  margin-left: -19px;
   background-color: #0C0C0E;
 }
 .welcome__title {
+  margin: 0px;
   font-size: 4rem;
   font-style: normal;
   font-weight: 400;
@@ -950,23 +942,22 @@ h2::after {
   line-height: normal;
   text-align: center;
 }
-.card-form__wrapper {
-  width: 600px;
-  height: 386px;
+
+.form {
   padding: 17px;
   border: 3px solid #BB945F;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.card-form_gold {
+.form__content {
   padding: 20px 20px 24px;
   background-color: #BB945F;
 }
-.card-form__logo {
+.form__content__logo {
   padding-bottom: 20px;
   color: #000000;
 }
 
-.form {
+.form__fields {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -990,10 +981,10 @@ h2::after {
   color: #8E8E8E;
 }
 
-.card-form-button {
+.form__button {
   display: block;
   padding: 8.9px 39px;
-  margin: 20px auto;
+  margin: 20px auto 10px;
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
@@ -1005,7 +996,7 @@ h2::after {
   border-radius: 2px;
   transition: background 0.3s;
 }
-.card-form-button:hover {
+.form__button:hover {
   background-color: #BB945F;
   border-color: #BB945F;
   cursor: pointer;
