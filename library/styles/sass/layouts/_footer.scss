@@ -1,5 +1,7 @@
 .footer {
+  max-width: 1440px;
   padding: 19.5px 20px 44px 20px;
+  margin: auto;
   background-color: $color-primary;
   color: $color-light;
 
@@ -74,7 +76,7 @@
 }
 
 .link__rs {
-  padding-left: 93px;
+  padding-left: 143px;
 }
 
 .footer__link {

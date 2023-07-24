@@ -5,19 +5,10 @@ html {
 }
 
 body {
-  max-width: 1440px;
   margin: auto;
   @extend %font-primary;
   @include font($size: 2rem, $height: 4rem, $weight: 400);
   color: $color-primary;
-}
-
-.overlay {
-  position: absolute;
-  max-width: 1440px;
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(180deg, $color-primary 0%, $color-primary 0.01%, rgba(18, 18, 21, 0.10) 100%);
 }
 
 h2 {

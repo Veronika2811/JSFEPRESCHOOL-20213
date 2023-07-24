@@ -23,27 +23,25 @@
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
     text-align: center;
   }
-
-  &__wrapper {
-    width: 600px;
-    height: 386px;
-    padding: 17px;
-    border: 3px solid $color-hovered;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-
-  &_gold {
-    padding: 20px 20px 24px;
-    background-color: $color-hovered;
-  }
-
-  &__logo {
-    padding-bottom: 20px;
-    color: $color-additional;
-  }
 }
 
 .form {
+  padding: 17px;
+  border: 3px solid $color-hovered;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &__content {
+    padding: 20px 20px 24px;
+    background-color: $color-hovered;
+
+    &__logo {
+      padding-bottom: 20px;
+      color: $color-additional;
+    }
+  }
+}
+
+.form__fields {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,10 +63,10 @@
   }
 }
 
-.card-form-button {
+.form__button {
   display: block;
   padding: 8.9px 39px;
-  margin: 20px auto;
+  margin: 20px auto 10px;
   @include font($size: 2rem, $height: normal, $weight: 700, $letter: 1px);
   color: $color-primary;
   background-color: transparent;
