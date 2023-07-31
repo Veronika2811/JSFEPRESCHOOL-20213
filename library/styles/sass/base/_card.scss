@@ -31,6 +31,7 @@
   &__book-title {
     @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   &__book-author {

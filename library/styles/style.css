@@ -413,13 +413,14 @@ html {
 }
 
 body {
+  max-width: 1440px;
   margin: auto;
   font-size: 2rem;
   font-style: normal;
   font-weight: 400;
   letter-spacing: normal;
   line-height: 4rem;
-  color: #0C0C0E;
+  color: #0c0c0e;
 }
 
 h2 {
@@ -442,7 +443,7 @@ h2::after {
   width: 50px;
   height: 1px;
   margin: 0 auto;
-  background-color: #0C0C0E;
+  background-color: #0c0c0e;
 }
 
 .logo {
@@ -451,7 +452,7 @@ h2::after {
   font-weight: 400;
   letter-spacing: 0.6px;
   line-height: 5rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .hamburger {
@@ -486,7 +487,7 @@ h2::after {
   display: block;
   width: 60px;
   height: 1px;
-  background-color: #BB945F;
+  background-color: #bb945f;
 }
 .card__book-title {
   font-size: 1.5rem;
@@ -495,6 +496,7 @@ h2::after {
   letter-spacing: 2px;
   line-height: 4rem;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .card__book-author {
   padding-bottom: 19.5px;
@@ -530,33 +532,43 @@ h2::after {
   letter-spacing: 1px;
   line-height: normal;
   background-color: transparent;
-  border: 1px solid #0C0C0E;
+  border: 1px solid #0c0c0e;
   border-radius: 2px;
   transition: background 0.3s;
 }
 .button_small:not([disabled]):hover {
-  background-color: #BB945F;
-  border-color: #BB945F;
+  background-color: #bb945f;
+  border-color: #bb945f;
   cursor: pointer;
 }
 .button_small:disabled {
-  color: #BB945F;
-  border-color: #BB945F;
+  color: #bb945f;
+  border-color: #bb945f;
 }
 
 .wrapper {
   max-width: 1400px;
   margin: auto;
 }
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
 
 .header {
-  background-color: #0C0C0E;
+  background-color: #0c0c0e;
 }
 .header__wrapper {
   display: flex;
   align-items: center;
   gap: 40px;
   padding: 20px 0px;
+}
+@media (max-width: 768px) {
+  .header__wrapper {
+    padding: 20px;
+  }
 }
 
 .user-profile {
@@ -574,17 +586,27 @@ h2::after {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .layout-column {
+    flex-wrap: wrap;
+  }
+}
 
 .footer {
-  max-width: 1440px;
   padding: 19.5px 20px 44px 20px;
   margin: auto;
-  background-color: #0C0C0E;
-  color: #FFFFFF;
+  background-color: #0c0c0e;
+  color: #ffffff;
 }
 .footer__link {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .footer__wrapper {
+    padding: 0px;
+  }
 }
 
 .address {
@@ -642,7 +664,7 @@ h2::after {
   margin: 30px 0px 45px;
   border-width: 0;
   height: 1px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .footer__text {
@@ -651,23 +673,33 @@ h2::after {
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 2rem;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .link__rs {
   padding-left: 143px;
 }
+@media (max-width: 768px) {
+  .link__rs {
+    padding-left: 88px;
+  }
+}
 
 .footer__link {
   transition: color 0.3s;
 }
 .footer__link:hover {
-  color: #BB945F;
+  color: #bb945f;
 }
 
 .header__navigation {
   margin-left: auto;
+}
+@media (max-width: 768px) {
+  .header__navigation {
+    display: none;
+  }
 }
 
 .navigation {
@@ -679,11 +711,11 @@ h2::after {
 .navigation__link {
   position: relative;
   line-height: 1px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
 }
 .navigation__link:hover {
-  color: #BB945F;
+  color: #bb945f;
 }
 .navigation__link:after {
   content: "";
@@ -692,7 +724,7 @@ h2::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #BB945F;
+  background-color: #bb945f;
   transition: width 0.3s ease-out;
 }
 .navigation__link:hover:after {
@@ -700,7 +732,7 @@ h2::after {
 }
 
 .welcome {
-  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 50%, transparent 50%, transparent 100%), url("../images/jpg/welcome.jpg") no-repeat center/cover;
+  background: linear-gradient(180deg, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 50%, transparent 50%, transparent 100%), url("../images/jpg/welcome.jpg") no-repeat center/cover;
 }
 .welcome__wrapper {
   padding: 220px 0 160px;
@@ -709,7 +741,12 @@ h2::after {
   max-width: 600px;
   padding: 35px 40px;
   margin-left: -19px;
-  background-color: #0C0C0E;
+  background-color: #0c0c0e;
+}
+@media (max-width: 768px) {
+  .welcome__content {
+    margin-left: 0px;
+  }
 }
 .welcome__title {
   margin: 0px;
@@ -718,7 +755,7 @@ h2::after {
   font-weight: 400;
   letter-spacing: 3px;
   line-height: 5rem;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   text-transform: uppercase;
 }
@@ -733,8 +770,18 @@ h2::after {
 }
 .about__slider {
   display: flex;
+  justify-content: center;
   gap: 25px;
   padding-bottom: 35px;
+}
+@media (max-width: 768px) {
+  .about__slider {
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+  .about__slider img:nth-child(n+2) {
+    display: none;
+  }
 }
 .about__controls {
   display: flex;
@@ -756,11 +803,11 @@ h2::after {
   display: block;
   width: 16px;
   height: 16px;
-  background: #0C0C0E;
+  background: #0c0c0e;
   border-radius: 50%;
 }
 .about__control:checked + label::before {
-  background-color: #BB945F;
+  background-color: #bb945f;
 }
 
 .favorites {
@@ -787,6 +834,11 @@ h2::after {
   flex-wrap: wrap;
   gap: 40px;
   padding-right: 40px;
+}
+@media (max-width: 768px) {
+  .favorites__cards {
+    justify-content: center;
+  }
 }
 
 .season__control {
@@ -840,13 +892,24 @@ h2::after {
   padding-right: 5px;
 }
 
+@media (max-width: 768px) {
+  .coffe-shop__wrapper {
+    padding: 0px 19px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    gap: 38px;
+  }
+}
 .menu__title {
   font-size: 4rem;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 4rem;
-  color: #BB945F;
+  color: #bb945f;
 }
 .menu__left-side, .menu__right-side {
   display: flex;
@@ -856,12 +919,17 @@ h2::after {
 .menu__right-side {
   text-align: right;
 }
+@media (max-width: 768px) {
+  .menu__right-side {
+    margin-left: auto;
+  }
+}
 .menu__right-side .menu__item-name {
   width: 212px;
 }
 .menu__line {
   height: 1px;
-  background: #BB945F;
+  background: #bb945f;
   width: 100px;
   margin: 20px;
 }
@@ -906,6 +974,12 @@ h2::after {
   gap: 20px;
 }
 
+@media (max-width: 768px) {
+  .contacts__wrapper {
+    gap: 100px;
+  }
+}
+
 .contact {
   font-size: 2rem;
   font-style: normal;
@@ -914,6 +988,16 @@ h2::after {
   line-height: 4rem;
   color: #000000;
   text-decoration: none;
+  transition: color 0.3s;
+}
+.contact a:hover {
+  color: #bb945f;
+}
+
+@media (max-width: 768px) {
+  .contacts__map {
+    margin: auto;
+  }
 }
 
 .library-card {
@@ -934,6 +1018,13 @@ h2::after {
   text-align: right;
 }
 
+@media (max-width: 768px) {
+  .library-card__wrapper {
+    justify-content: center;
+    gap: 22px;
+  }
+}
+
 .card-form__title {
   font-size: 3rem;
   font-style: normal;
@@ -945,12 +1036,12 @@ h2::after {
 
 .form {
   padding: 17px;
-  border: 3px solid #BB945F;
+  border: 3px solid #bb945f;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .form__content {
   padding: 20px 20px 24px;
-  background-color: #BB945F;
+  background-color: #bb945f;
 }
 .form__content__logo {
   padding-bottom: 20px;
@@ -967,7 +1058,7 @@ h2::after {
 .form__input {
   width: 520px;
   padding: 21px 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -978,7 +1069,7 @@ h2::after {
   font-weight: 400;
   letter-spacing: 0.6px;
   line-height: 50px;
-  color: #8E8E8E;
+  color: #8e8e8e;
 }
 
 .form__button {
@@ -990,18 +1081,25 @@ h2::after {
   font-weight: 700;
   letter-spacing: 1px;
   line-height: normal;
-  color: #0C0C0E;
+  color: #0c0c0e;
   background-color: transparent;
-  border: 1px solid #0C0C0E;
+  border: 1px solid #0c0c0e;
   border-radius: 2px;
   transition: background 0.3s;
 }
 .form__button:hover {
-  background-color: #BB945F;
-  border-color: #BB945F;
+  background-color: #bb945f;
+  border-color: #bb945f;
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .card-info {
+    gap: 39px;
+    max-width: 600px;
+    text-align: center;
+  }
+}
 .card-info__title {
   font-size: 3rem;
   font-style: normal;
@@ -1020,6 +1118,11 @@ h2::after {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .card-info__buttons {
+    justify-content: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

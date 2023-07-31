@@ -9,8 +9,18 @@
 
   &__slider {
     display: flex;
+    justify-content: center;
     gap: 25px;
     padding-bottom: 35px;
+
+    @include media-tablet {
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+
+      & img:nth-child(n + 2) {
+        display: none;
+      }
+    }
   }
 
   &__controls {

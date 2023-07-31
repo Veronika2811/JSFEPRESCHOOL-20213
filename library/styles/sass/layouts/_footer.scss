@@ -1,5 +1,4 @@
 .footer {
-  max-width: 1440px;
   padding: 19.5px 20px 44px 20px;
   margin: auto;
   background-color: $color-primary;
@@ -8,6 +7,12 @@
   &__link {
     color: $color-light;
     text-decoration: none;
+  }
+}
+
+.footer__wrapper {
+  @include media-tablet {
+    padding: 0px;
   }
 }
 
@@ -77,6 +82,10 @@
 
 .link__rs {
   padding-left: 143px;
+
+  @include media-tablet {
+    padding-left: 88px;
+  }
 }
 
 .footer__link {

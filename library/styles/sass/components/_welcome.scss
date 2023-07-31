@@ -10,6 +10,10 @@
     padding: 35px 40px;
     margin-left: -19px;
     background-color: $color-primary;
+
+    @include media-tablet {
+      margin-left: 0px;
+    }
   }
 
   &__title {

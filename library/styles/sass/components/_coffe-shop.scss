@@ -12,7 +12,17 @@
   }
 }
 
+.coffe-shop__wrapper {
+  @include media-tablet {
+    padding: 0px 19px;
+  }
+}
+
 .menu {
+  @include media-tablet {
+    gap: 38px;
+  }
+
   &__title {
     @extend %font-additional;
     @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
@@ -28,6 +38,10 @@
 
   &__right-side {
     text-align: right;
+
+    @include media-tablet {
+      margin-left: auto;
+    }
 
     .menu__item-name {
       width: 212px;
