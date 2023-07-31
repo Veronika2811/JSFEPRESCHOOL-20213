@@ -1,4 +1,8 @@
 .layout-column {
   display: flex;
   justify-content: space-between;
+
+  @include media-tablet {
+    flex-wrap: wrap;
+  }
 }

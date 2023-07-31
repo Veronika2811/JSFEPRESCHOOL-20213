@@ -1,5 +1,9 @@
 .header__navigation {
   margin-left: auto;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 .navigation {

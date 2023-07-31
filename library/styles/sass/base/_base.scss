@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  max-width: 1440px;
   margin: auto;
   @extend %font-primary;
   @include font($size: 2rem, $height: 4rem, $weight: 400);

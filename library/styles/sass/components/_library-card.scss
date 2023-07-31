@@ -18,6 +18,13 @@
   }
 }
 
+.library-card__wrapper {
+  @include media-tablet {
+    justify-content: center;
+    gap: 22px;
+  }
+}
+
 .card-form {
   &__title {
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
@@ -82,6 +89,12 @@
 }
 
 .card-info {
+  @include media-tablet {
+    gap: 39px;
+    max-width: 600px;
+    text-align: center;
+  }
+
   &__title {
     @extend %font-additional;
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
@@ -95,5 +108,9 @@
     display: flex;
     justify-content: flex-end;
     gap: 20px;
+
+    @include media-tablet {
+      justify-content: center;
+    }
   }
 }

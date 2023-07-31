@@ -6,6 +6,10 @@
     align-items: center;
     gap: 40px;
     padding: 20px 0px;
+
+    @include media-tablet {
+      padding: 20px;
+    }
   }
 }
 
