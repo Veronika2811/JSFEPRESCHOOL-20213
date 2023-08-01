@@ -46,7 +46,8 @@
   }
 
   &:hover {
-    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg) brightness(94%) contrast(92%);
+    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg)
+      brightness(94%) contrast(92%);
   }
 }
 
@@ -85,6 +86,10 @@
 
   @include media-tablet {
     padding-left: 88px;
+  }
+
+  @include media-mobile {
+    padding-left: 0px;
   }
 }
 

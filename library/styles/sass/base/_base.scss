@@ -1,7 +1,7 @@
 html {
   font-size: 10px;
-  overflow-y: overlay;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -10,6 +10,12 @@ body {
   @extend %font-primary;
   @include font($size: 2rem, $height: 4rem, $weight: 400);
   color: $color-primary;
+  overflow-x: hidden;
+
+  &.open {
+    height: 100vh;
+    overflow-y: hidden;
+  }
 }
 
 h2 {
@@ -20,7 +26,7 @@ h2 {
   text-align: center;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 0;
     bottom: -21px;

@@ -1,5 +1,6 @@
 .header {
   background-color: $color-primary;
+  position: relative;
 
   &__wrapper {
     display: flex;
@@ -11,6 +12,13 @@
       padding: 20px;
     }
   }
+
+  &__user-profile {
+    @include media-tablet {
+      margin-left: auto;
+      z-index: 2;
+    }
+  }
 }
 
 .user-profile {
@@ -20,7 +28,8 @@
   transition: filter 0.3s;
 
   &:hover {
-    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
+    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg)
+      brightness(96%) contrast(89%);
     cursor: pointer;
   }
 }

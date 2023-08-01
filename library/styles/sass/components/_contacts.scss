@@ -38,4 +38,8 @@
   @include media-tablet {
     margin: auto;
   }
+
+  @include media-mobile {
+    width: adaptiv-value(696, 768);
+  }
 }

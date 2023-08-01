@@ -26,7 +26,7 @@
   &__title {
     @extend %font-additional;
     @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
-    color: $color-hovered
+    color: $color-hovered;
   }
 
   &__left-side,

@@ -10,6 +10,7 @@
   &__slider {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
     padding-bottom: 35px;
 
@@ -27,13 +28,21 @@
     display: flex;
     justify-content: center;
     color: $color-additional;
+
+    & label:nth-child(n + 8) {
+      display: none;
+
+      @include media-tablet {
+        display: block;
+      }
+    }
   }
 }
 
 .about__control {
   display: none;
 
-  &+label {
+  & + label {
     padding: 5px;
 
     &:hover {
@@ -41,16 +50,33 @@
     }
   }
 
-  &+label::before {
-    content: "";
-      display: block;
-      width: 16px;
-      height: 16px;
-      background: $color-primary;
-      border-radius: 50%;
+  & + label::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: $color-primary;
+    border-radius: 50%;
   }
 
-  &:checked+label::before {
+  &:checked + label::before {
     background-color: $color-hovered;
+  }
+}
+
+.slides {
+  @include media-tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 58px;
+  }
+}
+
+.arrow {
+  display: none;
+
+  @include media-tablet {
+    display: block;
   }
 }
