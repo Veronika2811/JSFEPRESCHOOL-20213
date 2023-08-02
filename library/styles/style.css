@@ -398,11 +398,11 @@ ul {
   box-sizing: border-box;
 }
 
-.drop-menu__title, body {
+.drop-menu__title, .button-login, body {
   font-family: "Inter", Verdana, sans-serif;
 }
 
-.card-info__title, .form__input::placeholder, .menu__item-price, .menu__title, .welcome__title, .card__title, .logo, h2 {
+.card-info__title, .form__input::placeholder, .menu__item-price, .menu__title, .welcome__title, .modal-login__title, .card__title, .logo, h2 {
   font-family: "Forum", Verdana, sans-serif;
 }
 
@@ -600,6 +600,126 @@ h2::after {
 .button_small:disabled {
   color: #bb945f;
   border-color: #bb945f;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(80, 80, 80, 0.4);
+  cursor: pointer;
+}
+
+.modal-login {
+  display: none;
+  position: relative;
+  width: 250px;
+  min-height: 262px;
+  max-height: 90%;
+  background-color: #ffffff;
+  cursor: default;
+}
+
+.modal-login__close-icon {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+.modal-login__close-icon:hover {
+  cursor: pointer;
+}
+.modal-login__close-icon svg {
+  pointer-events: none;
+}
+
+.modal-login__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 25px;
+}
+
+.modal-login__title {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.modal-login__subtitle {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 20px;
+}
+
+.modal-login__input {
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid #bb945f;
+}
+.modal-login__input:focus {
+  outline: none;
+}
+
+.button-login {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: normal;
+  width: 75px;
+  height: 30px;
+  margin-right: auto;
+  color: #0c0c0e;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  transition: background 0.3s;
+}
+.button-login:hover {
+  background-color: #bb945f;
+  border-color: #bb945f;
+  cursor: pointer;
+}
+
+.modal-login__addition {
+  display: flex;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.modal-login__text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.modal-login__link {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: normal;
+  text-decoration-line: underline;
+  transition: color 0.3s;
+}
+.modal-login__link:hover {
+  color: #bb945f;
+  cursor: pointer;
 }
 
 .wrapper {
