@@ -12,24 +12,24 @@
   &__wrapper {
     padding: 220px 0 160px;
   }
+}
 
-  &__content {
-    max-width: 600px;
-    padding: 35px 40px;
-    margin-left: -19px;
-    background-color: $color-primary;
+.welcome__content {
+  max-width: 600px;
+  padding: 35px 40px;
+  margin-left: -19px;
+  background-color: $color-primary;
 
-    @include media-tablet {
-      margin-left: 0px;
-    }
+  @include media-tablet {
+    margin-left: 0px;
   }
+}
 
-  &__title {
-    margin: 0px;
-    @extend %font-additional;
-    @include font($size: 4rem, $height: 5rem, $weight: 400, $letter: 3px);
-    color: $color-light;
-    text-align: center;
-    text-transform: uppercase;
-  }
+.welcome__title {
+  margin: 0px;
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 5rem, $weight: 400, $letter: 3px);
+  color: $color-light;
+  text-align: center;
+  text-transform: uppercase;
 }

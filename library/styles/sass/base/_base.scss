@@ -1,16 +1,12 @@
 html {
   font-size: 10px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
-  max-width: 1440px;
-  margin: auto;
   @extend %font-primary;
   @include font($size: 2rem, $height: 4rem, $weight: 400);
   color: $color-primary;
-  overflow-x: hidden;
 
   &.open {
     height: 100vh;
@@ -19,18 +15,18 @@ body {
 }
 
 h2 {
-  position: relative;
-  margin-bottom: 61px;
   @extend %font-additional;
   @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
+  position: relative;
+  margin-bottom: 61px;
   text-align: center;
 
   &::after {
     content: '';
     position: absolute;
     right: 0;
-    bottom: -21px;
     left: 0;
+    bottom: -21px;
     display: block;
     width: 50px;
     height: 1px;

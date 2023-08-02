@@ -1,14 +1,14 @@
 .coffe-shop {
   padding-bottom: 58px;
+}
 
-  &__text {
-    padding-bottom: 40px;
-    @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
-    text-align: center;
+.coffe-shop__text {
+  @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+  padding-bottom: 40px;
+  text-align: center;
 
-    & span {
-      padding-right: 5px;
-    }
+  & span {
+    padding-right: 5px;
   }
 }
 
@@ -23,37 +23,37 @@
     gap: 38px;
   }
 
-  &__title {
-    @extend %font-additional;
-    @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
-    color: $color-hovered;
-  }
-
   &__left-side,
   &__right-side {
     display: flex;
     flex-direction: column;
     gap: 39.3px;
   }
+}
 
-  &__right-side {
-    text-align: right;
+.menu__title {
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
+  color: $color-hovered;
+}
 
-    @include media-tablet {
-      margin-left: auto;
-    }
+.menu__right-side {
+  text-align: right;
 
-    .menu__item-name {
-      width: 212px;
-    }
+  @include media-tablet {
+    margin-left: auto;
   }
 
-  &__line {
-    height: 1px;
-    background: $color-hovered;
-    width: 100px;
-    margin: 20px;
+  .menu__item-name {
+    width: 212px;
   }
+}
+
+.menu__line {
+  height: 1px;
+  background: $color-hovered;
+  width: 100px;
+  margin: 20px;
 }
 
 .menu__item {
@@ -61,8 +61,8 @@
   gap: 38px;
 
   &-name {
-    width: 200px;
     @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+    width: 200px;
   }
 
   &-price {

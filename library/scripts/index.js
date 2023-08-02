@@ -1,7 +1,11 @@
 import addHamburgerClickHandler from './addHamburgerClickHandler.js';
+import addControlsFavoritesClickHandler from './addControlsFavoritesClickHandler.js';
+import addLibraryFormClickHandler from './addLibraryFormClickHandler.js';
 
 window.onload = () => {
   addHamburgerClickHandler();
+  addControlsFavoritesClickHandler();
+  addLibraryFormClickHandler();
 };
 
 console.log(

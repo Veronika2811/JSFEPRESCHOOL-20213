@@ -1,20 +1,20 @@
 .contacts {
   padding-bottom: 60px;
   color: $color-additional;
+}
 
-  &__title {
-    @include font($size: 2rem, $height: 4rem, $weight: 700, $letter: 2px);
+.contacts__title {
+  @include font($size: 2rem, $height: 4rem, $weight: 700, $letter: 2px);
 
-    &:first-child {
-      padding-bottom: 20px;
-    }
+  &:first-child {
+    padding-bottom: 20px;
   }
+}
 
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .contacts__wrapper {

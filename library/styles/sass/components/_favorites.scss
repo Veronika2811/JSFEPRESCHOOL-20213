@@ -1,34 +1,34 @@
 .favorites {
   padding-bottom: 60px;
+}
 
-  &__text {
-    padding: 0px 0.5px 32px 0px;
-    margin-top: -0.5px;
-    @include font($size: 2rem, $height: normal, $weight: 700);
-    color: $color-additional;
+.favorites__text {
+  @include font($size: 2rem, $height: normal, $weight: 700);
+  padding: 0px 0.5px 32px 0px;
+  margin-top: -0.5px;
+  color: $color-additional;
+}
+
+.favorites__controls {
+  display: flex;
+  gap: 91px;
+  padding-bottom: 32px;
+
+  @include media-mobile {
+    text-wrap: nowrap;
+    gap: 30px;
   }
+}
 
-  &__controls {
-    display: flex;
-    gap: 91px;
-    padding-bottom: 32px;
+.favorites__cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-right: 40px;
 
-    @include media-mobile {
-      text-wrap: nowrap;
-      gap: 30px;
-    }
-  }
-
-  &__cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding-right: 40px;
-
-    @include media-tablet {
-      justify-content: center;
-    }
+  @include media-tablet {
+    justify-content: center;
   }
 }
 
@@ -65,13 +65,5 @@
 
   &:checked + label span {
     font-weight: 700;
-  }
-}
-
-.favorites {
-  &__spring,
-  &__summer,
-  &__autumn {
-    display: none;
   }
 }

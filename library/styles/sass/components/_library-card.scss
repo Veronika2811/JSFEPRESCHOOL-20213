@@ -1,21 +1,6 @@
 .library-card {
   padding-bottom: 41px;
   color: $color-additional;
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 600px;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    max-width: 456px;
-    text-align: right;
-  }
 }
 
 .library-card__wrapper {
@@ -25,26 +10,39 @@
   }
 }
 
-.card-form {
-  &__title {
-    @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
-    text-align: center;
-  }
+.library-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+}
+
+.library-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  max-width: 456px;
+  text-align: right;
+}
+
+.card-form__title {
+  @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
+  text-align: center;
 }
 
 .form {
   padding: 17px;
   border: 3px solid $color-hovered;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
-  &__content {
-    padding: 20px 20px 24px;
-    background-color: $color-hovered;
+.form__content {
+  padding: 20px 20px 24px;
+  background-color: $color-hovered;
 
-    &__logo {
-      padding-bottom: 20px;
-      color: $color-additional;
-    }
+  &__logo {
+    padding-bottom: 20px;
+    color: $color-additional;
   }
 }
 
@@ -71,10 +69,10 @@
 }
 
 .form__button {
+  @include font($size: 2rem, $height: normal, $weight: 700, $letter: 1px);
   display: block;
   padding: 8.9px 39px;
   margin: 20px auto 10px;
-  @include font($size: 2rem, $height: normal, $weight: 700, $letter: 1px);
   color: $color-primary;
   background-color: transparent;
   border: 1px solid $color-primary;
@@ -103,14 +101,14 @@
   &__text {
     @include font($size: 2rem, $height: 40px, $weight: 400, $letter: 0.4px);
   }
+}
 
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+.card-info__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
 
-    @include media-tablet {
-      justify-content: center;
-    }
+  @include media-tablet {
+    justify-content: center;
   }
 }

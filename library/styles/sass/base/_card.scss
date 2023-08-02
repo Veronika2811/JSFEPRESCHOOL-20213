@@ -4,50 +4,50 @@
   height: 555px;
   color: $color-additional;
   border: 1px solid $color-additional;
+}
 
-  &__content {
-    padding: 14px 172px 13px 19px;
-  }
+.card__content {
+  padding: 14px 172px 13px 19px;
+}
 
-  &__title {
-    position: relative;
-    margin-bottom: 20px;
-    @extend %font-additional;
-    @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+.card__title {
+  @extend %font-additional;
+  @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+  position: relative;
+  margin-bottom: 20px;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: block;
-      width: 60px;
-      height: 1px;
-      background-color: $color-hovered;
-    }
-  }
-
-  &__book-title {
-    @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  &__book-author {
-    padding-bottom: 19.5px;
-    @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
-  }
-
-  &__book-description {
-    padding-bottom: 7px;
-    @include font($size: 1.5rem, $height: 4rem, $weight: 400, $letter: 2px);
-    text-transform: capitalize;
-  }
-
-  &__book {
+  &::after {
+    content: '';
     position: absolute;
-    bottom: -1px;
-    right: -41px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: $color-hovered;
   }
+}
+
+.card__book-title {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card__book-author {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+  padding-bottom: 19.5px;
+}
+
+.card__book-description {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 400, $letter: 2px);
+  padding-bottom: 7px;
+  text-transform: capitalize;
+}
+
+.card__book {
+  position: absolute;
+  bottom: -1px;
+  right: -41px;
 }

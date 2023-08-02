@@ -1,10 +1,12 @@
 %hamburger-line {
-  content: '';
   position: absolute;
-  display: inline-block;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 2px;
   background-color: $color-light;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
 }
 
 .hamburger {
@@ -13,55 +15,53 @@
   width: 45px;
   height: 20px;
 
+  @include media-tablet {
+    z-index: 2;
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &::before {
+    content: '';
+    @extend %hamburger-line;
+    top: calc(50% - 10px);
+  }
+
+  &::after {
+    content: '';
+    @extend %hamburger-line;
+    top: calc(50% + 10px);
+  }
+
   &:hover {
     cursor: pointer;
+
+    & .hamburger__line,
+    &::after,
+    &::before {
+      background-color: $color-hovered;
+    }
+  }
+}
+
+.hamburger.open {
+  & .hamburger__line {
+    display: none;
   }
 
-  @include media-tablet {
-    display: inline-block;
-    transition: all 1s ease-in-out;
-    z-index: 2;
+  &::after {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);
+    transition: transform 0.5s ease-in-out;
   }
 
-  &:before {
-    @extend %hamburger-line;
-    top: -2px;
-    left: 0;
-    transition: all 1s ease-in-out;
-  }
-
-  &:after {
-    @extend %hamburger-line;
-    bottom: 0;
-    left: 0;
-    transition: all 1s ease-in-out;
+  &::before {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg);
+    transition: transform 0.5s ease-in-out;
   }
 }
 
 .hamburger__line {
   @extend %hamburger-line;
-  top: calc(50% - 2px);
-  left: 0;
-  transition: all 1s ease-in-out;
-}
-
-.header__navigation.open {
-  right: 0;
-  transition: all 1s ease-in-out;
-}
-
-.hamburger.open::before {
-  transition: all 1s ease-in-out;
-  top: 10px;
-  transform: rotate(45deg);
-}
-
-.hamburger.open::after {
-  transition: all 1s ease-in-out;
-  top: 10px;
-  transform: rotate(-45deg);
-}
-
-.hamburger.open .hamburger__line {
-  opacity: 0;
 }

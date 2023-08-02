@@ -1,23 +1,18 @@
 .header {
+  padding: 20px 0px;
   background-color: $color-primary;
-  position: relative;
+}
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 20px 0px;
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
 
-    @include media-tablet {
-      padding: 20px;
-    }
-  }
-
-  &__user-profile {
-    @include media-tablet {
-      margin-left: auto;
-      z-index: 2;
-    }
+.header__user-profile {
+  @include media-tablet {
+    margin-left: auto;
+    z-index: 2;
   }
 }
 
