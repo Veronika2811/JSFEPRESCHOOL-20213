@@ -398,7 +398,7 @@ ul {
   box-sizing: border-box;
 }
 
-body {
+.drop-menu__title, body {
   font-family: "Inter", Verdana, sans-serif;
 }
 
@@ -1286,6 +1286,57 @@ h2::after {
   .card-info__buttons {
     justify-content: center;
   }
+}
+
+.drop-menu {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  height: 115px;
+  background-color: #ffffff;
+}
+
+.drop-menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.drop-menu__title {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 2rem;
+  margin-bottom: 10px;
+}
+.drop-menu__title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -5px;
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #bb945f;
+}
+
+.drop-menu__subtitle {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2rem;
+  transition: color 0.3s;
+}
+.drop-menu__subtitle:hover {
+  color: #bb945f;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
