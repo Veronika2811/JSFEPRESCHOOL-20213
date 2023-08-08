@@ -15,6 +15,12 @@
 
   &:hover {
     cursor: pointer;
+
+    &:before,
+    &:after,
+    .hamburger__line {
+      background-color: $color-hovered;
+    }
   }
 
   @include media-tablet {
@@ -26,15 +32,19 @@
   &:before {
     @extend %hamburger-line;
     top: -2px;
-    left: 0;
+    right: 0;
     transition: all 1s ease-in-out;
   }
 
   &:after {
     @extend %hamburger-line;
     bottom: 0;
-    left: 0;
+    right: 0;
     transition: all 1s ease-in-out;
+  }
+
+  &.open {
+    margin-right: -6px;
   }
 }
 
@@ -58,7 +68,7 @@
 
 .hamburger.open::after {
   transition: all 1s ease-in-out;
-  top: 10px;
+  bottom: 7px;
   transform: rotate(-45deg);
 }
 

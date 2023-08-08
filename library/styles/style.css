@@ -478,6 +478,10 @@ h2::after {
 .hamburger:hover {
   cursor: pointer;
 }
+.hamburger:hover:before, .hamburger:hover:after,
+.hamburger:hover .hamburger__line {
+  background-color: #bb945f;
+}
 @media (max-width: 1180px) {
   .hamburger {
     display: inline-block;
@@ -487,13 +491,16 @@ h2::after {
 }
 .hamburger:before {
   top: -2px;
-  left: 0;
+  right: 0;
   transition: all 1s ease-in-out;
 }
 .hamburger:after {
   bottom: 0;
-  left: 0;
+  right: 0;
   transition: all 1s ease-in-out;
+}
+.hamburger.open {
+  margin-right: -6px;
 }
 
 .hamburger__line {
@@ -515,7 +522,7 @@ h2::after {
 
 .hamburger.open::after {
   transition: all 1s ease-in-out;
-  top: 10px;
+  bottom: 7px;
   transform: rotate(-45deg);
 }
 
@@ -646,11 +653,15 @@ h2::after {
   width: 28px;
   height: 28px;
   background-image: url("../images/svg/icon_profile.svg");
-  transition: filter 0.3s;
+  transition: all 1s ease-in-out;
 }
 .user-profile:hover {
   filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
   cursor: pointer;
+}
+.user-profile.open {
+  margin-right: -7px;
+  transition: all 1s ease-in-out;
 }
 
 .layout-column {
@@ -668,6 +679,11 @@ h2::after {
   margin: auto;
   background-color: #0c0c0e;
   color: #ffffff;
+}
+@media (max-width: 1180px) {
+  .footer {
+    padding: 19.5px 19px 44px 19px;
+  }
 }
 .footer__link {
   color: #ffffff;
@@ -779,7 +795,7 @@ h2::after {
     right: -332px;
     z-index: 2;
     width: 332px;
-    height: 100vh;
+    height: 570px;
     background-color: #000000;
     transition: all 1s ease-in-out;
   }
@@ -888,14 +904,19 @@ h2::after {
 .about__slider {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 25px;
   padding-bottom: 35px;
+}
+.about__slider img {
+  width: 31.25vw;
 }
 @media (max-width: 1180px) {
   .about__slider {
     flex-wrap: wrap;
     padding-bottom: 20px;
+  }
+  .about__slider img {
+    width: 450px;
   }
   .about__slider img:nth-child(n+2) {
     display: none;
@@ -920,9 +941,11 @@ h2::after {
 }
 .about__control + label {
   padding: 5px;
+  transition: all 1s;
 }
 .about__control + label:hover {
   cursor: pointer;
+  transform: scale(1.3);
 }
 .about__control + label::before {
   content: "";
@@ -947,11 +970,16 @@ h2::after {
 
 .arrow {
   display: none;
+  transition: filter 0.3s;
 }
 @media (max-width: 1180px) {
   .arrow {
     display: block;
   }
+}
+.arrow:hover {
+  cursor: pointer;
+  filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
 }
 
 .favorites {
@@ -1066,12 +1094,24 @@ h2::after {
   flex-direction: column;
   gap: 39.3px;
 }
+@media (max-width: 1180px) {
+  .menu__left-side {
+    padding-left: 1px;
+  }
+}
 .menu__right-side {
   text-align: right;
 }
 @media (max-width: 1180px) {
   .menu__right-side {
     margin-left: auto;
+    margin-right: -1px;
+  }
+  .menu__right-side .menu__title {
+    padding-right: 3px;
+  }
+  .menu__right-side .menu__item {
+    gap: 39px;
   }
 }
 .menu__right-side .menu__item-name {
@@ -1107,6 +1147,12 @@ h2::after {
 .contacts {
   padding-bottom: 60px;
   color: #000000;
+  padding-left: 1px;
+}
+@media (max-width: 1180px) {
+  .contacts .title {
+    padding-left: 4px;
+  }
 }
 .contacts__title {
   font-size: 2rem;
@@ -1117,6 +1163,11 @@ h2::after {
 }
 .contacts__title:first-child {
   padding-bottom: 20px;
+}
+@media (max-width: 1180px) {
+  .contacts__title .title {
+    padding-left: 1px;
+  }
 }
 .contacts__info {
   display: flex;
@@ -1137,6 +1188,7 @@ h2::after {
   letter-spacing: 2px;
   line-height: 4rem;
   color: #000000;
+  white-space: nowrap;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -1158,6 +1210,11 @@ h2::after {
 .library-card {
   padding-bottom: 41px;
   color: #000000;
+}
+@media (max-width: 1180px) {
+  .library-card .title {
+    padding-left: 3px;
+  }
 }
 .library-card__form {
   display: flex;
@@ -1187,6 +1244,11 @@ h2::after {
   letter-spacing: 0.6px;
   line-height: normal;
   text-align: center;
+}
+@media (max-width: 1180px) {
+  .card-form__title {
+    padding-left: 2px;
+  }
 }
 
 .form {
@@ -1253,6 +1315,7 @@ h2::after {
     gap: 39px;
     max-width: 600px;
     text-align: center;
+    padding-left: 2px;
   }
 }
 .card-info__title {

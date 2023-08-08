@@ -4,6 +4,10 @@
   background-color: $color-primary;
   color: $color-light;
 
+  @include media-tablet {
+    padding: 19.5px 19px 44px 19px;
+  }
+
   &__link {
     color: $color-light;
     text-decoration: none;
