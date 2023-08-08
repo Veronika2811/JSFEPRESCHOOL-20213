@@ -26,7 +26,7 @@
   &__title {
     @extend %font-additional;
     @include font($size: 4rem, $height: 4rem, $weight: 400, $letter: 2px);
-    color: $color-hovered
+    color: $color-hovered;
   }
 
   &__left-side,
@@ -36,11 +36,25 @@
     gap: 39.3px;
   }
 
+  &__left-side {
+    @include media-tablet {
+      padding-left: 1px;
+    }
+  }
+
   &__right-side {
     text-align: right;
 
     @include media-tablet {
       margin-left: auto;
+      margin-right: -1px;
+
+      & .menu__title {
+        padding-right: 3px;
+      }
+      & .menu__item {
+        gap: 39px;
+      }
     }
 
     .menu__item-name {

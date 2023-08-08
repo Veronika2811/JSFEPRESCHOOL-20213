@@ -16,7 +16,7 @@
     @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
