@@ -17,6 +17,9 @@
   &.open {
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
+    height: 570px;
+    background-color: $color-additional;
+    transition: all 1s ease-in-out;
   }
 }
 

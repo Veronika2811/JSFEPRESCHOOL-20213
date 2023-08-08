@@ -15,6 +15,16 @@
   width: 45px;
   height: 20px;
 
+  &:hover {
+    cursor: pointer;
+
+    &:before,
+    &:after,
+    .hamburger__line {
+      background-color: $color-hovered;
+    }
+  }
+
   @include media-tablet {
     z-index: 2;
     display: inline-block;
@@ -25,6 +35,9 @@
     content: '';
     @extend %hamburger-line;
     top: calc(50% - 10px);
+    top: -2px;
+    right: 0;
+    transition: all 1s ease-in-out;
   }
 
   &::after {
@@ -60,8 +73,36 @@
     transform: translate(-50%, 0%) rotate(-45deg);
     transition: transform 0.5s ease-in-out;
   }
+
+  &.open {
+    margin-right: -6px;
+  }
 }
 
 .hamburger__line {
   @extend %hamburger-line;
+  top: calc(50% - 2px);
+  left: 0;
+  transition: all 1s ease-in-out;
+}
+
+.header__navigation.open {
+  right: 0;
+  transition: all 1s ease-in-out;
+}
+
+.hamburger.open::before {
+  transition: all 1s ease-in-out;
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  transition: all 1s ease-in-out;
+  bottom: 7px;
+  transform: rotate(-45deg);
+}
+
+.hamburger.open .hamburger__line {
+  opacity: 0;
 }

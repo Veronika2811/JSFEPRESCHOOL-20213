@@ -1,6 +1,7 @@
 const hamburger = document.querySelector('.hamburger');
 const headerNavigation = document.querySelector('.header__navigation');
 const maskContent = document.querySelector('.mask-content');
+const userProfile = document.querySelector('.user-profile');
 const body = document.querySelector('body');
 
 const toggleMenu = () => {
@@ -10,6 +11,7 @@ const toggleMenu = () => {
   headerNavigation.classList.toggle('open');
   maskContent.classList.toggle('open');
   body.classList.toggle('open');
+  userProfile.classList.toggle('open');
 };
 
 const addHamburgerClickHandler = () => {

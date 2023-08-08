@@ -1,6 +1,21 @@
 .library-card {
   padding-bottom: 41px;
   color: $color-additional;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 600px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 456px;
+    text-align: right;
+  }
 }
 
 .library-card__wrapper {
@@ -91,6 +106,7 @@
     gap: 39px;
     max-width: 600px;
     text-align: center;
+    padding-left: 2px;
   }
 
   &__title {
