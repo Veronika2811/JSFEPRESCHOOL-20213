@@ -2,11 +2,25 @@
   padding-bottom: 60px;
   color: $color-additional;
 
+  padding-left: 1px;
+
+  @include media-tablet {
+    & .title {
+      padding-left: 4px;
+    }
+  }
+
   &__title {
     @include font($size: 2rem, $height: 4rem, $weight: 700, $letter: 2px);
 
     &:first-child {
       padding-bottom: 20px;
+    }
+
+    @include media-tablet {
+      & .title {
+        padding-left: 1px;
+      }
     }
   }
 
@@ -26,6 +40,7 @@
 .contact {
   @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
   color: $color-additional;
+  white-space: nowrap;
   text-decoration: none;
   transition: color 0.3s;
 
@@ -37,5 +52,9 @@
 .contacts__map {
   @include media-tablet {
     margin: auto;
+  }
+
+  @include media-mobile {
+    width: adaptiv-value(696, 768);
   }
 }

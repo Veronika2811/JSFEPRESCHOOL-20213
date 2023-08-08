@@ -39,15 +39,16 @@
       <div class="header__hamburger hamburger">
         <span class="hamburger__line"></span>
       </div>
+      <div class="mask-content"></div>
     </div>
   </header>
   <main>
     <section class="welcome">
       <div class="wrapper welcome__wrapper">
         <div class="welcome__content">
-          <h2 class="welcome__title">
+          <p class="welcome__title">
             Welcome&nbsp;<br>to the Brooklyn Library
-          </h2>
+          </p>
         </div>
       </div>
     </section>
@@ -55,18 +56,32 @@
       <div class="wrapper">
         <h2 class="title">About</h2>
         <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-        <div class="about__slider">
-          <img src="./images/jpg/about/1.jpg" alt="image">
-          <img src="./images/jpg/about/2.jpg" alt="image">
-          <img src="./images/jpg/about/5.jpg" alt="image">
-        </div>
-        <div class="about__controls">
-          <input class="about__control" name="about" type="radio" id="control-1" value="control-1" checked>
-          <label for="control-1"></label>
-          <input class="about__control" name="about" type="radio" id="control-2" value="control-2">
-          <label for="control-2"></label>
-          <input class="about__control" name="about" type="radio" id="control-3" value="control-3">
-          <label for="control-3"></label>
+        <div class="slides">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" class="arrow">
+            <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <div class="about__slider">
+              <img src="./images/jpg/about/1.jpg" alt="image">
+              <img src="./images/jpg/about/2.jpg" alt="image">
+              <img src="./images/jpg/about/5.jpg" alt="image">
+            </div>
+            <div class="about__controls">
+              <input class="about__control" name="about" type="radio" id="control-1" value="control-1" checked>
+              <label for="control-1"></label>
+              <input class="about__control" name="about" type="radio" id="control-2" value="control-2">
+              <label for="control-2"></label>
+              <input class="about__control" name="about" type="radio" id="control-3" value="control-3">
+              <label for="control-3"></label>
+              <input class="about__control" name="about" type="radio" id="control-4" value="control-4">
+              <label for="control-4"></label>
+              <input class="about__control" name="about" type="radio" id="control-5" value="control-5">
+              <label for="control-5"></label>
+            </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" class="arrow">
+            <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </section>
@@ -471,6 +486,6 @@
       </div>
     </div>
   </footer>
-  <script src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

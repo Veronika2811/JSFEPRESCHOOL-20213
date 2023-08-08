@@ -2,6 +2,12 @@
   padding-bottom: 41px;
   color: $color-additional;
 
+  @include media-tablet {
+    & .title {
+      padding-left: 3px;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -29,6 +35,10 @@
   &__title {
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
     text-align: center;
+
+    @include media-tablet {
+      padding-left: 2px;
+    }
   }
 }
 
@@ -93,6 +103,7 @@
     gap: 39px;
     max-width: 600px;
     text-align: center;
+    padding-left: 2px;
   }
 
   &__title {

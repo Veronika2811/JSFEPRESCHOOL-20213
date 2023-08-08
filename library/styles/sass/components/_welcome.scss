@@ -1,5 +1,13 @@
 .welcome {
-  background: linear-gradient(180deg, $color-primary 0%, $color-primary 0.01%, rgba(18, 18, 21, 0.1) 50%, transparent 50%, transparent 100%), url('../images/jpg/welcome.jpg') no-repeat center/cover;
+  background: linear-gradient(
+      180deg,
+      $color-primary 0%,
+      $color-primary 0.01%,
+      rgba(18, 18, 21, 0.1) 50%,
+      transparent 50%,
+      transparent 100%
+    ),
+    url('../images/jpg/welcome.jpg') no-repeat center/cover;
 
   &__wrapper {
     padding: 220px 0 160px;
