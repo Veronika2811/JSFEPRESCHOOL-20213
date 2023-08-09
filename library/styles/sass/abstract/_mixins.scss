@@ -12,6 +12,12 @@
   line-height: $height;
 }
 
+@mixin flex($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
 @mixin media-tablet {
   @media (max-width: $tablet-width) {
     @content;

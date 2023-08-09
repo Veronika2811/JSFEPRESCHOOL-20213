@@ -1,0 +1,52 @@
+.overlay {
+  @include flex();
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-overlay;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.modal {
+  position: relative;
+  background-color: $color-light;
+  cursor: default;
+}
+
+.modal__close-icon {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg)
+      brightness(94%) contrast(92%);
+    cursor: pointer;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.modal-form__title {
+  @include font($size: 1.5rem, $height: 20px, $weight: 400, $letter: 0.3px);
+}
+
+.modal-form__input {
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid $color-hovered;
+
+  &:focus {
+    outline: none;
+  }
+}

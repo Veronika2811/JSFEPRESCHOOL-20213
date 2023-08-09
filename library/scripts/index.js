@@ -1,11 +1,13 @@
 import addHamburgerClickHandler from './addHamburgerClickHandler.js';
-import addControlsFavoritesClickHandler from './addControlsFavoritesClickHandler.js';
-import addLibraryFormClickHandler from './addLibraryFormClickHandler.js';
+import addControlsFavoritesClickHandler from './favorites/addControlsFavoritesClickHandler.js';
+import addLibraryFormClickHandler from './libraryForm/addLibraryFormClickHandler.js';
+import addUserProfileClickHandler from './userProfile/addUserProfileClickHandler.js';
 
 window.onload = () => {
   addHamburgerClickHandler();
   addControlsFavoritesClickHandler();
   addLibraryFormClickHandler();
+  addUserProfileClickHandler();
 };
 
 console.log(

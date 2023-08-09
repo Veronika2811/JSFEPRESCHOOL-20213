@@ -2,33 +2,20 @@
   padding-bottom: 60px;
 }
 
-.favorites__text {
+.favorites__subtitle {
   @include font($size: 2rem, $height: normal, $weight: 700);
-  padding: 0px 0.5px 32px 0px;
-  margin-top: -0.5px;
+  padding-bottom: 30px;
   color: $color-additional;
 }
 
 .favorites__controls {
   display: flex;
-  gap: 91px;
-  padding-bottom: 32px;
+  gap: 90px;
+  padding-bottom: 35px;
+  white-space: nowrap;
 
   @include media-mobile {
-    text-wrap: nowrap;
     gap: 30px;
-  }
-}
-
-.favorites__cards {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-right: 40px;
-
-  @include media-tablet {
-    justify-content: center;
   }
 }
 
@@ -66,4 +53,22 @@
   &:checked + label span {
     font-weight: 700;
   }
+}
+
+.favorites__books {
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-right: 40px;
+
+  @include media-tablet {
+    justify-content: center;
+  }
+}
+
+.favorites__book {
+  @include flex($align: initial, $justify: flex-start);
+}
+
+.book__button {
+  margin-top: auto;
 }

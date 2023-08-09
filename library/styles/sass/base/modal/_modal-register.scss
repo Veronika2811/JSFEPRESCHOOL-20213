@@ -1,0 +1,40 @@
+.modal-register {
+  width: 250px;
+}
+
+.modal-register__wrapper {
+  @include flex();
+  flex-direction: column;
+  padding: 20px 25px;
+}
+
+.modal-register__title {
+  @extend %font-additional;
+  @include font($size: 2rem, $height: 20px, $weight: 400, $letter: 0.4px);
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.register__item {
+  padding-bottom: 10px;
+}
+
+.adition {
+  margin-right: auto;
+}
+
+.adition__text {
+  @include font($size: 1rem, $height: normal, $weight: 400);
+  padding-right: 10px;
+}
+
+.adition__link {
+  @include font($size: 1rem, $height: normal, $weight: 700, $letter: 1px);
+  text-decoration-line: underline;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-hovered;
+    cursor: pointer;
+  }
+}

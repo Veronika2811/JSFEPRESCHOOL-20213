@@ -1,0 +1,105 @@
+.modal-profile {
+  min-width: 600px;
+}
+
+.modal-profile__wrapper {
+  display: grid;
+  grid-template-columns: 170px auto;
+}
+
+.modal-profile__user {
+  @include flex();
+  flex-direction: column;
+  gap: 15px;
+  background-color: $color-primary;
+}
+
+.user__avator {
+  @include flex();
+  width: 80px;
+  height: 80px;
+  color: $color-hovered;
+  background-color: $color-light;
+}
+
+.user__name {
+  @include flex();
+  padding: 0 15px;
+  background-color: $color-light;
+}
+
+.user-info {
+  padding: 40px 20px;
+}
+
+.user-info__title {
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 20px, $weight: 400, $letter: 0.8px);
+  padding-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.user-info__wrapper {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.item {
+  @include flex($justify: space-between);
+  flex-direction: column;
+}
+
+.item__title {
+  @include font($size: 2rem, $height: 20px, $weight: 400, $letter: 0.4px);
+  padding-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.item__count {
+  @include font($size: 1rem, $height: 20px, $weight: 400, $letter: 0.2px);
+}
+
+.rented-books__title {
+  @include font($size: 2.5rem, $height: 20px, $weight: 400);
+  padding-bottom: 30px;
+}
+
+.rented-books {
+  padding-bottom: 40px;
+}
+
+.rented-books__list {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.list__item {
+  @include font($size: 2rem, $height: 20px, $weight: 400, $letter: 2px);
+  text-transform: capitalize;
+}
+
+.cards-profile__card {
+  @include flex($justify: flex-start);
+  gap: 15px;
+}
+
+.card__title,
+.card__number {
+  @include font($size: 2rem, $height: 20px, $weight: 400);
+}
+
+.card__number {
+  color: $color-hovered;
+}
+
+.card__svg {
+  &:hover {
+    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg)
+      brightness(94%) contrast(92%);
+    cursor: pointer;
+  }
+}

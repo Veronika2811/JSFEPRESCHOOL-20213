@@ -1,12 +1,10 @@
 .contacts {
   padding-bottom: 60px;
-  color: $color-additional;
+}
 
-.contacts__title {
-  @include font($size: 2rem, $height: 4rem, $weight: 700, $letter: 2px);
-
-  &:first-child {
-    padding-bottom: 20px;
+.contacts__wrapper {
+  @include media-tablet {
+    gap: 100px;
   }
 }
 
@@ -16,30 +14,40 @@
   gap: 20px;
 }
 
-.contacts__wrapper {
-  @include media-tablet {
-    gap: 100px;
+.contacts__title {
+  @include font($size: 2rem, $height: 4rem, $weight: 700, $letter: 2px);
+
+  &:first-child {
+    padding-bottom: 20px;
+  }
+
+  &:nth-last-child(2) {
+    padding-top: 20px;
   }
 }
 
-.contact {
+.contact,
+.contact__link {
   @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
   color: $color-additional;
   white-space: nowrap;
+}
+
+.contact__link {
   text-decoration: none;
   transition: color 0.3s;
 
-  & a:hover {
+  &:hover {
     color: $color-hovered;
   }
 }
 
 .contacts__map {
+  width: 696px;
+  height: 414px;
+  border: none;
+
   @include media-tablet {
     margin: auto;
-  }
-
-  @include media-mobile {
-    width: adaptiv-value(696, 768);
   }
 }

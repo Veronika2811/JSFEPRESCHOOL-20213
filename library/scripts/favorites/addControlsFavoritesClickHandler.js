@@ -2,7 +2,7 @@ import data from './data.js';
 import Book from './Book.js';
 
 const getBooksWrapper = () => {
-  const booksContainer = document.querySelector('.favorites__cards');
+  const booksContainer = document.querySelector('.favorites__books');
   booksContainer.innerHTML = '';
   return booksContainer;
 };

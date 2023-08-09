@@ -1,33 +1,21 @@
 .coffe-shop {
-  padding-bottom: 58px;
+  padding-bottom: 60px;
 }
 
 .coffe-shop__text {
   @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
   padding-bottom: 40px;
   text-align: center;
-
-  & span {
-    padding-right: 5px;
-  }
-}
-
-.coffe-shop__wrapper {
-  @include media-tablet {
-    padding: 0px 19px;
-  }
 }
 
 .menu {
-  @include media-tablet {
-    gap: 38px;
-  }
+  gap: 40px;
 
-  &__left-side,
-  &__right-side {
+  &__drinkables,
+  &__sweets {
     display: flex;
     flex-direction: column;
-    gap: 39.3px;
+    gap: 40px;
   }
 }
 
@@ -37,36 +25,36 @@
   color: $color-hovered;
 }
 
-.menu__right-side {
-  text-align: right;
+.sweets {
+  align-items: flex-end;
 
   @include media-tablet {
     margin-left: auto;
   }
+}
 
-  .menu__item-name {
-    width: 212px;
+.drinkables {
+  & .menu__item-name {
+    display: inline-block;
+    width: 200px;
   }
 }
 
-.menu__line {
-  height: 1px;
-  background: $color-hovered;
-  width: 100px;
-  margin: 20px;
-}
-
 .menu__item {
-  display: flex;
-  gap: 38px;
-
   &-name {
     @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
-    width: 200px;
   }
 
   &-price {
     @extend %font-additional;
     @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
   }
+}
+
+.menu__line {
+  display: inline-block;
+  width: 100px;
+  height: 1px;
+  margin: 7px 55px;
+  background: $color-hovered;
 }

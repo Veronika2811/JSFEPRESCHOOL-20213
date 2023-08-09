@@ -1,6 +1,6 @@
-import FavoritesCard from './FavoritesCard.js';
+import Element from '../Element.js';
 
-class Book extends FavoritesCard {
+class Book extends Element {
   constructor({id, title, author, description, button, img}) {
     super();
     this.id = id;
@@ -13,13 +13,13 @@ class Book extends FavoritesCard {
   }
 
   generateBook() {
-    this.card = this.createDomNode(this.card, 'div', null, null, 'card');
+    this.card = this.createDomNode(this.card, 'div', null, null, 'favorites__book', 'book');
     this.cardContent = this.createDomNode(
       this.cardContent,
       'div',
       null,
       this.card,
-      'card__content'
+      'book__content'
     );
 
     this.cardTitle = this.createDomNode(
@@ -27,14 +27,14 @@ class Book extends FavoritesCard {
       'p',
       'Staff Picks',
       this.cardContent,
-      'card__title'
+      'card__category'
     );
     this.cardBookTitle = this.createDomNode(
       this.cardBookTitle,
       'h3',
       this.title,
       this.cardContent,
-      'card__book-title'
+      'book__title'
     );
 
     this.cardBookAuthor = this.createDomNode(
@@ -42,27 +42,35 @@ class Book extends FavoritesCard {
       'h3',
       this.author,
       this.cardContent,
-      'card__book-author'
+      'book__author'
     );
     this.cardBookDescription = this.createDomNode(
       this.cardBookDescription,
-      'h3',
+      'p',
       this.description,
       this.cardContent,
-      'card__book-description'
+      'book__description'
+    );
+    this.bookButton = this.createDomNode(
+      this.bookButton,
+      'div',
+      null,
+      this.cardContent,
+      'book__button'
     );
     this.buttonNode = this.createDomNodeButton(
       this.buttonNode,
+      null,
       this.button,
-      this.cardContent,
-      'button_small'
+      this.bookButton,
+      'button'
     );
 
     this.image = this.createDomNodeImage(
       this.image,
       this.img,
       this.card,
-      'card__book'
+      'book__image'
     );
     return this.card;
   }

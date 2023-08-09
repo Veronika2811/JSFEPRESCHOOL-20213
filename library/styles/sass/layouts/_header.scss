@@ -4,33 +4,24 @@
 }
 
 .header__wrapper {
-  display: flex;
-  align-items: center;
+  @include flex($justify: flex-start);
   gap: 40px;
 }
 
 .header__user-profile {
-  @include media-tablet {
-    margin-left: auto;
-    z-index: 2;
-  }
-}
-
-.user-profile {
+  @include flex();
   width: 28px;
   height: 28px;
-  background-image: url('../images/svg/icon_profile.svg');
-  // transition: filter 0.3s;
-  transition: all 1s ease-in-out;
+  background-color: $color-light;
+  border-radius: 50%;
+  transition: filter 0.3s;
 
-  &:hover {
-    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg)
-      brightness(96%) contrast(89%);
-    cursor: pointer;
+  @include media-tablet {
+    z-index: 2;
+    margin-left: auto;
   }
 
-  &.open {
-    margin-right: -7px;
-    transition: all 1s ease-in-out;
+  &:hover {
+    cursor: pointer;
   }
 }

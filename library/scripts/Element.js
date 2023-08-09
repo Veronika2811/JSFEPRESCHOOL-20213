@@ -1,4 +1,4 @@
-class FavoritesCard {
+class Element {
   createDomNode(node, element, text, parentNode, ...classes) {
     node = document.createElement(element);
     node.classList.add(...classes);
@@ -9,11 +9,11 @@ class FavoritesCard {
     return node;
   }
 
-  createDomNodeButton(node, disabled, parentNode, ...classes) {
+  createDomNodeButton(node, text, disabled, parentNode, ...classes) {
     node = document.createElement('button');
     node.type = 'button';
     node.disabled = disabled;
-    node.textContent = !disabled ? 'Buy' : 'Own';
+    node.textContent = text ? text : !disabled ? 'Buy' : 'Own';
     node.classList.add(...classes);
 
     parentNode.append(node);
@@ -31,6 +31,18 @@ class FavoritesCard {
 
     return node;
   }
+
+  createDomNodeInput(node, name, type, parentNode, ...classes) {
+    node = document.createElement('input');
+    node.autocomplete = 'off';
+    node.name = name;
+    node.type = type;
+    node.classList.add(...classes);
+
+    parentNode.append(node);
+
+    return node;
+  }
 }
 
-export default FavoritesCard;
+export default Element;

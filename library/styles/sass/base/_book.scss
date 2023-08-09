@@ -1,16 +1,19 @@
-.card {
+.book {
   position: relative;
-  max-width: 550px;
-  height: 555px;
+  width: 550px;
+  min-height: 555px;
   color: $color-additional;
   border: 1px solid $color-additional;
 }
 
-.card__content {
-  padding: 14px 172px 13px 19px;
+.book__content {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  padding: 15px 0px 15px 15px;
+  width: 385px;
 }
 
-.card__title {
+.card__category {
   @extend %font-additional;
   @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
   position: relative;
@@ -29,25 +32,25 @@
   }
 }
 
-.card__book-title {
+.book__title {
   @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.card__book-author {
+.book__author {
   @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
-  padding-bottom: 19.5px;
+  padding-bottom: 20px;
 }
 
-.card__book-description {
+.book__description {
   @include font($size: 1.5rem, $height: 4rem, $weight: 400, $letter: 2px);
-  padding-bottom: 7px;
+  padding-bottom: 5px;
   text-transform: capitalize;
 }
 
-.card__book {
+.book__image {
   position: absolute;
-  bottom: -1px;
-  right: -41px;
+  right: -40px;
+  bottom: 0;
 }
