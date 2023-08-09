@@ -499,9 +499,6 @@ h2::after {
   right: 0;
   transition: all 1s ease-in-out;
 }
-.hamburger.open {
-  margin-right: -6px;
-}
 
 .hamburger__line {
   top: calc(50% - 2px);
@@ -659,10 +656,6 @@ h2::after {
   filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
   cursor: pointer;
 }
-.user-profile.open {
-  margin-right: -7px;
-  transition: all 1s ease-in-out;
-}
 
 .layout-column {
   display: flex;
@@ -792,11 +785,11 @@ h2::after {
   .header__navigation {
     position: absolute;
     top: 0;
-    right: -332px;
+    right: -336px;
     z-index: 2;
-    width: 332px;
+    width: 336px;
     height: 570px;
-    background-color: #000000;
+    background-color: #0c0c0e;
     transition: all 1s ease-in-out;
   }
 }
