@@ -2,12 +2,14 @@ import addHamburgerClickHandler from './addHamburgerClickHandler.js';
 import addControlsFavoritesClickHandler from './favorites/addControlsFavoritesClickHandler.js';
 import addLibraryFormClickHandler from './libraryForm/addLibraryFormClickHandler.js';
 import addUserProfileClickHandler from './userProfile/addUserProfileClickHandler.js';
+import addAboutSlider from './about/addAboutSlider.js';
 
 window.onload = () => {
   addHamburgerClickHandler();
   addControlsFavoritesClickHandler();
   addLibraryFormClickHandler();
   addUserProfileClickHandler();
+  addAboutSlider();
 };
 
 console.log(

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
@@ -58,32 +59,27 @@
         <div class="wrapper">
           <h2 class="title">About</h2>
           <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-          <div class="about__slides">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" class="arrow">
-              <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <div class="about__slider">
+          <div class="swiper mySwiper">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <img class="about__image" src="./images/jpg/about/1.jpg" alt="image">
+              </div>
+              <div class="swiper-slide">
                 <img class="about__image" src="./images/jpg/about/2.jpg" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="about__image" src="./images/jpg/about/3.jpg" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="about__image" src="./images/jpg/about/4.jpg" alt="image">
+              </div>
+              <div class="swiper-slide">
                 <img class="about__image" src="./images/jpg/about/5.jpg" alt="image">
               </div>
-              <div class="about__controls">
-                <input class="about__control" name="about" type="radio" id="control-1" value="control-1" checked>
-                <label for="control-1"></label>
-                <input class="about__control" name="about" type="radio" id="control-2" value="control-2">
-                <label for="control-2"></label>
-                <input class="about__control" name="about" type="radio" id="control-3" value="control-3">
-                <label for="control-3"></label>
-                <input class="about__control" name="about" type="radio" id="control-4" value="control-4">
-                <label for="control-4"></label>
-                <input class="about__control" name="about" type="radio" id="control-5" value="control-5">
-                <label for="control-5"></label>
-              </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" class="arrow">
-              <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </section>
@@ -296,6 +292,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

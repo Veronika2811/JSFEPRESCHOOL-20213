@@ -490,13 +490,8 @@ h2::after {
 .hamburger:hover {
   cursor: pointer;
 }
-.hamburger:after {
-  bottom: 0;
-  right: 0;
-  transition: all 1s ease-in-out;
-}
-.hamburger.open {
-  margin-right: -6px;
+.hamburger:hover .hamburger__line, .hamburger:hover::after, .hamburger:hover::before {
+  background-color: #BB945F;
 }
 
 .hamburger.open .hamburger__line {
@@ -1085,12 +1080,14 @@ h2::after {
   .header__navigation {
     position: fixed;
     top: 0;
-    right: -332px;
+    right: 0;
     z-index: 2;
-    width: 332px;
-    height: 570px;
-    background-color: #000000;
-    transition: all 1s ease-in-out;
+    width: 330px;
+    height: 100vh;
+    padding: 15px;
+    background: #000000;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
   }
 }
 .header__navigation.open {
@@ -1165,7 +1162,7 @@ h2::after {
 }
 
 .about {
-  padding: 20px 0 55px;
+  padding: 20px 0 45px;
 }
 
 .about__text {
@@ -1174,68 +1171,50 @@ h2::after {
   text-align: center;
 }
 
-.about__slides {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 58px;
+.swiper {
+  position: relative;
+  padding-bottom: 70px;
+  max-width: 1400px;
+}
+.swiper .about__image {
+  max-width: 100%;
 }
 
-.arrow {
+.swiper-button-next,
+.swiper-button-prev {
   display: none;
-  transition: filter 0.3s;
-}
-@media (max-width: 1180px) {
-  .arrow {
-    display: block;
-  }
-}
-.arrow:hover {
-  filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
-  cursor: pointer;
-}
-
-.about__slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  padding-bottom: 35px;
-}
-@media (max-width: 1180px) {
-  .about__slider .about__image:nth-child(n+2) {
-    display: none;
-  }
-}
-
-.about__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #000000;
+  transition: color 0.3s;
 }
-.about__controls label:nth-child(n+8) {
-  display: none;
-}
-@media (max-width: 1180px) {
-  .about__controls label:nth-child(n+8) {
-    display: block;
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex;
   }
 }
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #BB945F;
+}
 
-.about__control {
-  display: none;
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 15px;
 }
-.about__control + label {
+
+.swiper-slide,
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination__item {
   padding: 5px;
-  transition: transform 1s ease-in-out;
-}
-.about__control + label:hover {
-  transform: scale(1.3);
+  transition: all 1s;
   cursor: pointer;
 }
-.about__control + label::before {
+.swiper-pagination__item::before {
   content: "";
   display: block;
   width: 16px;
@@ -1243,8 +1222,12 @@ h2::after {
   background: #0C0C0E;
   border-radius: 50%;
 }
-.about__control:checked + label::before {
+.swiper-pagination__item_active::before {
   background-color: #BB945F;
+}
+.swiper-pagination__item:hover {
+  transform: scale(1.3);
+  cursor: pointer;
 }
 
 .favorites {
