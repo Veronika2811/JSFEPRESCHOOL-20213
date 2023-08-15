@@ -33,7 +33,7 @@ const data = {
       author: 'By Clive Irving',
       description:
         "A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.",
-      button: true,
+      button: false,
       img: './images/jpg/favorites/winter/book-4.jpg',
     },
   ],
@@ -71,7 +71,7 @@ const data = {
       author: 'By Angie Cruz',
       description:
         'A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.',
-      button: true,
+      button: false,
       img: './images/jpg/favorites/spring/book-4.jpg',
     },
   ],

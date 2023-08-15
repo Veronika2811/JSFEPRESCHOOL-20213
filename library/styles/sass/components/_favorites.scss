@@ -11,8 +11,14 @@
 .favorites__controls {
   display: flex;
   gap: 90px;
-  padding-bottom: 35px;
   white-space: nowrap;
+  background: $color-light;
+
+  @include media-tablet {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
 
   @include media-mobile {
     gap: 30px;
@@ -58,7 +64,7 @@
 .favorites__books {
   flex-wrap: wrap;
   gap: 40px;
-  padding-right: 40px;
+  padding: 35px 40px 0px 0px;
 
   @include media-tablet {
     justify-content: center;
@@ -71,4 +77,32 @@
 
 .book__button {
   margin-top: auto;
+}
+
+.transition-damping {
+  opacity: 1;
+  animation: damping 1s ease-out;
+}
+
+.transition-appearance {
+  opacity: 1;
+  animation: appearance 1s ease-in;
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes damping {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
