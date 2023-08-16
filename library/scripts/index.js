@@ -1,4 +1,4 @@
-import addHamburgerClickHandler from './addHamburgerClickHandler.js';
+import { addHamburgerClickHandler } from './addHamburgerClickHandler.js';
 import addControlsFavoritesClickHandler from './favorites/addControlsFavoritesClickHandler.js';
 import addLibraryFormClickHandler from './libraryForm/addLibraryFormClickHandler.js';
 import addUserProfileClickHandler from './userProfile/addUserProfileClickHandler.js';

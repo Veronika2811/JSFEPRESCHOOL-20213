@@ -514,7 +514,8 @@ h2::after {
   top: calc(50% - 1px);
 }
 
-.mask-content {
+.mask-content,
+.menu-profile__mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -527,10 +528,12 @@ h2::after {
   transition: opacity 1s, visibility 1s;
   -webkit-transition: opacity 1s, visibility 1s;
 }
-.mask-content:hover {
+.mask-content:hover,
+.menu-profile__mask:hover {
   cursor: pointer;
 }
-.mask-content.open {
+.mask-content.open,
+.menu-profile__mask.open {
   display: block;
   visibility: visible;
   opacity: 1;
@@ -937,6 +940,48 @@ h2::after {
   text-transform: uppercase;
 }
 
+.menu-profile {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  z-index: 2;
+  width: 80px;
+  height: 115px;
+  padding: 5px 10px 10px;
+  background-color: #FFFFFF;
+  transform: translateX(100vw);
+  transition: transform 0.5s ease-in-out;
+}
+
+.menu-profile__title {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.menu-profile__title::after {
+  bottom: -5px;
+  width: 40px;
+  background-color: #BB945F;
+}
+
+.menu-profile__subtitle {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  transition: color 0.3s;
+}
+.menu-profile__subtitle:hover {
+  color: #BB945F;
+  cursor: pointer;
+}
+
 .wrapper {
   max-width: 1400px;
   margin: auto;
@@ -960,6 +1005,7 @@ h2::after {
 }
 
 .header__user-profile {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

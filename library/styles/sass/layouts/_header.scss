@@ -9,6 +9,7 @@
 }
 
 .header__user-profile {
+  position: relative;
   @include flex();
   width: 28px;
   height: 28px;
