@@ -1,11 +1,12 @@
 import Modal from './Modal.js';
+import loadUserIcon from '../userProfile/loadUserIcon.js';
 
-import { REGISTER_FIELDS } from '../constants.js';
+import {REGISTER_FIELDS} from '../constants.js';
 
 class ModalRegister extends Modal {
   constructor(classes) {
     super(classes);
-    this.modal = 'login';
+    this.modal = '';
   }
 
   generateContent() {
@@ -35,7 +36,8 @@ class ModalRegister extends Modal {
     );
 
     REGISTER_FIELDS[this.modal].fields.forEach((el) => {
-      const {title, name} = el;
+      const {title, name, error} = el;
+
       this.registerItem = this.createDomNode(
         this.registerItem,
         'div',
@@ -53,9 +55,16 @@ class ModalRegister extends Modal {
       this.registerInput = this.createDomNodeInput(
         this.registerInput,
         name,
-        'text',
+        name === 'password' ? 'password' : name === 'email' ? 'email' : 'text',
         this.registerItem,
         'modal-form__input'
+      );
+      this.registerInputTitle = this.createDomNode(
+        this.registerInputTitle,
+        'span',
+        error,
+        this.registerItem,
+        'modal-form__input-title'
       );
     });
 
@@ -97,10 +106,72 @@ class ModalRegister extends Modal {
       this.renderModal();
     });
 
+    this.modalRegisterButton.addEventListener('click', (e) => {
+      const validate = this.validateForm();
+
+      if (validate) {
+        const data = {};
+
+        validate.forEach((el) => {
+          data[el.name] = el.value;
+        });
+
+        loadUserIcon(data);
+        // this.generateIconUser(data);
+
+        localStorage.setItem('user', JSON.stringify(data));
+      }
+    });
+
     return this.modalRegisterWrapper;
   }
 
-  renderModal() {
+  // generateIconUser(data) {
+  //   const userIcon = document.querySelector('.user_icon');
+
+  //   userIcon.innerHTML = '';
+
+  //   const {firstName, lastName} = data;
+
+  //   this.userIconText = this.createDomNode(
+  //     this.userIconText,
+  //     'p',
+  //     `${firstName.slice(0, 1).toUpperCase()}${lastName
+  //       .slice(0, 1)
+  //       .toUpperCase()}`,
+  //     userIcon,
+  //     'user-icon__text'
+  //   );
+  // }
+
+  validateForm() {
+    const fields = [...document.querySelectorAll('.modal input')];
+
+    const EMAIL_REGEXP =
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+    const arr = [];
+
+    fields.forEach((el) => {
+      if (
+        !el.value ||
+        (el.name === 'password' && el.value.length < 8) ||
+        (el.name === 'email' && !EMAIL_REGEXP.test(el.value))
+      ) {
+        el.classList.add('validate-input');
+        el.nextSibling.style.display = 'block';
+      } else {
+        el.classList.remove('validate-input');
+        el.nextSibling.style.display = 'none';
+        arr.push(el);
+      }
+    });
+
+    return arr.length === fields.length ? arr : false;
+  }
+
+  renderModal(fields) {
+    this.modal = fields || 'login';
     const content = this.generateContent();
     super.buildModal(content);
   }

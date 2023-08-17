@@ -1,38 +1,23 @@
-import ProfileMenu from './ProfileMenu.js';
 import { toggleMenu } from '../addHamburgerClickHandler.js';
 
+const maskContent = document.querySelector('.menu-profile__mask');
+const profileMenu = document.querySelector('.menu-profile');
 
-const toogleProfileMenu = () => {
-  const maskContent = document.querySelector('.menu-profile__mask');
-  // console.log(maskContent)
-  const profileMenu = document.querySelector('.menu-profile');
-  const headerNavigation = document.querySelector('.header__navigation');
+export const toogleProfileMenu = () => {
+  profileMenu.classList.toggle('open');
+  maskContent.classList.toggle('open');
+};
 
-  if(headerNavigation.classList.contains('open')) toggleMenu();
-
-  profileMenu.classList.add('open');
-  maskContent.classList.add('open');
-
-  // const transform = window.innerWidth > 1180 ? 'translateX(0)' : 'translateX(-105px)';
-
-  profileMenu.style.transform = 'translateX(0)';
-}
-
-const closeProfileMenu = () => {
-  const profileMenu = document.querySelector('.menu-profile');
-  profileMenu.style.transform = 'translateX(100vw)';
-  // maskContent.classList.remove('open');
-}
-
-const addUserProfileClickHandler = () => {
-  
-  new ProfileMenu().renderProfileMenu();
-  
-  const maskContent = document.querySelector('.menu-profile__mask');
+export const addUserProfileClickHandler = () => {
   const userProfile = document.querySelector('.header__user-profile');
 
-  userProfile.addEventListener('click', toogleProfileMenu);
-  maskContent.addEventListener('click', closeProfileMenu);
-}
+  userProfile.addEventListener('click', () => {
+    const headerNavigation = document.querySelector('.header__navigation');
+    if (headerNavigation.classList.contains('open')) toggleMenu();
+    toogleProfileMenu();
+  });
 
-export default addUserProfileClickHandler;
+  maskContent.addEventListener('click', toogleProfileMenu);
+};
+
+export default {addUserProfileClickHandler, toogleProfileMenu};

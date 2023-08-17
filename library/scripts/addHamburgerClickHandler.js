@@ -1,17 +1,16 @@
+import { toogleProfileMenu } from './userProfile/addUserProfileClickHandler.js';
+
 const hamburger = document.querySelector('.hamburger');
 const headerNavigation = document.querySelector('.header__navigation');
 const maskContent = document.querySelector('.mask-content');
-const body = document.querySelector('body');
 
 export const toggleMenu = () => {
-  if (window.innerWidth > 1180) return;
-  if(headerNavigation.classList.contains('open')) {
-    const maskContent = document.querySelector('.menu-profile__mask');
-    const profileMenu = document.querySelector('.menu-profile');
+  const body = document.querySelector('body');
 
-    maskContent.classList.remove('open');
-    profileMenu.style.transform = 'translateX(-100%)';
-  };
+  if (window.innerWidth > 1180) return;
+
+  const profileMenu = document.querySelector('.menu-profile');
+  if (profileMenu.classList.contains('open')) toogleProfileMenu();
 
   hamburger.classList.toggle('open');
   headerNavigation.classList.toggle('open');

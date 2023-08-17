@@ -38,3 +38,18 @@
     cursor: pointer;
   }
 }
+
+.validate-input {
+  border-color: red;
+}
+
+.modal-form__input-title {
+  font-size: 10px;
+  color: red;
+  display: none;
+}
+
+.user-icon__text {
+  @include font($size: 1.5rem, $height: normal, $weight: 400);
+  color: $color-hovered;
+}

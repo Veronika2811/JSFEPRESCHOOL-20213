@@ -4,10 +4,12 @@ export const REGISTER_FIELDS = {
       {
         title: 'E-mail or readers card',
         name: 'email',
+        error: 'Field must not be empty',
       },
       {
         title: 'Password',
         name: 'password',
+        error: 'Password must be at least 8 characters',
       },
     ],
     buttonText: 'Log In',
@@ -18,15 +20,23 @@ export const REGISTER_FIELDS = {
     fields: [
       {
         title: 'First name',
+        name: 'firstName',
+        error: 'Field must not be empty',
       },
       {
         title: 'Last name',
+        name: 'lastName',
+        error: 'Field must not be empty',
       },
       {
         title: 'E-mail',
+        name: 'email',
+        error: 'Field must not be empty',
       },
       {
         title: 'Password',
+        name: 'password',
+        error: 'Password must be at least 8 characters',
       },
     ],
     buttonText: 'Sign Up',

@@ -81,12 +81,12 @@
 
 .transition-damping {
   opacity: 1;
-  animation: damping 1s ease-out;
+  animation: damping 0.5s ease-out;
 }
 
 .transition-appearance {
   opacity: 1;
-  animation: appearance 1s ease-in;
+  animation: appearance 0.5s ease-in;
 }
 
 @keyframes appearance {
