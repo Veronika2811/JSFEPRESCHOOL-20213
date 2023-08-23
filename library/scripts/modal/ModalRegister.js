@@ -1,5 +1,5 @@
 import Modal from './Modal.js';
-import loadUserIcon from '../userProfile/loadUserIcon.js';
+import {loadUserInfo} from '../userProfile/loadUserInfo.js';
 
 import {REGISTER_FIELDS} from '../constants.js';
 
@@ -116,15 +116,65 @@ class ModalRegister extends Modal {
           data[el.name] = el.value;
         });
 
-        loadUserIcon(data);
-        // this.generateIconUser(data);
+        data.cardNumber = this.generateCardNumber();
+
+        console.log(data);
+        // document.querySelector('.menu-profile').remove();
+        document.querySelector('.menu-profile').innerHTML = '';
+        document.querySelector('.menu-profile__mask').remove();
+
+
+        loadUserInfo(data);
+        // this.changeContent(data);
 
         localStorage.setItem('user', JSON.stringify(data));
+
+        //close modal
+        document.querySelector('.overlay').remove();
+        document.querySelector('body').classList.remove('open');
       }
     });
 
     return this.modalRegisterWrapper;
   }
+
+  getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  generateCardNumber() {
+    // getRandomArbitrary(1000000000, 999999999)
+    // const randomNumber = Math.floor(Math.random() * 900000000) + 100000000;
+
+    // const hexNumber = randomNumber.toString(16);
+
+    const randomCardNumber = this.getRandomArbitrary(100000000, 999999999);
+    const hexCardNumber = randomCardNumber.toString(16);
+    // localStorage.setItem('cardNumber', hexCardNumber);
+return hexCardNumber;
+    // document.querySelector('.menu-profile__title').textContent = hexCardNumber;
+  }
+
+  // changeContent(data) {
+  //   const {firstName, lastName} = data;
+
+  //   const userIcon = document.querySelector('.user_icon');
+
+  //   const userInitials = `${firstName.slice(0, 1).toUpperCase()}${lastName
+  //     .slice(0, 1)
+  //     .toUpperCase()}`;
+  //   // console.log(userInfo);
+
+  //   userIcon.innerHTML = `<p class="user-icon__text" title="${firstName} ${lastName}">
+  //     ${userInitials}
+  //     </p>`;
+
+  //   // const arr = 
+  //   // document.querySelector('.menu-profile__title').textContent = 'My profile';
+  //   document.querySelector('.menu-profile_login').textContent = 'My profile';
+  //   // const arr1 = 
+  //   document.querySelector('.menu-profile_register').textContent = 'Log Out';
+  // }
 
   // generateIconUser(data) {
   //   const userIcon = document.querySelector('.user_icon');

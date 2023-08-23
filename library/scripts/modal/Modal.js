@@ -15,7 +15,14 @@ class Modal extends Element {
       'overlay'
     );
 
-    this.modal = this.createDomNode(this.modal, 'div', null, this.overlay, 'modal', this.classes);
+    this.modal = this.createDomNode(
+      this.modal,
+      'div',
+      null,
+      this.overlay,
+      'modal',
+      this.classes
+    );
 
     this.modalCloseBtn = this.createDomNode(
       this.modalContent,
@@ -25,8 +32,7 @@ class Modal extends Element {
       'modal__close-icon'
     );
     const colorBtn = colorCloseBtn || '#0C0C0E';
-    this.modalCloseBtn.innerHTML =
-      `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M2 16.8507L17 2.00001" stroke=${colorBtn} stroke-width="3"/><path d="M2 2.14928L17 17" stroke=${colorBtn} stroke-width="3"/></svg>`;
+    this.modalCloseBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M2 16.8507L17 2.00001" stroke=${colorBtn} stroke-width="3"/><path d="M2 2.14928L17 17" stroke=${colorBtn} stroke-width="3"/></svg>`;
 
     this.modalContent = this.createDomNode(
       this.modalContent,
@@ -44,8 +50,6 @@ class Modal extends Element {
   }
 
   setContent(content) {
-    console.log(content)
-    console.log(this.modalContent)
     if (typeof content === 'string') {
       this.modalContent.innerHTML = content;
     } else {

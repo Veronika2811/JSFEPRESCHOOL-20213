@@ -4,8 +4,8 @@
   z-index: 2;
   width: 80px;
   height: 115px;
-  padding: 5px 10px 10px;
-  margin-right: 50px;
+  padding: 5px 4px 10px;
+  // margin-right: 50px;
   background-color: $color-light;
   transform: translateY(-130%);
   transition: transform 0.5s ease-in-out;
@@ -26,8 +26,7 @@
   }
 }
 
-.menu-profile__login,
-.menu-profile__register {
+.menu-profile__subtitle {
   @include font($size: 1.5rem, $height: 20px, $weight: 400);
   padding-bottom: 10px;
   text-align: center;

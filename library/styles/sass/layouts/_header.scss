@@ -10,16 +10,33 @@
 
 .header__user-profile {
   position: relative;
+  @include flex($justify: flex-end);
+  // width: 28px;
+  // height: 28px;
+  // background-color: $color-light;
+  // border-radius: 50%;
+  // transition: filter 0.3s;
+
+  @include media-tablet {
+    // z-index: 2;
+    margin-left: auto;
+  }
+
+  // &:hover {
+  //   cursor: pointer;
+  // }
+}
+
+.user_icon {
   @include flex();
-  width: 28px;
-  height: 28px;
   background-color: $color-light;
   border-radius: 50%;
-  transition: filter 0.3s;
+  width: 28px;
+  height: 28px;
 
   @include media-tablet {
     z-index: 2;
-    margin-left: auto;
+    // margin-left: auto;
   }
 
   &:hover {

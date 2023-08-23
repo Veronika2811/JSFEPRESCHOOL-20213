@@ -887,9 +887,10 @@ h2::after {
 }
 
 .modal-form__input-title {
-  font-size: 10px;
-  color: red;
   display: none;
+  font-size: 10px;
+  line-height: 20px;
+  color: red;
 }
 
 .user-icon__text {
@@ -968,8 +969,7 @@ h2::after {
   z-index: 2;
   width: 80px;
   height: 115px;
-  padding: 5px 10px 10px;
-  margin-right: 50px;
+  padding: 5px 4px 10px;
   background-color: #FFFFFF;
   transform: translateY(-130%);
   transition: transform 0.5s ease-in-out;
@@ -992,8 +992,7 @@ h2::after {
   background-color: #BB945F;
 }
 
-.menu-profile__login,
-.menu-profile__register {
+.menu-profile__subtitle {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -1003,8 +1002,7 @@ h2::after {
   text-align: center;
   transition: color 0.3s;
 }
-.menu-profile__login:hover,
-.menu-profile__register:hover {
+.menu-profile__subtitle:hover {
   color: #BB945F;
   cursor: pointer;
 }
@@ -1035,20 +1033,29 @@ h2::after {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  transition: filter 0.3s;
+  justify-content: flex-end;
 }
 @media (max-width: 1205px) {
   .header__user-profile {
-    z-index: 2;
     margin-left: auto;
   }
 }
-.header__user-profile:hover {
+
+.user_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+}
+@media (max-width: 1205px) {
+  .user_icon {
+    z-index: 2;
+  }
+}
+.user_icon:hover {
   cursor: pointer;
 }
 
