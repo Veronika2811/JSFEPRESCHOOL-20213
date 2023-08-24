@@ -6,10 +6,10 @@ import {toggleMenu} from '../addHamburgerClickHandler.js';
 
 export const toogleProfileMenu = () => {
   // console.log('addUserProfileClickHandler')
-  const maskContent = document.querySelector('.menu-profile__mask');
+  // const maskContent = document.querySelector('.menu-profile__mask');
   const profileMenu = document.querySelector('.menu-profile');
   profileMenu.classList.toggle('open');
-  maskContent.classList.toggle('open');
+  // maskContent.classList.toggle('open');
 };
 
 // const addStyle = () => {
@@ -46,17 +46,27 @@ export const addUserProfileClickHandler = () => {
     // }
   });
 
+  document.addEventListener('click', (e) => { // e.target.classList.contains('navigation__link')
+    // console.log(profileMenu.classList.contains('open') && !e.target.closest('.menu-profile'))
+    if(!e.target.closest('.header__user-profile') && profileMenu.classList.contains('open')) {
+      toogleProfileMenu();
+    }
+  })
+
+  // document.addEventListener( 'click', (e) => {
+  //   const withinBoundaries = e.composedPath().includes(div);
+   
+  //   if ( ! withinBoundaries ) {
+  //     div.style.display = 'none'; // скрываем элемент т к клик был за его пределами
+  //   }
+  // })
+
   // if(profileMenu) {
   // console.log('s')
-  maskContent.addEventListener('click', () => {
-    // const target = e.target;
-    // console.log(target);
-    // if (classes.contains('overlay') || classes.contains('modal__close-icon')) {
-    //   document.querySelector('.overlay').remove();
-    //   document.querySelector('body').classList.remove('open');
-    // }
-    toogleProfileMenu();
-  });
+  // maskContent.addEventListener('click', (e) => {
+  //   e.stopPropagation();
+  //   toogleProfileMenu();
+  // });
   // }
 };
 

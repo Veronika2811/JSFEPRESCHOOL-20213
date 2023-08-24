@@ -7,11 +7,18 @@ class ModalProfile extends Modal {
   }
 
   generateContent() {
+    const userInfo = JSON.parse(localStorage.getItem('user'));
+    const {firstName, lastName, cardNumber} = userInfo;
+
+    const userInitials = `${firstName.slice(0, 1).toUpperCase()}${lastName
+      .slice(0, 1)
+      .toUpperCase()}`;
+
     this.modalProfileWrapper = this.createDomNode(this.modalProfileWrapper, 'div', null, null, 'modal-profile__wrapper');
 
     this.modalProfileUser = this.createDomNode(this.modalProfileWrapper, 'div', null, this.modalProfileWrapper, 'modal-profile__user', 'user');
-    this.userAvator = this.createDomNode(this.userAvator, 'p', 'JD', this.modalProfileUser, 'user__avator');
-    this.userName = this.createDomNode(this.userName, 'p', 'John Doe', this.modalProfileUser, 'user__name');
+    this.userAvator = this.createDomNode(this.userAvator, 'p', userInitials, this.modalProfileUser, 'user__avator');
+    this.userName = this.createDomNode(this.userName, 'p', `${firstName} ${lastName}`, this.modalProfileUser, 'user__name');
 
     this.modalProfileUserInfo = this.createDomNode(this.modalProfileUserInfo, 'div', null, this.modalProfileWrapper, 'modal-profile__user-info', 'user-info');
     this.userInfoTitle = this.createDomNode(this.modalProfileUserInfo, 'h3', 'My profile', this.modalProfileUserInfo, 'user-info__title');
@@ -38,7 +45,7 @@ class ModalProfile extends Modal {
 
     this.cardsProfileCard = this.createDomNode(this.cardsProfileCard, 'div', null, this.modalProfileUserInfo, 'cards-profile__card', 'card');
     this.cardTitle = this.createDomNode(this.cardTitle, 'span', 'Card number', this.cardsProfileCard, 'card__title');
-    this.cardNumber = this.createDomNode(this.cardNumber, 'span', 'F00234030', this.cardsProfileCard, 'card__number');
+    this.cardNumber = this.createDomNode(this.cardNumber, 'span', cardNumber, this.cardsProfileCard, 'card__number');
     this.cardNumberCopy = this.createDomNode(this.cardNumberCopy, 'span', null, this.cardsProfileCard, 'card__svg');
     this.cardNumberCopy.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none"><rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/><rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/></svg>';
 

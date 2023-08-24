@@ -121,7 +121,7 @@ class ModalRegister extends Modal {
         console.log(data);
         // document.querySelector('.menu-profile').remove();
         document.querySelector('.menu-profile').innerHTML = '';
-        document.querySelector('.menu-profile__mask').remove();
+        // document.querySelector('.menu-profile__mask').remove();
 
 
         loadUserInfo(data);

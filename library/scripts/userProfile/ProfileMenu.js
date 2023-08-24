@@ -5,7 +5,7 @@ import modalController from './modalController.js';
 
 class ProfileMenu extends Element {
   renderProfileMenu(current) {
-    console.log(current)
+    // console.log(current)
     const menuProfile = document.querySelector('.menu-profile');
     // const headerUserWrapper = document.querySelector('.header__user-profile');
     const headerWrapper = document.querySelector('.header__wrapper');
@@ -17,7 +17,7 @@ class ProfileMenu extends Element {
     this.menuProfileSubtitleSecond = this.createDomNode(this.menuProfileSubtitleSecond, 'p', !current ? 'Register' : 'Log Out', menuProfile, 'menu-profile__subtitle', 'menu-profile_register');
     // this.menuProfileMask = this.createDomNode(this.menuProfileMask, 'div', null, menuProfile, 'menu-profile__mask');
     // if(!current) {
-      this.menuProfileMask = this.createDomNode(this.menuProfileMask, 'div', null, headerWrapper, 'menu-profile__mask');
+      // this.menuProfileMask = this.createDomNode(this.menuProfileMask, 'div', null, headerWrapper, 'menu-profile__mask');
     // }
 
     // addUserProfileClickHandler();
@@ -27,7 +27,7 @@ class ProfileMenu extends Element {
         // console.log(e);
         // e.stopPropagation();
         const target = e.target.textContent;
-        console.log(target)
+        // console.log(target, current)
 
         modalController(target);
         // console.log(e.target.textContent)
@@ -35,6 +35,11 @@ class ProfileMenu extends Element {
         toogleProfileMenu();
       })
     })
+
+    // this.menuProfileMask.addEventListener('click', () => {
+    //   console.log('dsds')
+    //   toogleProfileMenu();
+    // });
   }
 }
 

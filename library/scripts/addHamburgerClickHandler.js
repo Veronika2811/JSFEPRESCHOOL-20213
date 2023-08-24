@@ -9,8 +9,8 @@ export const toggleMenu = () => {
 
   if (window.innerWidth > 1180) return;
 
-  const profileMenu = document.querySelector('.menu-profile');
-  if (profileMenu.classList.contains('open')) toogleProfileMenu();
+  // const profileMenu = document.querySelector('.menu-profile');
+  // if (profileMenu.classList.contains('open')) toogleProfileMenu();
 
   hamburger.classList.toggle('open');
   headerNavigation.classList.toggle('open');
