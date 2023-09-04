@@ -1,5 +1,5 @@
 .modal-profile {
-  min-width: 600px;
+  width: 600px;
 }
 
 .modal-profile__wrapper {
@@ -25,7 +25,9 @@
 .user__name {
   @include flex();
   padding: 0 15px;
+  max-width: 120px;
   background-color: $color-light;
+  text-align: center;
 }
 
 .user-info {
@@ -70,11 +72,13 @@
 }
 
 .rented-books__list {
-  @include flex($align: flex-start);
+  display: flex;
   flex-direction: column;
   gap: 10px;
   padding-left: 20px;
   list-style: disc;
+  height: 60px;
+  overflow: auto;
 }
 
 .list__item {

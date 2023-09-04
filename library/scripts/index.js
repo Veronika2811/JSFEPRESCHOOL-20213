@@ -3,9 +3,10 @@ import addControlsFavoritesClickHandler from './favorites/addControlsFavoritesCl
 import addLibraryFormClickHandler from './libraryForm/addLibraryFormClickHandler.js';
 import {addUserProfileClickHandler} from './userProfile/addUserProfileClickHandler.js';
 import addAboutSlider from './about/addAboutSlider.js';
-// import addRegisterClickHandler from './addRegisterClickHandler.js';
+import addRegisterClickHandler from './addRegisterClickHandler.js';
 import {loadUserInfo} from './userProfile/loadUserInfo.js';
 import performanceAppraisal from './performanceAppraisal.js';
+import userCardVerification from './digitaLibraryCard/userCardVerification.js';
 
 window.onload = () => {
   // Hamburger
@@ -15,13 +16,18 @@ window.onload = () => {
   addAboutSlider();
 
   // Favorites
-  addControlsFavoritesClickHandler();
+  // addControlsFavoritesClickHandler();
   // addLibraryFormClickHandler();
 
   // User
   loadUserInfo();
   addUserProfileClickHandler();
+
+  // Register buttons
   // addRegisterClickHandler();
+
+  // userCardVerification
+  // userCardVerification();
 
   // Оценка работы
   performanceAppraisal();

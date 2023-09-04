@@ -1,5 +1,7 @@
 import Element from '../Element.js';
-
+import modalController from '../userProfile/modalController.js';
+import ModalLibraryCard from '../modal/ModalLibraryCard.js';
+import LibraryCards from '../digitaLibraryCard/LibraryCards.js';
 class Book extends Element {
   constructor({id, title, author, description, button, img}) {
     super();
@@ -13,6 +15,8 @@ class Book extends Element {
   }
 
   generateBook() {
+    const rentedBooks = JSON.parse(localStorage.getItem('rented-books'));
+
     this.card = this.createDomNode(this.card, 'div', null, null, 'favorites__book', 'book');
     this.cardContent = this.createDomNode(
       this.cardContent,
@@ -61,7 +65,7 @@ class Book extends Element {
     this.buttonNode = this.createDomNodeButton(
       this.buttonNode,
       null,
-      this.button,
+      localStorage.getItem('user-auth') ? this.contains(rentedBooks, this.id) : false,
       this.bookButton,
       'button'
     );
@@ -72,8 +76,42 @@ class Book extends Element {
       this.card,
       'book__image'
     );
+
+    this.buttonNode.addEventListener('click', () => {
+      if(!!localStorage.getItem('user-auth')) {
+        if(!localStorage.getItem('user-subscription')) {
+          const modal = new ModalLibraryCard('modal-card');
+          modal.renderModal();
+        } else {
+          let books = localStorage.getItem('user-books');
+          const rentedBooks = JSON.parse(localStorage.getItem('rented-books'));
+
+          this.buttonNode.disabled = 'true';
+          this.buttonNode.textContent = 'Own';
+
+          if(!this.contains(rentedBooks, this.id)) {
+            localStorage.setItem('rented-books', JSON.stringify([...rentedBooks, this.id]));
+            localStorage.setItem('user-books', ++books);
+
+            const wrapper = document.querySelector('.form-submit__wrapper')
+            wrapper.innerHTML = '';
+
+            const info = new LibraryCards().generateUserInfo()
+
+            wrapper.append(info);
+          }
+        }
+      } else {
+        modalController('Log In')
+      }
+    })
+
     return this.card;
   }
+
+  contains(arr, elem) {
+    return arr.indexOf(elem) !== -1;
+ }
 }
 
 export default Book;

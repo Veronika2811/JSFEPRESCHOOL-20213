@@ -1,9 +1,12 @@
 import ProfileMenu from './ProfileMenu.js';
 import {addUserProfileClickHandler} from './addUserProfileClickHandler.js';
+import userCardVerification from '../digitaLibraryCard/userCardVerification.js';
+import LibraryCards from '../digitaLibraryCard/LibraryCards.js';
+import addControlsFavoritesClickHandler from '../favorites/addControlsFavoritesClickHandler.js';
 
 export const renderProfileMenu = (current) => {
   // console.log('renderProfileMenu')
-  let modal = new ProfileMenu();
+  const modal = new ProfileMenu();
   modal.renderProfileMenu(current);
   // addUserProfileClickHandler();
 };
@@ -13,16 +16,21 @@ export const renderProfileMenu = (current) => {
 // }
 
 export const loadUserInfo = (data) => {
-  const userInfo = data || JSON.parse(localStorage.getItem('user'));
+  const userInfo = JSON.parse(localStorage.getItem('user')); // data || JSON.parse(localStorage.getItem('user'));
+  const userAuth = localStorage.getItem('user-auth')
 
   const userIcon = document.querySelector('.user_icon');
   // const menuProfile = document.querySelector('.menu-profile');
   userIcon.innerHTML = '';
 
   let card = '';
-  // console.log()
+  // console.log(Boolean(localStorage.getItem('user-auth')))
+  // console.log(userInfo)
 
-  if (userInfo) {
+  if (userAuth && userInfo) {
+
+    // console.log('защдл')
+    // console.log(userAuth)
     const {firstName, lastName, cardNumber} = userInfo;
 
     const userInitials = `${firstName.slice(0, 1).toUpperCase()}${lastName
@@ -45,6 +53,8 @@ export const loadUserInfo = (data) => {
   // if(!menuProfile) {
     // console.log('fdfd')
     renderProfileMenu(card)
+    addControlsFavoritesClickHandler()
+    new LibraryCards(userAuth, userInfo).buildSectionLibraryCard();
     // addUserProfileClickHandler();
   // }
   // else {

@@ -1,5 +1,6 @@
 import Modal from './Modal.js';
 import {loadUserInfo} from '../userProfile/loadUserInfo.js';
+import userCardVerification from '../digitaLibraryCard/userCardVerification.js';
 
 import {REGISTER_FIELDS} from '../constants.js';
 
@@ -56,6 +57,8 @@ class ModalRegister extends Modal {
         this.registerInput,
         name,
         name === 'password' ? 'password' : name === 'email' ? 'email' : 'text',
+        '',
+        null,
         this.registerItem,
         'modal-form__input'
       );
@@ -103,35 +106,65 @@ class ModalRegister extends Modal {
       document.querySelector('.overlay').remove();
 
       this.modal = e.target.textContent.toLowerCase();
-      this.renderModal();
+      this.renderModal(this.modal);
     });
 
     this.modalRegisterButton.addEventListener('click', (e) => {
-      const validate = this.validateForm();
+      if (e.target.textContent === 'Sign Up') {
+        const validate = this.validateFormRegister();
 
-      if (validate) {
-        const data = {};
+        if (validate) {
+          const data = {};
 
-        validate.forEach((el) => {
-          data[el.name] = el.value;
-        });
+          validate.forEach((el) => {
+            console.log(el);
+            data[el.name] =
+              el.name === 'firstName' || el.name === 'lastName'
+                ? el.value.charAt(0).toUpperCase() + el.value.slice(1)
+                : el.value; // el.value;
+          });
 
-        data.cardNumber = this.generateCardNumber();
+          data.cardNumber = this.generateCardNumber();
+          // data.visit = 1;
+          // data.subscription = false;
 
-        console.log(data);
-        // document.querySelector('.menu-profile').remove();
-        document.querySelector('.menu-profile').innerHTML = '';
-        // document.querySelector('.menu-profile__mask').remove();
+          // console.log(data);
+          // document.querySelector('.menu-profile').remove();
+          document.querySelector('.menu-profile').innerHTML = '';
+          // document.querySelector('.menu-profile__mask').remove();
 
+          // this.changeContent(data);
 
-        loadUserInfo(data);
-        // this.changeContent(data);
+          localStorage.setItem('user', JSON.stringify(data));
+          localStorage.setItem('user-auth', true);
+          localStorage.setItem('user-visit', 1);
+          localStorage.setItem('user-books', 0);
+          localStorage.setItem('rented-books', JSON.stringify([]));
+          // localStorage.setItem('user-subscription', false);
 
-        localStorage.setItem('user', JSON.stringify(data));
+          loadUserInfo(data);
+          // userCardVerification();
+          //close modal
+          document.querySelector('.overlay').remove();
+          document.querySelector('body').classList.remove('open');
+        }
+      }
+      if (e.target.textContent === 'Log In') {
+        const validate = this.validateFormLogin();
 
-        //close modal
-        document.querySelector('.overlay').remove();
-        document.querySelector('body').classList.remove('open');
+        if (validate) {
+          localStorage.setItem('user-auth', true);
+
+          document.querySelector('.menu-profile').innerHTML = '';
+
+          let visit = localStorage.getItem('user-visit');
+          localStorage.setItem('user-visit', ++visit);
+
+          loadUserInfo();
+
+          document.querySelector('.overlay').remove();
+          document.querySelector('body').classList.remove('open');
+        }
       }
     });
 
@@ -151,7 +184,7 @@ class ModalRegister extends Modal {
     const randomCardNumber = this.getRandomArbitrary(100000000, 999999999);
     const hexCardNumber = randomCardNumber.toString(16);
     // localStorage.setItem('cardNumber', hexCardNumber);
-return hexCardNumber;
+    return hexCardNumber;
     // document.querySelector('.menu-profile__title').textContent = hexCardNumber;
   }
 
@@ -169,10 +202,10 @@ return hexCardNumber;
   //     ${userInitials}
   //     </p>`;
 
-  //   // const arr = 
+  //   // const arr =
   //   // document.querySelector('.menu-profile__title').textContent = 'My profile';
   //   document.querySelector('.menu-profile_login').textContent = 'My profile';
-  //   // const arr1 = 
+  //   // const arr1 =
   //   document.querySelector('.menu-profile_register').textContent = 'Log Out';
   // }
 
@@ -194,30 +227,144 @@ return hexCardNumber;
   //   );
   // }
 
-  validateForm() {
-    const fields = [...document.querySelectorAll('.modal input')];
+  validateFieldRegisterController(el) {
+    const {email} = JSON.parse(localStorage.getItem('user')) || '';
 
-    const EMAIL_REGEXP =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+    // const EMAIL_REGEXP =
+    //   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+    switch(el.name) {
+      case 'firstName':
+      case 'lastName':
+        const reg = new RegExp("^.*[^A-zА-яЁё].*$");
+
+        if (reg.test(el.value)) return this.addStyleValidateField(el, 'The field must contain only letters.');
+        return true;
+      case 'password':
+        if (el.value.length < 8 && el.value.length >= 1) return this.addStyleValidateField(el, 'The password must be at least 8 characters long.');
+        return true;
+      case 'email':
+        const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+        if (!EMAIL_REGEXP.test(el.value)) return this.addStyleValidateField(el, 'Enter correct email.');
+        if (el.value === email) return this.addStyleValidateField(el, 'This email is already registered.');
+        return true;
+      default:
+        return true;
+    }
+  }
+
+  validateFormRegister() {
+    const fields = [...document.querySelectorAll('.modal input')];
+    // const {email} = JSON.parse(localStorage.getItem('user')) || '';
+
+    // const EMAIL_REGEXP =
+    //   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
     const arr = [];
 
     fields.forEach((el) => {
-      if (
-        !el.value ||
-        (el.name === 'password' && el.value.length < 8) ||
-        (el.name === 'email' && !EMAIL_REGEXP.test(el.value))
-      ) {
-        el.classList.add('validate-input');
-        el.nextSibling.style.display = 'block';
-      } else {
-        el.classList.remove('validate-input');
-        el.nextSibling.style.display = 'none';
+
+      if(!el.value) {
+        return this.addStyleValidateField(el, 'Field must not be empty.');
+      } else if (this.validateFieldRegisterController(el)) {
+        this.removeStyleValidateField(el);
         arr.push(el);
       }
+      // if (
+      //   !el.value ||
+      //   (el.name === 'password' && el.value.length < 8) ||
+      //   (el.name === 'email' && !EMAIL_REGEXP.test(el.value)) ||
+      //   (el.name === 'email' && el.value === email)
+      // ) {
+      //   el.classList.add('validate-input');
+      //   el.nextSibling.style.display = 'block';
+      // } else {
+      //   el.classList.remove('validate-input');
+      //   el.nextSibling.style.display = 'none';
+      //   arr.push(el);
+      // }
     });
 
     return arr.length === fields.length ? arr : false;
+  }
+
+  addStyleValidateField(element, textError) {
+    element.classList.add('validate-input');
+    element.nextSibling.textContent = textError;
+    element.nextSibling.style.display = 'block';
+  }
+
+  removeStyleValidateField(element) {
+    element.classList.remove('validate-input');
+    element.nextSibling.style.display = 'none';
+  }
+
+  validateFieldLoginController(el) {
+    const {email, cardNumber, password} =
+      JSON.parse(localStorage.getItem('user')) || '';
+
+    switch(el.name) {
+      case 'email':
+        if (el.value === email || el.value === cardNumber) return true;
+        return this.addStyleValidateField(el, 'Email or reader card not registered.');
+      case 'password':
+        if (el.value !== password) return this.addStyleValidateField(el, 'Please enter correct password.');
+        return true;
+      default:
+        return true;
+    }
+  }
+
+  validateFormLogin() {
+    const fields = [...document.querySelectorAll('.modal input')];
+    // const {email, cardNumber, password} =
+    //   JSON.parse(localStorage.getItem('user')) || '';
+
+    const arr = [];
+
+    fields.forEach((el) => {
+      if(!el.value) {
+        return this.addStyleValidateField(el, 'Field must not be empty.');
+      } else if (this.validateFieldLoginController(el)) {
+        this.removeStyleValidateField(el);
+        arr.push(el);
+      }
+
+
+
+      // if (
+      //   el.value ||
+      //   (el.name === 'email' && (el.value === email || el.value === cardNumber)) ||
+      //   (el.name === 'password' && el.value === password)
+      // ) {
+      //   this.removeStyleValidateField(el);
+      //   // el.classList.remove('validate-input');
+      //   // el.nextSibling.style.display = 'none';
+      //   arr.push(el);
+      // } else if (!el.value) {
+      //   this.addStyleValidateField(el, 'Field must not be empty');
+      //   // el.classList.add('validate-input');
+      //   // el.nextSibling.textContent = 'Field must not be empty';
+      //   // el.nextSibling.style.display = 'block';
+      // } else if (
+      //   el.name === 'email' &&
+      //   (el.value !== email || el.value !== cardNumber)
+      // ) {
+      //   // console.log('зашел')
+      //   this.addStyleValidateField(el, 'Email or reader card not registered');
+      //   // el.classList.add('validate-input');
+      //   // el.nextSibling.textContent = 'Email or reader card not registered';
+      //   // el.nextSibling.style.display = 'block';
+      // } else if (el.name === 'password' && el.value === password) {
+      //   this.addStyleValidateField(el, 'Please enter correct password');
+      //   // el.classList.add('validate-input');
+      //   // el.nextSibling.textContent = 'Please enter correct password';
+      //   // el.nextSibling.style.display = 'block';
+      // }
+    });
+
+    return arr.length === fields.length;
   }
 
   renderModal(fields) {

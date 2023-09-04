@@ -32,11 +32,13 @@ class Element {
     return node;
   }
 
-  createDomNodeInput(node, name, type, parentNode, ...classes) {
+  createDomNodeInput(node, name, type, placeholder, value, parentNode, ...classes) {
     node = document.createElement('input');
     node.autocomplete = 'off';
     node.name = name;
     node.type = type;
+    node.placeholder = placeholder;
+    if(value) node.value = value;
     node.classList.add(...classes);
 
     parentNode.append(node);

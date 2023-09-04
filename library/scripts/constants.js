@@ -69,7 +69,7 @@ export const LIBRARY_CARD_FORM = [
   },
   {
     title: 'Expiration code',
-    name: ['date', 'year'],
+    name: ['month', 'year'],
     width: '45px',
   },
   {

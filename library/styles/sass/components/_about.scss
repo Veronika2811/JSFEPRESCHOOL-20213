@@ -45,8 +45,8 @@
 
 .swiper-pagination__item {
   padding: 5px;
-  transition: all 1s;
-  cursor: pointer;
+  transition: transform 0.5s;
+  // cursor: pointer;
 
   &::before {
     content: '';

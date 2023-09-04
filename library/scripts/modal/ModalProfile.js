@@ -1,5 +1,6 @@
 import Modal from './Modal.js';
 import { USER_INFO, RENTED_BOOKS } from '../constants.js';
+import data from '../favorites/data.js';
 
 class ModalProfile extends Modal {
   constructor(classes) {
@@ -9,6 +10,8 @@ class ModalProfile extends Modal {
   generateContent() {
     const userInfo = JSON.parse(localStorage.getItem('user'));
     const {firstName, lastName, cardNumber} = userInfo;
+
+    const rentedBooks = JSON.parse(localStorage.getItem('rented-books'));
 
     const userInitials = `${firstName.slice(0, 1).toUpperCase()}${lastName
       .slice(0, 1)
@@ -26,7 +29,7 @@ class ModalProfile extends Modal {
 
     USER_INFO.forEach((el) => {
       const { title, svg } = el;
-      const count = title === 'visits' ? 23 : title === 'bonuses' ? 1240 : 2;
+      const count = title === 'visits' ? localStorage.getItem('user-visit') : title === 'bonuses' ? 1240 : rentedBooks.length;
 
       this.cardsProfileItem = this.createDomNode(this.cardsProfileItem, 'div', null, this.userInfoWrapper, 'cards-profile__item', 'item');
       this.itemTitle = this.createDomNode(this.itemTitle, 'div', title, this.cardsProfileItem, 'item__title');
@@ -39,9 +42,19 @@ class ModalProfile extends Modal {
     this.rentedBooksTitle = this.createDomNode(this.rentedBooksTitle, 'p', 'Rented books', this.cardsProfileRentedBooks, 'rented-books__title');
     this.rentedBooksList = this.createDomNode(this.rentedBooksList, 'ul', null, this.cardsProfileRentedBooks, 'rented-books__list', 'list');
 
-    RENTED_BOOKS.forEach((el) => {
-      this.rentedBooksListItem = this.createDomNode(this.rentedBooksListItem, 'li', el, this.rentedBooksList, 'list__item');
-    })
+    
+
+    for(let key in data) {
+      data[key].forEach((el) => {
+        if(this.contains(JSON.parse(localStorage.getItem('rented-books')), el.id)) {
+          console.log(el);
+          this.rentedBooksListItem = this.createDomNode(this.rentedBooksListItem, 'li', `${el.title}, ${el.author.slice(3)}`, this.rentedBooksList, 'list__item');
+        }
+      })
+    }
+    // RENTED_BOOKS.forEach((el) => {
+    //   this.rentedBooksListItem = this.createDomNode(this.rentedBooksListItem, 'li', el, this.rentedBooksList, 'list__item');
+    // })
 
     this.cardsProfileCard = this.createDomNode(this.cardsProfileCard, 'div', null, this.modalProfileUserInfo, 'cards-profile__card', 'card');
     this.cardTitle = this.createDomNode(this.cardTitle, 'span', 'Card number', this.cardsProfileCard, 'card__title');
@@ -52,7 +65,9 @@ class ModalProfile extends Modal {
     this.cardNumberCopy.addEventListener('click', () => {
       navigator.clipboard.writeText(this.cardNumber.textContent)
       .then(() => {
-          alert('Text copied to clipboard');
+          setTimeout(() => {
+            alert('Text copied to clipboard');
+          }, 1000)
       })
       .catch(err => {
           console.error('Error in copying text: ', err);
@@ -60,6 +75,10 @@ class ModalProfile extends Modal {
     })
 
     return this.modalProfileWrapper;
+  }
+
+  contains(arr, elem) {
+    return arr.indexOf(elem) !== -1;
   }
 
   renderModal() {

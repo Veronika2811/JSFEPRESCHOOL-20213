@@ -46,16 +46,22 @@
 
 .form__input {
   width: 520px;
-  padding: 21px 20px;
+  padding: 8px 20px;
   background: $color-light;
   border-radius: 10px;
   border: none;
   outline: none;
 
+  @extend %font-additional;
+  @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
+  color: $color-hovered;
+
   &::placeholder {
-    @extend %font-additional;
-    @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
     color: $color-placeholder;
+  }
+
+  &.validate-input {
+    outline: 2px solid red;
   }
 }
 
@@ -86,4 +92,57 @@
   &__text {
     @include font($size: 2rem, $height: 40px, $weight: 400, $letter: 0.4px);
   }
+}
+
+.user-info__list {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 15px 0px 0px;
+}
+
+.user-info__item {
+  gap: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info__list-title,
+.user-info__subtitle {
+  @include font($size: 1rem, $height: 20px, $weight: 400, $letter: 0.2px);
+  text-transform: capitalize;
+}
+
+.library-card__user-info {
+  // display: none;
+}
+
+.form__field {
+  display: flex;
+  position: relative;
+}
+
+.form__field-error {
+  position: absolute;
+  bottom: -20px;
+  display: none;
+  font-size: 10px;
+  line-height: 20px;
+  color: red;
+}
+
+.user-info__svg {
+  line-height: 0px;
+}
+
+.card-info__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+
+  @include media-tablet {
+    justify-content: center;
+  }
+
 }
