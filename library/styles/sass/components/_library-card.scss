@@ -1,109 +1,103 @@
 .library-card {
-  padding-bottom: 41px;
+  padding-bottom: 40px;
   color: $color-additional;
-
-  @include media-tablet {
-    & .title {
-      padding-left: 3px;
-    }
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 600px;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    max-width: 456px;
-    text-align: right;
-  }
 }
 
 .library-card__wrapper {
   @include media-tablet {
     justify-content: center;
-    gap: 22px;
+    gap: 20px;
   }
 }
 
-.card-form {
+.card-search {
+  @include flex();
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+}
+
+.card-search {
   &__title {
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
     text-align: center;
+  }
 
-    @include media-tablet {
-      padding-left: 2px;
-    }
+  &__logo {
+    padding-bottom: 20px;
+    color: $color-additional;
   }
 }
 
 .form {
-  padding: 17px;
+  padding: 15px;
   border: 3px solid $color-hovered;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
-  &__content {
-    padding: 20px 20px 24px;
-    background-color: $color-hovered;
-
-    &__logo {
-      padding-bottom: 20px;
-      color: $color-additional;
-    }
-  }
+.form__content {
+  padding: 20px 20px 25px;
+  background-color: $color-hovered;
 }
 
 .form__fields {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 25px;
 }
 
+.form__field {
+  display: flex;
+  position: relative;
+}
+
+.form__field_error {
+  position: absolute;
+  bottom: -20px;
+  display: none;
+  font-size: 10px;
+  line-height: 20px;
+  color: $color-error;
+}
+
 .form__input {
+  @extend %font-additional;
+  @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
+  padding: 8px 20px;
   width: 520px;
-  padding: 21px 20px;
   background: $color-light;
   border-radius: 10px;
   border: none;
   outline: none;
 
+  color: $color-hovered;
+
   &::placeholder {
-    @extend %font-additional;
-    @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
     color: $color-placeholder;
+  }
+
+  &.validate-input {
+    outline: 2px solid red;
   }
 }
 
 .form__button {
   display: block;
-  padding: 8.9px 39px;
   margin: 20px auto 10px;
-  @include font($size: 2rem, $height: normal, $weight: 700, $letter: 1px);
-  color: $color-primary;
-  background-color: transparent;
-  border: 1px solid $color-primary;
-  border-radius: 2px;
-  transition: background 0.3s;
-
-  &:hover {
-    background-color: $color-hovered;
-    border-color: $color-hovered;
-    cursor: pointer;
-  }
+  font-size: 2rem;
 }
 
 .card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  max-width: 460px;
+  text-align: right;
+
   @include media-tablet {
-    gap: 39px;
+    gap: 40px;
     max-width: 600px;
     text-align: center;
-    padding-left: 2px;
   }
 
   &__title {
@@ -111,17 +105,17 @@
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
   }
 
-  &__text {
+  &__subtitle {
     @include font($size: 2rem, $height: 40px, $weight: 400, $letter: 0.4px);
   }
+}
 
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+.card-info__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
 
-    @include media-tablet {
-      justify-content: center;
-    }
+  @include media-tablet {
+    justify-content: center;
   }
 }

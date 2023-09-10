@@ -1,0 +1,28 @@
+.user-profile {
+  &__icon {
+    @include flex();
+    width: 28px;
+    height: 28px;
+    background-color: $color-light;
+    border-radius: 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include media-tablet {
+      z-index: 2;
+    }
+  }
+
+  &__initials {
+    @include font($size: 1.5rem, $height: normal, $weight: 400);
+    color: $color-hovered;
+  }
+
+  &__drop-menu {
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+  }
+}

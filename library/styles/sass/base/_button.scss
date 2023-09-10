@@ -1,9 +1,6 @@
-.button_small {
-  position: absolute;
-  bottom: 14px;
-  width: 75px;
-  padding: 8px 0px;
+.button {
   @include font($size: 1rem, $height: normal, $weight: 700, $letter: 1px);
+  padding: 10px 25px;
   background-color: transparent;
   border: 1px solid $color-primary;
   border-radius: 2px;
@@ -18,5 +15,10 @@
   &:disabled {
     color: $color-hovered;
     border-color: $color-hovered;
+  }
+
+  &_fixed-width {
+    width: 75px;
+    padding: 8px 0px;
   }
 }
