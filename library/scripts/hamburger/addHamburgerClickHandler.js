@@ -1,17 +1,16 @@
 const hamburger = document.querySelector('.hamburger');
 const headerNavigation = document.querySelector('.header__navigation');
-const maskContent = document.querySelector('.mask-content');
-// const userProfile = document.querySelector('.user-profile');
-const body = document.querySelector('body');
+const maskContent = document.querySelector('.mask');
 
 const toggleMenu = () => {
-  if (window.innerWidth > 1180) return;
+  if (window.innerWidth > 1205) return;
+
+  const body = document.querySelector('body');
 
   hamburger.classList.toggle('open');
   headerNavigation.classList.toggle('open');
   maskContent.classList.toggle('open');
   body.classList.toggle('open');
-  // userProfile.classList.toggle('open');
 };
 
 const addHamburgerClickHandler = () => {
@@ -23,4 +22,4 @@ const addHamburgerClickHandler = () => {
   });
 };
 
-export default addHamburgerClickHandler;
+export {addHamburgerClickHandler, toggleMenu};

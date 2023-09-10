@@ -1,34 +1,27 @@
 .favorites {
   padding-bottom: 60px;
+}
 
-  &__text {
-    padding: 0px 0.5px 32px 0px;
-    margin-top: -0.5px;
-    @include font($size: 2rem, $height: normal, $weight: 700);
-    color: $color-additional;
+.favorites__subtitle {
+  @include font($size: 2rem, $height: normal, $weight: 700);
+  color: $color-additional;
+}
+
+.favorites__controls {
+  display: flex;
+  gap: 90px;
+  white-space: nowrap;
+  background: $color-light;
+  padding: 40px 0px;
+
+  @include media-tablet {
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
 
-  &__controls {
-    display: flex;
-    gap: 91px;
-    padding-bottom: 32px;
-
-    @include media-mobile {
-      text-wrap: nowrap;
-      gap: 30px;
-    }
-  }
-
-  &__cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding-right: 40px;
-
-    @include media-tablet {
-      justify-content: center;
-    }
+  @include media-mobile {
+    gap: 30px;
   }
 }
 
@@ -66,12 +59,47 @@
   &:checked + label span {
     font-weight: 700;
   }
+
+  &:checked + label {
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
-.favorites {
-  &__spring,
-  &__summer,
-  &__autumn {
-    display: none;
+.favorites__books {
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-right: 40px;
+
+  @include media-tablet {
+    justify-content: center;
+  }
+}
+
+.transition-damping {
+  opacity: 1;
+  animation: damping 0.3s ease-out;
+}
+
+.transition-appearance {
+  opacity: 1;
+  animation: appearance 0.3s ease-in;
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes damping {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

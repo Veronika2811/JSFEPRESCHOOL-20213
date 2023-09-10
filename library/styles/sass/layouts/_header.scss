@@ -1,41 +1,40 @@
 .header {
+  padding: 20px 0px;
   background-color: $color-primary;
-  position: relative;
+}
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 20px 0px;
+.header__wrapper {
+  @include flex($justify: flex-start);
+  gap: 40px;
+}
 
-    @include media-tablet {
-      padding: 20px;
-    }
+.header__navigation {
+  margin-left: auto;
+
+  @include media-tablet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 330px;
+    height: 100vh;
+    padding: 15px;
+    background: $color-additional;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
   }
 
-  &__user-profile {
-    @include media-tablet {
-      margin-left: auto;
-      z-index: 2;
-    }
+  &.open {
+    background-color: $color-additional;
+    transform: translateX(0);
   }
 }
 
-.user-profile {
-  width: 28px;
-  height: 28px;
-  background-image: url('../images/svg/icon_profile.svg');
-  // transition: filter 0.3s;
-  transition: all 1s ease-in-out;
+.header__user-profile {
+  @include flex($justify: flex-end);
+  position: relative;
 
-  &:hover {
-    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg)
-      brightness(96%) contrast(89%);
-    cursor: pointer;
+  @include media-tablet {
+    margin-left: auto;
   }
-
-  // &.open {
-  //   margin-right: -7px;
-  //   transition: all 1s ease-in-out;
-  // }
 }

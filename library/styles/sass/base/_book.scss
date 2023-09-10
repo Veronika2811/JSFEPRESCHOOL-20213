@@ -1,0 +1,61 @@
+.book {
+  position: relative;
+  width: 550px;
+  min-height: 555px;
+  color: $color-additional;
+  border: 1px solid $color-additional;
+}
+
+.book__content {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  padding: 15px 0px 15px 15px;
+  width: 385px;
+  height: 100%;
+}
+
+.book__category {
+  @extend %font-additional;
+  @include font($size: 2rem, $height: 4rem, $weight: 400, $letter: 2px);
+  position: relative;
+  margin-bottom: 20px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: $color-hovered;
+  }
+}
+
+.book__title {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.book__author {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 700, $letter: 2px);
+  padding-bottom: 20px;
+}
+
+.book__description {
+  @include font($size: 1.5rem, $height: 4rem, $weight: 400, $letter: 2px);
+  padding-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.book__button {
+  margin-top: auto;
+}
+
+.book__cover {
+  position: absolute;
+  right: -40px;
+  bottom: 0;
+}

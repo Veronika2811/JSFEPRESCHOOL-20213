@@ -1,65 +1,55 @@
 .about {
-  padding: 20px 0 55px;
+  padding: 20px 0 45px;
+}
 
-  &__text {
-    padding-bottom: 20px;
-    color: $color-additional;
-    text-align: center;
-  }
+.about__subtitle {
+  padding-bottom: 20px;
+  color: $color-additional;
+  line-height: 40px;
+  text-align: center;
+}
 
-  &__slider {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding-bottom: 35px;
+.swiper {
+  position: relative;
+  padding-bottom: 55px;
+  max-width: 1400px;
 
-    & img {
-      width: adaptiv-value(450, 1440);
-    }
-
-    @include media-tablet {
-      flex-wrap: wrap;
-      padding-bottom: 20px;
-
-      & img {
-        width: 450px;
-      }
-
-      & img:nth-child(n + 2) {
-        display: none;
-      }
-    }
-  }
-
-  &__controls {
-    display: flex;
-    justify-content: center;
-    color: $color-additional;
-
-    & label:nth-child(n + 8) {
-      display: none;
-
-      @include media-tablet {
-        display: block;
-      }
-    }
+  & .swiper__image {
+    max-width: 100%;
   }
 }
 
-.about__control {
+.swiper-button-next,
+.swiper-button-prev {
   display: none;
+  width: calc(var(--swiper-navigation-size) / 44 * 115);
+  color: $color-additional;
+  transition: color 0.3s;
 
-  & + label {
-    padding: 5px;
-    transition: all 1s;
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.3);
-    }
+  @media (max-width: 768px) {
+    display: flex;
   }
 
-  & + label::before {
+  &:hover {
+    color: $color-hovered;
+  }
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 15px;
+}
+
+.swiper-slide,
+.swiper-pagination {
+  @include flex();
+}
+
+.pagination__bullet {
+  padding: 5px;
+  transition: transform 0.5s;
+
+  &::before {
     content: '';
     display: block;
     width: 16px;
@@ -68,30 +58,12 @@
     border-radius: 50%;
   }
 
-  &:checked + label::before {
+  &_active::before {
     background-color: $color-hovered;
   }
-}
 
-.slides {
-  @include media-tablet {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 58px;
-  }
-}
-
-.arrow {
-  display: none;
-  transition: filter 0.3s;
-
-  @include media-tablet {
-    display: block;
-  }
-
-  &:hover {
+  &:not(.pagination__bullet_active):hover {
+    transform: scale(1.3);
     cursor: pointer;
-    filter: invert(59%) sepia(31%) saturate(539%) hue-rotate(355deg) brightness(96%) contrast(89%);
   }
 }

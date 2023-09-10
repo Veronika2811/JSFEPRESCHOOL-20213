@@ -3,15 +3,18 @@
 // Abstract
 @import 'abstract/constants';
 @import 'abstract/mixins';
-@import 'abstract/function';
 @import 'abstract/placeholders';
 
 // Base
 @import 'base/base';
-@import 'base/logo';
+@import 'base/library-logo';
+@import 'base/user-profile';
 @import 'base/hamburger';
-@import 'base/card';
-@import 'base/button-small';
+@import 'base/mask';
+@import 'base/book';
+@import 'base/button';
+@import 'base/modal';
+@import 'base/form-item';
 
 // Layouts
 @import 'layouts/wrapper';
@@ -21,9 +24,14 @@
 
 // Components
 @import 'components/navigation';
+@import 'components/drop-menu';
 @import 'components/welcome';
 @import 'components/about';
 @import 'components/favorites';
-@import 'components/coffe-shop';
+@import 'components/coffee-shop';
 @import 'components/contacts';
 @import 'components/library-card';
+@import 'components/user-statistics';
+@import 'components/modal-register';
+@import 'components/modal-library-card';
+@import 'components/modal-profile';

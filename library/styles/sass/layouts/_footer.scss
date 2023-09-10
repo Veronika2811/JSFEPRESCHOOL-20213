@@ -1,34 +1,28 @@
 .footer {
-  padding: 19.5px 20px 44px 20px;
+  padding: 20px 0px 40px;
   margin: auto;
-  background-color: $color-primary;
   color: $color-light;
+  background-color: $color-primary;
+}
 
-  @include media-tablet {
-    padding: 19.5px 19px 44px 19px;
-  }
+.footer__link {
+  color: $color-light;
+  text-decoration: none;
+  transition: color 0.3s;
 
-  &__link {
-    color: $color-light;
-    text-decoration: none;
+  &:hover {
+    color: $color-hovered;
   }
 }
 
-.footer__wrapper {
-  @include media-tablet {
-    padding: 0px;
-  }
-}
-
-.address {
+.library-address {
   @include font($size: 1.5rem, $height: 2rem, $weight: 400);
-  padding-bottom: 18px;
+  padding-bottom: 20px;
 }
 
 .social-networks {
   display: flex;
   gap: 15px;
-  padding-left: 1px;
 }
 
 .ico {
@@ -60,12 +54,6 @@
   flex-direction: column;
   gap: 10px;
 
-  &__items {
-    &:last-child {
-      padding-right: 1px;
-    }
-  }
-
   &__item {
     @include font($size: 1.5rem, $height: 2rem, $weight: 400);
     text-align: right;
@@ -73,34 +61,18 @@
 }
 
 .footer__line {
-  margin: 30px 0px 45px;
-  border-width: 0;
   height: 1px;
+  margin: 30px 0px 45px;
   background: $color-light;
+  border-width: 0;
 }
 
-.footer__text {
+.footer__year,
+.footer__link {
   @include font($size: 2rem, $height: 2rem, $weight: 400, $letter: 2px);
   color: $color-light;
-  text-decoration: none;
-}
-
-.link__rs {
-  padding-left: 143px;
-
-  @include media-tablet {
-    padding-left: 88px;
-  }
-
-  @include media-mobile {
-    padding-left: 0px;
-  }
 }
 
 .footer__link {
-  transition: color 0.3s;
-
-  &:hover {
-    color: $color-hovered;
-  }
+  text-decoration: none;
 }
