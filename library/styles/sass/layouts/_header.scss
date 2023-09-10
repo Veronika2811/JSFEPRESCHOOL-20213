@@ -8,38 +8,33 @@
   gap: 40px;
 }
 
-.header__user-profile {
-  position: relative;
-  @include flex($justify: flex-end);
-  // width: 28px;
-  // height: 28px;
-  // background-color: $color-light;
-  // border-radius: 50%;
-  // transition: filter 0.3s;
+.header__navigation {
+  margin-left: auto;
 
   @include media-tablet {
-    // z-index: 2;
-    margin-left: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 330px;
+    height: 100vh;
+    padding: 15px;
+    background: $color-additional;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
   }
 
-  // &:hover {
-  //   cursor: pointer;
-  // }
+  &.open {
+    background-color: $color-additional;
+    transform: translateX(0);
+  }
 }
 
-.user_icon {
-  @include flex();
-  background-color: $color-light;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
+.header__user-profile {
+  @include flex($justify: flex-end);
+  position: relative;
 
   @include media-tablet {
-    z-index: 2;
-    // margin-left: auto;
-  }
-
-  &:hover {
-    cursor: pointer;
+    margin-left: auto;
   }
 }

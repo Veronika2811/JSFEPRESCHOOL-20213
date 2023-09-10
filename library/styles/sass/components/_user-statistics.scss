@@ -1,0 +1,41 @@
+.user-statistics {
+  display: flex;
+}
+
+.modal__user-statistics {
+  gap: 20px;
+}
+
+.card__user-statistics {
+  justify-content: center;
+  gap: 35px;
+  padding-top: 15px;
+}
+
+.modal__user-statistics_indent,
+.card__user-statistics_indent {
+  @include flex();
+  flex-direction: column;
+}
+
+.modal__user-statistics_indent {
+  gap: 10px;
+}
+
+.card__user-statistics_indent {
+  gap: 1px;
+}
+
+.user-statistics__title_big-font {
+  @include font($size: 2rem, $height: 2rem, $weight: 400, $letter: 0.4px);
+  text-transform: capitalize;
+}
+
+.user-statistics__title_small-font {
+  @include font($size: 1rem, $height: 2rem, $weight: 400, $letter: 0.2px);
+  text-transform: capitalize;
+}
+
+.user-statistics__count {
+  @include font($size: 1rem, $height: 20px, $weight: 400, $letter: 0.2px);
+}

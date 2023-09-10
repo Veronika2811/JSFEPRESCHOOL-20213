@@ -1,5 +1,6 @@
-import data from './data.js';
 import Book from './Book.js';
+
+import books from './books.js';
 
 const getBooksWrapper = () => {
   const booksContainer = document.querySelector('.favorites__books');
@@ -9,8 +10,7 @@ const getBooksWrapper = () => {
 
 const generateBooks = (currentSeason) => {
   const favoritesCards = getBooksWrapper();
-
-  data[currentSeason].forEach((el) =>
+  books[currentSeason].forEach((el) =>
     favoritesCards.append(new Book(el).generateBook())
   );
 };
@@ -18,22 +18,12 @@ const generateBooks = (currentSeason) => {
 const addControlsFavoritesClickHandler = () => {
   const season = document.querySelector('.season');
   const inputChecked = season.querySelector('input').value;
-
   generateBooks(inputChecked);
 
-
   season.addEventListener('click', (e) => {
-    // console.log(e.target.classList.contains('season__control'))
-    // console.log(e.target.checked)
-    // const checkedInut = [...document.querySelectorAll('.season__control')];
-    // checkedInut.forEach((el) => el.classList.remove('books_active'))
-    // e.target.classList.add('books_active');
-
     const booksContainer = document.querySelector('.favorites__books');
 
     if (e.target.classList.contains('season__control')) {
-      // if (e.target.value === checkedInut.value) return;
-
       booksContainer.classList.add('transition-damping');
 
       booksContainer.addEventListener('animationend', (animationEvent) => {

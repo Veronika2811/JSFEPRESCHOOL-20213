@@ -16,4 +16,9 @@
     color: $color-hovered;
     border-color: $color-hovered;
   }
+
+  &_fixed-width {
+    width: 75px;
+    padding: 8px 0px;
+  }
 }

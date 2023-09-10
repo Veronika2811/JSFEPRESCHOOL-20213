@@ -14,7 +14,7 @@
   <body>
     <header class="header">
       <div class="wrapper header__wrapper">
-        <h1 class="logo">Brooklyn Public Library</h1>
+        <h1 class="library-logo">Brooklyn Public Library</h1>
         <nav class="header__navigation">
           <ul class="navigation">
             <li>
@@ -34,15 +34,14 @@
             </li>
           </ul>
         </nav>
-        <div class="header__user-profile">
-          <div class="user_icon"></div>
-          <div class="menu-profile"></div>
+        <div class="header__user-profile user-profile">
+          <div class="user-profile__icon"></div>
+          <div class="user-profile__drop-menu drop-menu"></div>
         </div>
         <div class="header__hamburger hamburger">
           <span class="hamburger__line"></span>
         </div>
-        <div class="mask-content"></div>
-        <!-- <div class="menu-profile__mask"></div> -->
+        <div class="mask"></div>
       </div>
     </header>
     <main>
@@ -58,28 +57,28 @@
       <section class="about" id="about">
         <div class="wrapper">
           <h2 class="title">About</h2>
-          <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-          <div class="swiper mySwiper">
+          <p class="about__subtitle">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+          <div class="about__swiper swiper">
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img class="about__image" src="./images/jpg/about/1.jpg" alt="image">
+                <img class="swiper__image" src="./images/jpg/about/1.jpg" alt="image">
               </div>
               <div class="swiper-slide">
-                <img class="about__image" src="./images/jpg/about/2.jpg" alt="image">
+                <img class="swiper__image" src="./images/jpg/about/2.jpg" alt="image">
               </div>
               <div class="swiper-slide">
-                <img class="about__image" src="./images/jpg/about/3.jpg" alt="image">
+                <img class="swiper__image" src="./images/jpg/about/3.jpg" alt="image">
               </div>
               <div class="swiper-slide">
-                <img class="about__image" src="./images/jpg/about/4.jpg" alt="image">
+                <img class="swiper__image" src="./images/jpg/about/4.jpg" alt="image">
               </div>
               <div class="swiper-slide">
-                <img class="about__image" src="./images/jpg/about/5.jpg" alt="image">
+                <img class="swiper__image" src="./images/jpg/about/5.jpg" alt="image">
               </div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination pagination"></div>
           </div>
         </div>
       </section>
@@ -100,16 +99,16 @@
           <div class="layout-column favorites__books"></div>
         </div>
       </section>
-      <section class="coffe-shop" id="coffee-shop">
+      <section class="coffee-shop" id="coffee-shop">
         <div class="wrapper">
           <h2 class="title">Coffee Shop</h2>
-          <p class="coffe-shop__text">
+          <p class="coffee-shop__subtitle">
             In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.
             You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you can try desserts
             from bakery.
           </p>
           <div class="layout-column menu">
-            <div class="menu__drinkables drinkables">
+            <div class="menu__drinkables">
               <h3 class="menu__title">Coffee & Tea</h3>
               <div class="menu__item">
                 <span class="menu__item-name">Cold Brew Coffee</span>
@@ -142,7 +141,7 @@
                 <span class="menu__item-price">$2</span>
               </div>
             </div>
-            <div class="menu__sweets sweets">
+            <div class="menu__sweets">
               <h3 class="menu__title">Desserts & Cakes</h3>
               <div class="menu__item">
                 <span class="menu__item-name">Forest Gateau</span>
@@ -223,91 +222,7 @@
       <section class="library-card" id="library-card">
         <div class="wrapper">
           <h2 class="title">Digital Library Cards</h2>
-          <div class="layout-column library-card__wrapper">
-            <!-- <div class="library-card__form card-form">
-              <h3 class="card-form__title">Find your Library card</h3>
-              <form class="form" id="form-library-card">
-                <div class="form__content">
-                  <p class="form__logo logo">Brooklyn Public Library</p>
-                  <div class="form__fields">
-                    <div class="form__field">
-                      <input type="text" name="readers-name" autocomplete="off" placeholder="Reader's name" class="form__input">
-                      <span class="form__field-error">Enter a valid first and last name</span>
-                    </div>
-                    <div class="form__field">
-                      <input type="text" name="readers-card" autocomplete="off" placeholder="Card number" class="form__input">
-                      <span class="form__field-error">Enter a valid card</span>
-                    </div>
-                  </div>
-                </div>
-                <input type="submit" class="button form__button" value="Check the card">
-                <div class="library-card__user-info user-info__list">
-                  <div class="user-info__item">
-                    <p class="user-info__list-title">visits</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"></path>
-                    </svg>
-                    <p class="user-info__subtitle">23</p>
-                  </div>
-                  <div class="user-info__item">
-                    <p class="user-info__list-title">bonuses</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                      <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"></path>
-                    </svg>
-                    <p class="user-info__subtitle">1240</p>
-                  </div>
-                  <div class="user-info__item">
-                    <p class="user-info__list-title">books</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                      <rect width="20" height="21" fill="#BB945F"></rect>
-                      <rect x="2" width="1" height="19" fill="#826844"></rect>
-                      <rect x="1" width="1" height="21" fill="white"></rect>
-                    </svg>
-                    <p class="user-info__subtitle">2</p>
-                  </div>
-                </div>
-
-                <div class="user-info__wrapper cards-profile">
-                  <div class="cards-profile__item item">
-                    <div class="item__title">visits</div>
-                    <div class="item__svg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"></path>
-                      </svg>
-                    </div>
-                    <p class="item__count">23</p>
-                  </div>
-                  <div class="cards-profile__item item">
-                    <div class="item__title">bonuses</div>
-                    <div class="item__svg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                        <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"></path>
-                      </svg>
-                    </div>
-                    <p class="item__count">1240</p>
-                  </div>
-                  <div class="cards-profile__item item">
-                    <div class="item__title">books</div>
-                    <div class="item__svg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                        <rect width="20" height="21" fill="#BB945F"></rect>
-                        <rect x="2" width="1" height="19" fill="#826844"></rect>
-                        <rect x="1" width="1" height="21" fill="white"></rect>
-                      </svg>
-                    </div><p class="item__count">2</p></div></div>
-              </form>
-            </div>
-            <div class="library-card__info card-info">
-              <h3 class="card-info__title">Get a reader card</h3>
-              <p class="card-info__text">
-                You will be able to see a reader card after logging into account or you can register a new account
-              </p>
-              <div class="card-info__buttons">
-                <button type="button" class="button button__sign-up">Sign Up</button>
-                <button type="button" class="button button__login">Log in</button>
-              </div>
-            </div> -->
-          </div>
+          <div class="layout-column library-card__wrapper"></div>
         </div>
       </section>
     </main>

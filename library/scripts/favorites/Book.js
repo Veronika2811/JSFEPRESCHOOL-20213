@@ -1,7 +1,14 @@
-import Element from '../Element.js';
-import modalController from '../userProfile/modalController.js';
-import ModalLibraryCard from '../modal/ModalLibraryCard.js';
-import LibraryCards from '../digitaLibraryCard/LibraryCards.js';
+import Element from '../utils/Element.js';
+import ModalLibraryCard from '../libraryCard/ModalLibraryCard.js';
+import UserStatistics from '../libraryCard/UserStatistics.js';
+
+import {
+  getLocalStorage,
+  setLocalStorage,
+} from '../utils/actionsWithLocalStorage.js';
+import searchElem from '../utils/searchElem.js';
+import profileMenuController from '../utils/profileMenuController.js';
+
 class Book extends Element {
   constructor({id, title, author, description, button, img}) {
     super();
@@ -15,103 +22,114 @@ class Book extends Element {
   }
 
   generateBook() {
-    const rentedBooks = JSON.parse(localStorage.getItem('rented-books'));
+    const [userRentedBooks, userAuth] = getLocalStorage([
+      'user-rentedBooks',
+      'user-auth',
+    ]);
 
-    this.card = this.createDomNode(this.card, 'div', null, null, 'favorites__book', 'book');
-    this.cardContent = this.createDomNode(
-      this.cardContent,
+    this.book = this.createDomNode(this.book, 'div', null, null, 'book');
+
+    this.bookContent = this.createDomNode(
+      this.bookContent,
       'div',
       null,
-      this.card,
+      this.book,
       'book__content'
     );
 
-    this.cardTitle = this.createDomNode(
-      this.cardTitle,
+    this.bookCategory = this.createDomNode(
+      this.bookCategory,
       'p',
       'Staff Picks',
-      this.cardContent,
-      'card__category'
-    );
-    this.cardBookTitle = this.createDomNode(
-      this.cardBookTitle,
-      'h3',
-      this.title,
-      this.cardContent,
-      'book__title'
+      this.bookContent,
+      'book__category'
     );
 
-    this.cardBookAuthor = this.createDomNode(
-      this.cardBookAuthor,
+    this.bookTitle = this.createDomNode(
+      this.bookTitle,
+      'h3',
+      this.title,
+      this.bookContent,
+      'book__title'
+    );
+    this.bookAuthor = this.createDomNode(
+      this.bookAuthor,
       'h3',
       this.author,
-      this.cardContent,
+      this.bookContent,
       'book__author'
     );
-    this.cardBookDescription = this.createDomNode(
-      this.cardBookDescription,
+
+    this.bookDescription = this.createDomNode(
+      this.bookDescription,
       'p',
       this.description,
-      this.cardContent,
+      this.bookContent,
       'book__description'
     );
-    this.bookButton = this.createDomNode(
+
+    this.bookButtonWrapper = this.createDomNode(
       this.bookButton,
       'div',
       null,
-      this.cardContent,
+      this.bookContent,
       'book__button'
     );
-    this.buttonNode = this.createDomNodeButton(
-      this.buttonNode,
-      null,
-      localStorage.getItem('user-auth') ? this.contains(rentedBooks, this.id) : false,
+
+    this.bookButton = this.createDomNodeButton(
       this.bookButton,
+      null,
+      userAuth ? searchElem(userRentedBooks, this.id) : false,
+      this.bookButtonWrapper,
       'button'
     );
 
-    this.image = this.createDomNodeImage(
-      this.image,
+    this.bookCover = this.createDomNodeImage(
+      this.bookCover,
       this.img,
-      this.card,
-      'book__image'
+      this.book,
+      'book__cover'
     );
 
-    this.buttonNode.addEventListener('click', () => {
-      if(!!localStorage.getItem('user-auth')) {
-        if(!localStorage.getItem('user-subscription')) {
-          const modal = new ModalLibraryCard('modal-card');
+    this.bindEvents();
+
+    return this.book;
+  }
+
+  bindEvents() {
+    this.bookButton.addEventListener('click', () => {
+      const [userAuth, userSubscription, userRentedBooks] = getLocalStorage([
+        'user-auth',
+        'user-subscription',
+        'user-rentedBooks',
+      ]);
+
+      if (!!userAuth) {
+        if (!userSubscription) {
+          const modal = new ModalLibraryCard(this.id, 'modal-card');
           modal.renderModal();
         } else {
-          let books = localStorage.getItem('user-books');
-          const rentedBooks = JSON.parse(localStorage.getItem('rented-books'));
+          this.bookButton.disabled = 'true';
+          this.bookButton.textContent = 'Own';
 
-          this.buttonNode.disabled = 'true';
-          this.buttonNode.textContent = 'Own';
+          if (!searchElem(userRentedBooks, this.id)) {
+            setLocalStorage([
+              'user-rentedBooks',
+              JSON.stringify([...userRentedBooks, this.id]),
+            ]);
 
-          if(!this.contains(rentedBooks, this.id)) {
-            localStorage.setItem('rented-books', JSON.stringify([...rentedBooks, this.id]));
-            localStorage.setItem('user-books', ++books);
-
-            const wrapper = document.querySelector('.form-submit__wrapper')
+            const wrapper = document.querySelector('.form__details');
             wrapper.innerHTML = '';
 
-            const info = new LibraryCards().generateUserInfo()
-
-            wrapper.append(info);
+            const content = new UserStatistics().generateStatistics();
+            wrapper.append(content);
           }
         }
       } else {
-        modalController('Log In')
+        profileMenuController('Log In');
       }
-    })
-
-    return this.card;
+    });
   }
-
-  contains(arr, elem) {
-    return arr.indexOf(elem) !== -1;
- }
 }
 
 export default Book;

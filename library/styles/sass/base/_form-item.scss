@@ -1,0 +1,35 @@
+.form-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+
+  &__title {
+    @include font($size: 1.5rem, $height: 20px, $weight: 400, $letter: 0.3px);
+  }
+
+  &__input {
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid $color-hovered;
+
+    &.error {
+      border-color: $color-error;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: 5px;
+    display: none;
+    font-size: 7px;
+    color: $color-error;
+  }
+}

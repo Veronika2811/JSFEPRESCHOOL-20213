@@ -7,16 +7,14 @@
 
 // Base
 @import 'base/base';
-@import 'base/logo';
+@import 'base/library-logo';
+@import 'base/user-profile';
 @import 'base/hamburger';
 @import 'base/mask';
 @import 'base/book';
 @import 'base/button';
-@import 'base/modal/modal';
-@import 'base/modal/modal-profile';
-@import 'base/modal/modal-register';
-@import 'base/modal/modal-library-card';
-@import 'base/modal/menu-profile';
+@import 'base/modal';
+@import 'base/form-item';
 
 // Layouts
 @import 'layouts/wrapper';
@@ -26,10 +24,14 @@
 
 // Components
 @import 'components/navigation';
+@import 'components/drop-menu';
 @import 'components/welcome';
 @import 'components/about';
 @import 'components/favorites';
-@import 'components/coffe-shop';
+@import 'components/coffee-shop';
 @import 'components/contacts';
 @import 'components/library-card';
-// @import 'components/drop-menu';
+@import 'components/user-statistics';
+@import 'components/modal-register';
+@import 'components/modal-library-card';
+@import 'components/modal-profile';

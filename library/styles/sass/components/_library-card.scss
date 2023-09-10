@@ -10,27 +10,29 @@
   }
 }
 
-.library-card__form {
+.card-search {
   @include flex();
   flex-direction: column;
   gap: 30px;
   max-width: 600px;
 }
 
-.card-form__title {
-  @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
-  text-align: center;
+.card-search {
+  &__title {
+    @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
+    text-align: center;
+  }
+
+  &__logo {
+    padding-bottom: 20px;
+    color: $color-additional;
+  }
 }
 
 .form {
   padding: 15px;
   border: 3px solid $color-hovered;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-  &__logo {
-    padding-bottom: 20px;
-    color: $color-additional;
-  }
 }
 
 .form__content {
@@ -44,16 +46,30 @@
   gap: 25px;
 }
 
+.form__field {
+  display: flex;
+  position: relative;
+}
+
+.form__field_error {
+  position: absolute;
+  bottom: -20px;
+  display: none;
+  font-size: 10px;
+  line-height: 20px;
+  color: $color-error;
+}
+
 .form__input {
-  width: 520px;
+  @extend %font-additional;
+  @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
   padding: 8px 20px;
+  width: 520px;
   background: $color-light;
   border-radius: 10px;
   border: none;
   outline: none;
 
-  @extend %font-additional;
-  @include font($size: 3rem, $height: 50px, $weight: 400, $letter: 0.6px);
   color: $color-hovered;
 
   &::placeholder {
@@ -89,51 +105,9 @@
     @include font($size: 3rem, $height: normal, $weight: 400, $letter: 0.6px);
   }
 
-  &__text {
+  &__subtitle {
     @include font($size: 2rem, $height: 40px, $weight: 400, $letter: 0.4px);
   }
-}
-
-.user-info__list {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  padding: 15px 0px 0px;
-}
-
-.user-info__item {
-  gap: 1px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.user-info__list-title,
-.user-info__subtitle {
-  @include font($size: 1rem, $height: 20px, $weight: 400, $letter: 0.2px);
-  text-transform: capitalize;
-}
-
-.library-card__user-info {
-  // display: none;
-}
-
-.form__field {
-  display: flex;
-  position: relative;
-}
-
-.form__field-error {
-  position: absolute;
-  bottom: -20px;
-  display: none;
-  font-size: 10px;
-  line-height: 20px;
-  color: red;
-}
-
-.user-info__svg {
-  line-height: 0px;
 }
 
 .card-info__buttons {
@@ -144,5 +118,4 @@
   @include media-tablet {
     justify-content: center;
   }
-
 }

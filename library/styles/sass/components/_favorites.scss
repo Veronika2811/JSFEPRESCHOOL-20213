@@ -4,7 +4,6 @@
 
 .favorites__subtitle {
   @include font($size: 2rem, $height: normal, $weight: 700);
-  padding-bottom: 30px;
   color: $color-additional;
 }
 
@@ -13,18 +12,13 @@
   gap: 90px;
   white-space: nowrap;
   background: $color-light;
+  padding: 40px 0px;
 
   @include media-tablet {
     position: sticky;
     top: 0;
     z-index: 2;
   }
-
-  // @media (max-width: 768px) {
-  //   position: sticky;
-  //   top: 0;
-  //   z-index: 2;
-  // }
 
   @include media-mobile {
     gap: 30px;
@@ -65,34 +59,31 @@
   &:checked + label span {
     font-weight: 700;
   }
+
+  &:checked + label {
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
 .favorites__books {
   flex-wrap: wrap;
   gap: 40px;
-  padding: 35px 40px 0px 0px;
+  padding-right: 40px;
 
   @include media-tablet {
     justify-content: center;
   }
 }
 
-.favorites__book {
-  @include flex($align: initial, $justify: flex-start);
-}
-
-.book__button {
-  margin-top: auto;
-}
-
 .transition-damping {
   opacity: 1;
-  animation: damping 0.2s ease-out;
+  animation: damping 0.3s ease-out;
 }
 
 .transition-appearance {
   opacity: 1;
-  animation: appearance 0.2s ease-in;
+  animation: appearance 0.3s ease-in;
 }
 
 @keyframes appearance {

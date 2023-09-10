@@ -1,0 +1,47 @@
+.modal-card {
+  width: 640px;
+}
+
+.modal-card__title {
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 20px, $weight: 400, $letter: 0.8px);
+  padding: 20px 0px;
+  background-color: $color-primary;
+  color: $color-light;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.modal-card__content {
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 30px 40px 40px 35px;
+  gap: 40px;
+}
+
+.modal-card__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item__wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-card__footer {
+  display: flex;
+  align-items: flex-end;
+  gap: 27px;
+  padding-top: 7px;
+}
+
+.modal-footer__count {
+  @include font($size: 2rem, $height: 20px, $weight: 700, $letter: 2px);
+  text-transform: uppercase;
+}
+
+.modal-card__description {
+  @include font($size: 1.5rem, $height: 20px, $weight: 400, $letter: 2px);
+  color: $color-placeholder;
+}

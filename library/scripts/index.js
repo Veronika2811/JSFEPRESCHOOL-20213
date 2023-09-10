@@ -1,34 +1,15 @@
-import {addHamburgerClickHandler} from './addHamburgerClickHandler.js';
+import {addHamburgerClickHandler} from './hamburger/addHamburgerClickHandler.js';
+import addLimitedCarousel from './about/addLimitedCarousel.js';
+import loadUserInfo from './loadUserInfo/loadUserInfo.js';
+import {addProfileMenuClickHandler} from './userProfile/addProfileMenuClickHandler.js';
 import addControlsFavoritesClickHandler from './favorites/addControlsFavoritesClickHandler.js';
-import addLibraryFormClickHandler from './libraryForm/addLibraryFormClickHandler.js';
-import {addUserProfileClickHandler} from './userProfile/addUserProfileClickHandler.js';
-import addAboutSlider from './about/addAboutSlider.js';
-import addRegisterClickHandler from './addRegisterClickHandler.js';
-import {loadUserInfo} from './userProfile/loadUserInfo.js';
-import performanceAppraisal from './performanceAppraisal.js';
-import userCardVerification from './digitaLibraryCard/userCardVerification.js';
+import showPerformanceEvaluation from './utils/showPerformanceEvaluation.js';
 
 window.onload = () => {
-  // Hamburger
   addHamburgerClickHandler();
-
-  // About Slider
-  addAboutSlider();
-
-  // Favorites
-  // addControlsFavoritesClickHandler();
-  // addLibraryFormClickHandler();
-
-  // User
+  addLimitedCarousel();
   loadUserInfo();
-  addUserProfileClickHandler();
-
-  // Register buttons
-  // addRegisterClickHandler();
-
-  // userCardVerification
-  // userCardVerification();
-
-  // Оценка работы
-  performanceAppraisal();
+  addProfileMenuClickHandler();
+  addControlsFavoritesClickHandler();
+  showPerformanceEvaluation();
 };

@@ -1,0 +1,89 @@
+.modal-profile {
+  width: 600px;
+}
+
+.modal-profile__wrapper {
+  display: grid;
+  grid-template-columns: 170px auto;
+}
+
+.modal-profile__user {
+  @include flex();
+  flex-direction: column;
+  gap: 15px;
+  background-color: $color-primary;
+}
+
+.user__avator {
+  @include flex();
+  width: 80px;
+  height: 80px;
+  color: $color-hovered;
+  background-color: $color-light;
+}
+
+.user__name {
+  @include flex();
+  padding: 5px;
+  width: 120px;
+  background-color: $color-light;
+  @include font($size: 2rem, $height: 20px, $weight: 400, $letter: 0px);
+  text-align: center;
+}
+
+.modal-profile__content {
+  padding: 40px 20px;
+}
+
+.profile__title {
+  @extend %font-additional;
+  @include font($size: 4rem, $height: 20px, $weight: 400, $letter: 0.8px);
+  padding-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.rented-books {
+  padding: 20px 0px 30px;
+}
+
+.rented-books__title {
+  @include font($size: 2.5rem, $height: 20px, $weight: 400);
+  padding-bottom: 30px;
+}
+
+.rented-books__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 30px;
+  list-style: disc;
+  height: 60px;
+  overflow: auto;
+}
+
+.list__item {
+  @include font($size: 2rem, $height: 20px, $weight: 400, $letter: 2px);
+  text-transform: capitalize;
+}
+
+.profile__card {
+  @include flex($justify: flex-start);
+  gap: 15px;
+}
+
+.card__title,
+.card__number {
+  @include font($size: 2rem, $height: 20px, $weight: 400);
+}
+
+.card__number {
+  color: $color-hovered;
+}
+
+.card__svg {
+  &:hover {
+    filter: invert(58%) sepia(49%) saturate(347%) hue-rotate(355deg)
+      brightness(94%) contrast(92%);
+    cursor: pointer;
+  }
+}
