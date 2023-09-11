@@ -55,7 +55,7 @@ class ModalLibraryCard extends Modal {
         'div',
         null,
         this.modalCardForm,
-        'form-item',
+        'form-item'
       );
 
       this.formItemTitle = this.createDomNode(
@@ -98,7 +98,7 @@ class ModalLibraryCard extends Modal {
           'form-item__input'
         );
 
-        if(item === 'cvc') this.formItem.style.paddingBottom = '20px';
+        if (item === 'cvc') this.formItem.style.paddingBottom = '20px';
 
         if (el.hasOwnProperty('width'))
           this.cardFormInput.style.width = el.width;
@@ -116,9 +116,12 @@ class ModalLibraryCard extends Modal {
         this.cardFormInput.addEventListener('input', (e) => {
           infoBuy[e.target.name] = e.target.value;
           const values = Object.values(infoBuy);
-          values.some((el) => !el)
-            ? (this.modalCardFormButton.disabled = true)
-            : (this.modalCardFormButton.disabled = false);
+          if (values.some((el) => !el)) {
+            this.modalCardFormButton.textContent = 'Buy';
+            this.modalCardFormButton.disabled = true;
+          } else {
+            this.modalCardFormButton.disabled = false;
+          }
         });
       });
     });
