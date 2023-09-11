@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./images/music.ico">
-  <title>Audio-player</title>
-  <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
-  <img class="background" src="./images/jpg/5utra-iskorki.jpg">
-  <audio class="song" src="./audio/5UTRA_-Iskorki_(musmore.com).mp3"></audio>
-  <div class="player">
-    <div class="player__wrapper">
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <title>Audio-player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
+    <img class="background" src="./images/jpg/5utra-iskorki.jpg">
+    <audio class="song" src="./audio/5UTRA_-Iskorki_(musmore.com).mp3"></audio>
+    <div class="audio-player">
+      <div class="audio-player__wrapper">
+        <div class="audio-player__category category">
+          <h1 class="category__title">Playlists</h1>
+          <div class="category__controls">
+              <div class="category__item">
+                <label class="category__label">
+                  <input class="category__input" type="radio" name="category" id="popular" value="popular" checked>
+                  <div>
+                    <img class="category__image" src="./images/png/popular.png" alt="popular">
+                  </div>
+                </label>
+                <p>Popular</p>
+              </div>
+              <div class="category__item">
+                <label class="category__label">
+                  <input class="category__input" type="radio" name="category" id="in-trend" value="in-trend">
+                  <div>
+                    <img class="category__image" src="./images/png/in-trend.png" alt="in-trend">
+                  </div>
+                </label>
+                <p>In Trend</p>
+              </div>
+              <div class="category__item">
+                <label class="category__label">
+                  <input class="category__input" type="radio" name="category" id="time-machine" value="time-machine">
+                  <div>
+                    <img class="category__image" src="./images/png/90.png" alt="time-machine">
+                  </div>
+                </label>
+                <p>Time Machine</p>
+              </div>
+          </div>
+          <ol class="songs-list">
+            <li>dsds</li>
+            <li>dsds</li>
+            <li>dsds</li>
+          </ol>
+        </div>
+        <div class="audio-player__controls player">
+          <div class="player__cover cover"></div>
+          <div class="player-attributes">
+            <div class="player__song song">
+              <p class="song__musician">fdfd</p>
+              <p class="song__name">fdfd</p>
+            </div>
+            <div class="player__controls">
+              <img class="ico" src="./images/svg/prev-btn.svg" alt="prev">
+              <img class="ico" src="./images/svg/play-btn.svg" alt="play">
+              <img class="ico" src="./images/svg/next-btn.svg" alt="next">
+            </div>
+            <div class="player__progress">
+              <input class="progress-bar" type="range" value="0">
+              <div class="player__duration time">
+                <span class="time__current">3:34</span>
+                <span class="time__duration">3:65</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
