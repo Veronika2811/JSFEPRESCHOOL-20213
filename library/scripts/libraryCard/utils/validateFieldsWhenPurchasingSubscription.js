@@ -4,7 +4,7 @@ import {
 } from '../../utils/addFieldValidationStyle.js';
 
 const libraryCardFormController = (el) => {
-  const allLetters = /[A-Za-zА-Яа-яЁё,.!?;:()]/;
+  const allLetters = /[A-Za-zА-Яа-яЁё,.!?;:()@#$%^&*()~`<>/'"[\]\\{}=+_-]/;
   const russianLetters = /[А-Яа-я]/;
 
   const valueWithoutSpaces = el.value.replaceAll(' ', '');

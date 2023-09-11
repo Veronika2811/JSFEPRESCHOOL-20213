@@ -1,14 +1,6 @@
-const getRandomArbitrary = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min;
-};
-
 const generateCardNumber = () => {
-  const randomCardNumber = getRandomArbitrary(100000000, 999999999);
-  let hexCardNumber = randomCardNumber.toString(16);
-
-  while (hexCardNumber.length < 9) {
-    hexCardNumber = '0' + hexCardNumber;
-  }
+  const randomCardNumber = Math.floor(Math.random() * (16**9)) + 1;
+  let hexCardNumber = randomCardNumber.toString(16).padStart(9, '0');
 
   return hexCardNumber;
 };
