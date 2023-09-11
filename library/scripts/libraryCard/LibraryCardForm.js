@@ -22,7 +22,7 @@ class LibraryCardForm extends Element {
     this.cardSearchTitle = this.createDomNode(
       this.cardSearchTitle,
       'h3',
-      'Find your Library card',
+      this.userInfo && this.userAuth ? 'Your Library card' : 'Find your Library card',
       this.libraryCardForm,
       'card-search__title'
     );

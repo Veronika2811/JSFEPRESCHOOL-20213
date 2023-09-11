@@ -2,6 +2,8 @@ import Book from './Book.js';
 
 import books from './books.js';
 
+let inputChecked = 'winter';
+
 const getBooksWrapper = () => {
   const booksContainer = document.querySelector('.favorites__books');
   booksContainer.innerHTML = '';
@@ -17,10 +19,11 @@ const generateBooks = (currentSeason) => {
 
 const addControlsFavoritesClickHandler = () => {
   const season = document.querySelector('.season');
-  const inputChecked = season.querySelector('input').value;
+
   generateBooks(inputChecked);
 
   season.addEventListener('click', (e) => {
+    inputChecked = e.target.value;
     const booksContainer = document.querySelector('.favorites__books');
 
     if (e.target.classList.contains('season__control')) {
