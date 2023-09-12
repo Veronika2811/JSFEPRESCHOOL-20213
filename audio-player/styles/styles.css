@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
-.background {
+.body {
+  display: flex;
+  align-items: flex-end;
   width: 100vw;
   height: 100vh;
-  filter: blur(5px);
+  background: url('../images/jpg/popular/5utra-iskorki.jpg') no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
 }
 
 .audio-player {
@@ -186,4 +190,37 @@
 
 .time__duration {
   color: #ff218c;
+}
+
+.footer {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.footer__link_github {
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.2s;
+}
+
+.footer__link_github:hover {
+  color: #F7ADD0;
+}
+
+.footer__rsschool {
+  width: 135px;
+  height: 50px;
+  background: url('../images/svg/rs_school_js.svg') no-repeat;
+  background-size: contain;
+  transition: filter 0.2s;
+}
+
+.footer__rsschool:hover {
+  filter: invert(81%) sepia(13%) saturate(1346%) hue-rotate(292deg) brightness(99%) contrast(95%);
+  cursor: pointer;
 }
