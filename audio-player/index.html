@@ -11,62 +11,54 @@
     <link rel="stylesheet" href="./styles/styles.css">
   </head>
   <body class="body">
-    <audio class="song" src="./audio/popular/5UTRA_-Iskorki_(musmore.com).mp3"></audio>
     <main class="audio-player">
       <div class="audio-player__wrapper">
         <div class="audio-player__category category">
           <h1 class="category__title">Playlists</h1>
           <div class="category__controls">
-              <div class="category__item">
-                <label class="category__label">
-                  <input class="category__input" type="radio" name="category" id="popular" value="popular" checked>
-                  <div>
-                    <img class="category__image" src="./images/png/popular.png" alt="popular">
-                  </div>
-                </label>
-                <p>Popular</p>
+            <label class="category__label active">
+              <input class="category__input" type="radio" name="category" id="popular" value="popular" checked>
+              <div>
+                <img class="category__image" src="./images/png/popular.png" alt="popular">
               </div>
-              <div class="category__item">
-                <label class="category__label">
-                  <input class="category__input" type="radio" name="category" id="in-trend" value="in-trend">
-                  <div>
-                    <img class="category__image" src="./images/png/in-trend.png" alt="in-trend">
-                  </div>
-                </label>
-                <p>In Trend</p>
+              <p class="ds">Popular</p>
+            </label>
+            <label class="category__label">
+              <input class="category__input" type="radio" name="category" id="in-trend" value="in-trend">
+              <div>
+                <img class="category__image" src="./images/png/in-trend.png" alt="in-trend">
               </div>
-              <div class="category__item">
-                <label class="category__label">
-                  <input class="category__input" type="radio" name="category" id="time-machine" value="time-machine">
-                  <div>
-                    <img class="category__image" src="./images/png/90.png" alt="time-machine">
-                  </div>
-                </label>
-                <p>Time Machine</p>
+              <p>In Trend</p>
+            </label>
+            <label class="category__label">
+              <input class="category__input" type="radio" name="category" id="time-machine" value="time-machine">
+              <div>
+                <img class="category__image" src="./images/png/90.png" alt="time-machine">
               </div>
+              <p>Time Machine</p>
+            </label>
           </div>
-          <ol class="songs-list">
-            <li>dsds</li>
-            <li>dsds</li>
-            <li>dsds</li>
-          </ol>
+          <ol class="songs-list songs"></ol>
         </div>
         <div class="audio-player__controls player">
-          <img src="./images/jpg/popular/5utra-iskorki.jpg" alt="cover" class="cover">
+          <div class="cover"></div>
           <div class="player-attributes">
             <div class="player__song song">
               <p class="song__musician">fdfd</p>
               <p class="song__name">fdfd</p>
             </div>
             <div class="player__controls">
-              <img class="ico" src="./images/svg/prev-btn.svg" alt="prev">
-              <img class="ico" src="./images/svg/play-btn.svg" alt="play">
-              <img class="ico" src="./images/svg/next-btn.svg" alt="next">
+              <div class="ico ico_backward"></div>
+              <div class="ico ico_play"></div>
+              <div class="ico ico_forward"></div>
             </div>
             <div class="player__progress">
-              <input class="progress-bar" type="range" value="0">
+              <div class="video-progress">
+                <progress class="progress-bar" value="0"></progress>
+                <input class="progress" type="range" value="0" min="0" step="1">
+              </div>
               <div class="player__duration time">
-                <span class="time__current">3:34</span>
+                <span class="time__current">0:00</span>
                 <span class="time__duration">3:65</span>
               </div>
             </div>
@@ -79,5 +71,6 @@
       <a class="footer__link_github" href="https://github.com/Veronika2811">Veronika2811</a>
       <a href="https://rs.school/js-stage0/" class="footer__rsschool"></a>
     </footer>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

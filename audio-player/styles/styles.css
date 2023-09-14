@@ -1,3 +1,10 @@
+:root {
+  --color-light: #ffffff;
+  --color-black: #000000;
+  --color-additional: #bdae82;
+  --color-progress: #808080;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +16,10 @@
   align-items: flex-end;
   width: 100vw;
   height: 100vh;
-  background: url('../images/jpg/popular/5utra-iskorki.jpg') no-repeat;
+  background-image: url('../images/jpg/popular/5utra-iskorki.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
   backdrop-filter: blur(5px);
 }
 
@@ -60,6 +69,7 @@
 .category__label {
   position: relative;
   display: block;
+  cursor: pointer;
 }
 
 .category__input {
@@ -81,6 +91,7 @@
   border-radius: 50%;
   opacity: 0;
 }
+
 .category__input:checked + div:after {
   opacity: 1;
 }
@@ -93,16 +104,22 @@
   color: #000000;
   border: 1px solid #dcdcdc;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .songs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 30px 20px;
   font-size: 20px;
 }
 
 .cover {
-  display: inline-block;
+  /* display: inline-block; */
+  background-image: url('../images/jpg/popular/5utra-iskorki.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
   height: 300px;
   border-top-right-radius: 20px;
@@ -115,7 +132,9 @@
 .player__controls {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+  padding: 20px 0px;
 }
 
 .song {
@@ -123,6 +142,7 @@
   align-items: center;
   flex-direction: column;
   gap: 5px;
+  padding-top: 20px;
 }
 
 .song__musician {
@@ -132,17 +152,23 @@
   color: #ff218c;
 }
 
-.ico {
-  display: block;
-  padding: 20px 10px;
+/* .ico {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(311deg) brightness(103%) contrast(101%);
   transition: filter 0.2s;
+}
+
+.ico_play {
+  width: 40px;
+  height: 40px;
 }
 
 .ico:hover {
   filter: invert(26%) sepia(60%) saturate(6790%) hue-rotate(316deg)
     brightness(101%) contrast(99%);
   cursor: pointer;
-}
+} */
 
 .progress-bar {
   width: 100%;
@@ -223,4 +249,146 @@
 .footer__rsschool:hover {
   filter: invert(81%) sepia(13%) saturate(1346%) hue-rotate(292deg) brightness(99%) contrast(95%);
   cursor: pointer;
+}
+
+.song-active {
+  color: #ff218c;
+}
+
+.songs__item {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  cursor: pointer;
+}
+
+.play-container {
+  padding: 5px;
+}
+
+.ico {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(311deg) brightness(103%) contrast(101%);
+  transition: filter 0.2s;
+}
+
+.ico:hover {
+  filter: invert(26%) sepia(60%) saturate(6790%) hue-rotate(316deg)
+    brightness(101%) contrast(99%);
+  cursor: pointer;
+}
+
+/* .ico_large {
+} */
+
+.ico_play {
+  width: 30px;
+  height: 30px;
+  background-image: url('../images/png/control/play.png');
+}
+
+.ico_pause {
+  background-image: url('../images/png/control/pause.png');
+}
+
+.ico_backward {
+  background-image: url('../images/png/control/backward.png');
+}
+
+.ico_forward {
+  background-image: url('../images/png/control/forward.png');
+}
+
+video-progress {
+  position: relative;
+  height: 10px;
+  width: 70%;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.progress-bar::-webkit-progress-bar {
+  background-color: var(--color-progress);
+  border-radius: 2px;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: var(--color-additional);
+  border-radius: 2px;
+}
+
+.progress-bar::-moz-progress-bar {
+  background: var(--color-additional);
+  border: 1px solid var(--color-additional);
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+.player__progress {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input[type='range'] {
+  height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 13px;
+  height: 13px;
+  background: var(--color-light);
+  border-radius: 50%;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+}
+
+input[type='range'].volume {
+  height: 10px;
+  background-color: var(--color-progress);
+  overflow: hidden;
+}
+
+input[type='range'].volume::-webkit-slider-thumb {
+  height: 1px;
+  width: 1px;
+  margin-left: 0;
+  background: var(--color-progress);
+  box-shadow: -140px 0 0 140px var(--color-additional);
+}
+
+input[type='range'].volume::-webkit-slider-runnable-track {
+  background-color: transparent;
+}
+
+input[type='range'].volume::-webkit-slider-thumb {
+  height: 1px;
+  width: 1px;
+  margin-left: 0;
+  background: var(--color-progress);
+  box-shadow: -140px 0 0 140px var(--color-additional);
 }
