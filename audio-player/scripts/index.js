@@ -42,7 +42,9 @@ const generateSongList = (category) => {
       `<li class="songs__item ${
         category === curentCategory && i === indexMusic ? 'song-active' : 'item'
       }" data-id="${el.id}">
+       <div>
         <p class="item_title">${el.name}</p>
+       </div>
       </li>`
     );
   });
@@ -61,6 +63,9 @@ categoryWrapper.addEventListener('click', (e) => {
 
 const loadingPlayer = () => {
   generateSongList(curentCategory);
+  document.querySelector(
+    '.current-playlist'
+  ).textContent = `Current playlist: ${curentCategory.toUpperCase()}`;
 
   const obj = SONGS[curentCategory].find((el, i) => i === indexMusic);
 
@@ -84,8 +89,9 @@ function bindEvent() {
   const songsItems = [...document.querySelectorAll('.songs__item')];
 
   songsItems.forEach((el) => {
-    el.addEventListener('click', (e) => {
-      if (el.classList.contains('song-active')) return;
+    el.addEventListener('click', () => {
+      // console.log(el);
+      // if (el.classList.contains('song-active')) return;
 
       songsItems.forEach((item) => item.classList.remove('song-active'));
 
@@ -109,6 +115,10 @@ function bindEvent() {
       audio.src = obj.src;
 
       curentCategory = clickedCategory;
+
+      document.querySelector(
+        '.current-playlist'
+      ).textContent = `Current playlist: ${curentCategory.toUpperCase()}`;
 
       if (isPlay) {
         pauseAudio();
@@ -254,7 +264,6 @@ const changeVideoProgress = () => {
   progress.value = Math.floor(audio.currentTime);
   progressBar.value = Math.floor(audio.currentTime);
 
-  console.log(audio.ended);
   if (audio.ended) {
     if (SONGS[curentCategory].length - 1 === indexMusic) {
       indexMusic = 0;
@@ -292,9 +301,44 @@ const changeVideoProgress = () => {
       pauseAudio();
       playAudio();
     }
-  } // 151
+  }
 };
 
 audio.addEventListener('timeupdate', changeVideoProgress);
 progress.addEventListener('mousemove', updateProgress);
 progress.addEventListener('input', toggleProgress);
+
+let currentVolume = 0.5;
+
+//Volume
+
+const volumeIcon = document.querySelector('.volume-icon');
+const volume = document.querySelector('.volume');
+
+volumeIcon.addEventListener('click', (e) => {
+  console.log(currentVolume);
+  if (currentVolume == 0) return;
+
+  if (!e.target.classList.contains('volume-off')) {
+    e.target.classList.add('volume-off');
+    volume.value = 0;
+    audio.muted = true;
+  } else {
+    e.target.classList.remove('volume-off');
+    volume.value = currentVolume;
+    audio.muted = false;
+  }
+});
+
+const toggleVolume = (event) => {
+  if (event.target.value == 0) {
+    volumeIcon.classList.add('volume-off');
+  } else {
+    volume === event.target.value;
+    volumeIcon.classList.remove('volume-off');
+  }
+  currentVolume = event.target.value;
+  audio.volume = event.target.value;
+};
+
+volume.addEventListener('input', toggleVolume);
