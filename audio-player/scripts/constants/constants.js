@@ -30,8 +30,7 @@ const SONGS = {
       id: 2,
       name: 'Ahmed Shad - Вольная',
       src: './audio/in-trend/Ahmed Shad-Volnayu.mp3',
-      background:
-        '../images/jpg/in-trend/AhmedShad.jpg',
+      background: '../images/jpg/in-trend/AhmedShad.jpg',
     },
     {
       id: 3,
