@@ -52,8 +52,6 @@ const generateSongList = (category) => {
     'current-song',
   ]);
 
-  console.log(category);
-
   SONGS[category].forEach((el) => {
     songList.insertAdjacentHTML(
       'beforeend',
