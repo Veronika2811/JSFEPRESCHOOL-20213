@@ -31,15 +31,18 @@ const loadingImageGallery = async (value, page = 1) => {
   const {results} = await getData(currentSearch, page);
 
   results.forEach((el) => {
-    const {likes, alt_description, urls} = el;
+    const {alt_description, urls, likes, links} = el;
 
     containerImageGallery.insertAdjacentHTML(
       'afterbegin',
       `
         <li class="image-gallery__item item">
-          <img class="item__image" src="${urls.regular}" alt="${alt_description}">
+          <img class="item__image" src="${
+            urls.regular
+          }" alt="${alt_description}">
           <div class="overlay">
-            <span class="overlay__content">${alt_description}</span>
+            <div class="overlay__content">
+            <span>${alt_description}</span>
             <div class="overlay__likes">
               <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 471.701 471.701" xml:space="preserve">
                 <g>
@@ -54,6 +57,14 @@ const loadingImageGallery = async (value, page = 1) => {
                 </g>
               </svg>
               <span>${likes}</span>
+            </div>
+            <a download href='${`${links.html}/download?force=true`}'>
+              <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16L12 8" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 13L11.913 15.913V15.913C11.961 15.961 12.039 15.961 12.087 15.913V15.913L15 13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 15L3 16L3 19C3 20.1046 3.89543 21 5 21L19 21C20.1046 21 21 20.1046 21 19L21 16L21 15" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
             </div>
           </div>
         </li>

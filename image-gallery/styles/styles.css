@@ -132,9 +132,7 @@ input:focus {
 .overlay {
   position: absolute;
   top: 0;
-  left: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -147,7 +145,10 @@ input:focus {
 }
 
 .overlay__content {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .image-gallery .image-gallery__item:hover .overlay {
@@ -159,7 +160,6 @@ input:focus {
   align-items: center;
   gap: 10px;
 }
-
 
 /* Footer */
 .footer {
