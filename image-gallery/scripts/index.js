@@ -23,12 +23,20 @@ const getWrapper = () => {
   return containerImageGallery;
 };
 
-const loadingImageGallery = async (value, page = 1) => {
+const loadingImageGallery = async (value, page) => {
   const containerImageGallery = getWrapper();
 
   currentSearch = value || getRandomArrayElement();
+  const currentPage = page || 1;
 
-  const {results} = await getData(currentSearch, page);
+  const {results} = await getData(currentSearch, currentPage);
+
+  if (!results.length) {
+    return containerImageGallery.insertAdjacentHTML(
+      'afterbegin',
+      '<p class="error">Nothing found for your request</p>'
+    );
+  }
 
   results.forEach((el) => {
     const {alt_description, urls, likes, links} = el;
@@ -73,4 +81,22 @@ const loadingImageGallery = async (value, page = 1) => {
   });
 };
 
-loadingImageGallery();
+// loadingImageGallery();
+
+const searchBoxInput = document.querySelector('.search-box__input');
+const searchBoxButton = document.querySelector('.search-box__img');
+
+const searchForImagesByRequest = (value) => {
+  currentSearch = value;
+  loadingImageGallery(currentSearch);
+};
+
+searchBoxInput.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter') {
+    searchForImagesByRequest(searchBoxInput.value);
+  }
+});
+
+searchBoxButton.addEventListener('click', () => {
+  searchForImagesByRequest(searchBoxInput.value);
+});

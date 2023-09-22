@@ -1,6 +1,7 @@
 :root {
   --color-light: #ffffff;
   --color-black: #000000;
+  --color-error: #ff0000;
   --color-hover: #ffc0cb;
   --color-hover-rgba: #ffc0cb80;
   --color-placeholder: #c5c5c5;
@@ -107,6 +108,11 @@ input:focus {
   padding: 110px 0px 180px;
 }
 
+.error {
+  font-size: 25px;
+  color: var(--color-error);
+}
+
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -140,7 +146,7 @@ input:focus {
   color: var(--color-light);
   background: var(--background-overlay);
   border-radius: 5px;
-  transform: scale(1);
+  transform: scale(0);
   transition: all 0.2s 0.1s ease-in-out;
 }
 
