@@ -1,12 +1,19 @@
 const accessKey = 'dzy9VUya4CbAm8bCerB1GlzD3Q7ZIbjyJp3rKcINSOo';
 
+const firstPageButton = document.querySelector('.first__page');
+const prevPageButton = document.querySelector('.previous__page');
+let activePage = document.querySelector('.pagination__item_active');
+const nextPageButton = document.querySelector('.next__page');
+const lastPageButton = document.querySelector('.last__page');
+
 let currentSearch = '';
+let currentPage = 1;
+let totalPages;
 
 const getData = async (query = 'pink', page) => {
   const url = `https://api.unsplash.com/search/photos?&client_id=${accessKey}&query=${query}&page=${page}&per_page=30&orientation=landscape&`;
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   return data;
 };
 
@@ -23,13 +30,40 @@ const getWrapper = () => {
   return containerImageGallery;
 };
 
-const loadingImageGallery = async (value, page) => {
+const managingPaginationStyles = (result) => {
+  if (!result || (currentPage === 1 && currentPage === totalPages)) {
+    firstPageButton.disabled = true;
+    prevPageButton.disabled = true;
+    nextPageButton.disabled = true;
+    lastPageButton.disabled = true;
+  } else if (currentPage === 1 && currentPage !== totalPages) {
+    firstPageButton.disabled = true;
+    prevPageButton.disabled = true;
+    nextPageButton.disabled = false;
+    lastPageButton.disabled = false;
+  } else if (currentPage === totalPages) {
+    firstPageButton.disabled = false;
+    prevPageButton.disabled = false;
+    nextPageButton.disabled = true;
+    lastPageButton.disabled = true;
+  } else if (currentPage !== 1 && currentPage !== totalPages) {
+    firstPageButton.disabled = false;
+    prevPageButton.disabled = false;
+    nextPageButton.disabled = false;
+    lastPageButton.disabled = false;
+  }
+};
+
+const loadingImageGallery = async () => {
   const containerImageGallery = getWrapper();
 
-  currentSearch = value || getRandomArrayElement();
-  const currentPage = page || 1;
+  currentSearch = currentSearch || getRandomArrayElement();
 
-  const {results} = await getData(currentSearch, currentPage);
+  const {total_pages, results} = await getData(currentSearch, currentPage);
+  console.log(total_pages);
+  totalPages = total_pages;
+
+  managingPaginationStyles(results.length);
 
   if (!results.length) {
     return containerImageGallery.insertAdjacentHTML(
@@ -81,14 +115,16 @@ const loadingImageGallery = async (value, page) => {
   });
 };
 
-// loadingImageGallery();
+loadingImageGallery();
 
 const searchBoxInput = document.querySelector('.search-box__input');
 const searchBoxButton = document.querySelector('.search-box__img');
 
 const searchForImagesByRequest = (value) => {
   currentSearch = value;
-  loadingImageGallery(currentSearch);
+  currentPage = 1;
+  activePage.textContent = currentPage;
+  loadingImageGallery();
 };
 
 searchBoxInput.addEventListener('keydown', (e) => {
@@ -100,3 +136,32 @@ searchBoxInput.addEventListener('keydown', (e) => {
 searchBoxButton.addEventListener('click', () => {
   searchForImagesByRequest(searchBoxInput.value);
 });
+
+const goToNextPage = () => {
+  currentPage++;
+  activePage.textContent = currentPage;
+  loadingImageGallery();
+};
+
+const goToPrevPage = () => {
+  currentPage--;
+  activePage.textContent = currentPage;
+  loadingImageGallery();
+};
+
+const goToFirstPage = () => {
+  currentPage = 1;
+  activePage.textContent = currentPage;
+  loadingImageGallery();
+};
+
+const goToLastPage = () => {
+  currentPage = totalPages;
+  activePage.textContent = currentPage;
+  loadingImageGallery();
+};
+
+nextPageButton.addEventListener('click', goToNextPage);
+prevPageButton.addEventListener('click', goToPrevPage);
+firstPageButton.addEventListener('click', goToFirstPage);
+lastPageButton.addEventListener('click', goToLastPage);
