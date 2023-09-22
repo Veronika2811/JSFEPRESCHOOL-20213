@@ -6,7 +6,6 @@ import loadingImageGallery from './loadingImageGallery.js';
 let currentSearch = getRandomArrayElement(POPULAR_QUERIES);
 
 const searchForImagesByRequest = (value) => {
-  console.log(value);
   currentSearch = value || getRandomArrayElement(POPULAR_QUERIES);
   loadingImageGallery();
 };
