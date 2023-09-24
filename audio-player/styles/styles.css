@@ -19,11 +19,12 @@
   align-items: flex-end;
   width: 100vw;
   height: 100vh;
-  background-image: url('../images/jpg/background.jpg');
+  background-image: url('../images/jpg/popular/5utra.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   backdrop-filter: blur(5px);
+  transition: background 0.5s;
 }
 
 .audio-player {
@@ -206,11 +207,12 @@
 .player__cover {
   width: 100%;
   height: 300px;
-  background-image: url('../images/jpg/background.jpg');
+  background-image: url('../images/jpg/popular/5utra.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   border-top-right-radius: 20px;
+  transition: background 0.5s;
 }
 
 .player-attributes {
