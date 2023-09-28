@@ -91,7 +91,7 @@ class ImageGallery {
         this.imageOverlayContent,
         'overlay__download'
       );
-      this.imageLinkDownload.href = '${`${links.html}/download?force=true`}';
+      this.imageLinkDownload.href = `${links.html}/download?force=true`;
 
       this.imageLinkDownload.insertAdjacentHTML(
         'afterbegin',
