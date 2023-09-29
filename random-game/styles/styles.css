@@ -1,7 +1,7 @@
 :root {
   --color-light: #ffffff;
   --color-black: #000000;
-  --color-hover: #D4A5A5;
+  --color-hover: #866161;
   /* --color-error: #ff0000;
   --color-hover: #ffc0cb;
   --color-hover-rgba: #ffc0cb80;
@@ -20,30 +20,147 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  font-family: 'Forum', sans-serif;
+  font-size: 25px;
+  background-color: #afafaf;
 }
 
 .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1400px;
   margin: auto;
+}
+
+.header {
+  padding: 20px 0px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* .timer,
+.game {
+  font-size: 25px;
+} */
+
+.timer {
+  display: none;
+}
+
+.main__wrapper {
+  justify-content: center;
+}
+
+.category {
+  display: flex;
+  gap: 20px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #d0b2b2;
+  border-radius: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 25px;
+  background-color: transparent;
+  border: 1px solid var(--color-black);
+  border-radius: 10px;
+}
+
+.input:focus {
+  border: 1px solid var(--color-hover);
+  outline: none;
+}
+
+.category__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.category__item:hover p {
+  color: var(--color-hover);
+  transition: color 0.3s;
+}
+
+.category__input {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}
+
+.category__input + div:after {
+  content: '\2713';
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #d4a5a5bf;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.category__input:checked + div:after {
+  opacity: 1;
+}
+
+.category__input:checked + div .category__cover {
+  box-shadow: 0px 0px 15px var(--color-black);
+}
+
+.category__input + div .category__cover {
+  border: 1px solid var(--color-light);
+  border-radius: 10px;
+}
+
+.category__cover {
+  width: 115px;
+  height: 110px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: var(--color-hover);
+  cursor: pointer;
 }
 
 /* Footer */
 .footer {
   width: 100%;
   padding: 20px 0px;
-  margin: auto;
   color: var(--color-black);
+  box-shadow: 20px 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.footer__wrapper {
+/* .footer__wrapper,
+.header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.footer__year,
+/* .footer__year, */
 .footer__link_github {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .footer__link_github {
