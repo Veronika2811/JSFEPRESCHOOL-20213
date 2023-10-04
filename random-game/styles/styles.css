@@ -56,14 +56,32 @@
   gap: 20px;
 }
 
-.game {
+/* .game {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
   background-color: #d0b2b2;
   border-radius: 20px;
+} */
+
+.game {
+  display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    gap: 10px;
+    /* height: 100%; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+    /* gap: 20px; */
+    padding: 20px;
+    /* background-color: #d0b2b2; */
+    border-radius: 20px;
 }
 
 .input {
@@ -184,4 +202,48 @@
 .footer__link_rsschool:hover {
   filter: invert(82%) sepia(17%) saturate(619%) hue-rotate(311deg) brightness(82%) contrast(102%);
   cursor: pointer;
+}
+
+/* Сard */
+.card {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: var(--color-light);
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+@media (max-width: 1100px) {
+  .card {
+    height: calc(150 / 768 * 100vw);
+  }
+}
+
+.card:active {
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+
+.card.active {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background: url('../images/png/cover.png') no-repeat;
+  background-size: contain;
+}
+
+.card-back {
+  transform: rotateY(180deg);
 }
