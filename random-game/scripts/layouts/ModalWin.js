@@ -14,7 +14,6 @@ class ModalWin extends Modal {
   }
 
   generateContent(resultGame) {
-    console.log(resultGame)
     this.modalWinWrapper = createDomNode(
       this.modalWinWrapper,
       'div',
