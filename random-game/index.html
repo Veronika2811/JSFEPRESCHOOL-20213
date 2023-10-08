@@ -1,62 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./images/favicon.ico">
-  <title>Memory-Game</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body class="body">
-  <header class="header">
-    <div class="wrapper header__wrapper">
-      <h1 class="title">Memory-Game</h1>
-      <div class="timer">00:00</div>
-    </div>
-  </header>
-  <main class="main">
-    <div class="wrapper main__wrapper">
-      <div class="main__game game">
-        <p class="game__welcome">Здравствуйте! Представьтесь, пожалуйста</p>
-        <input class="input" type="text" placeholder="Имя" autofocus autocomplete="off">
-        <p>Выберите желаемую категорию карт:</p>
-        <div class="game__category category">
-          <label class="category__item">
-            <input class="category__input" type="radio" name="category" value="animals" checked>
-            <div>
-              <img class="category__cover" src="./images/png/animal.png" alt="animals">
-            </div>
-            <p>Животные</p>
-          </label>
-          <label class="category__item">
-            <input class="category__input" type="radio" name="category" value="cartoons">
-            <div>
-              <img class="category__cover" src="./images/png/rabbit.png" alt="cartoons">
-            </div>
-            <p>Мультики</p>
-          </label>
-          <label class="category__item">
-            <input class="category__input" type="radio" name="category" value="other">
-            <div>
-              <img class="category__cover" src="./images/cards/other/whale.png" alt="other">
-            </div>
-            <p>Прочее</p>
-          </label>
-        </div>
-        <button class="button">Начать</button>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <title>Memory-Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="wrapper header__wrapper">
+        <h1>Memory-Game</h1>
+        <button class="button button__results">Results table</button>
       </div>
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="wrapper footer__wrapper">
-      <p class="footer__year">© 2023</p>
-      <a class="footer__link_github" href="https://github.com/Veronika2811" target="_blank">Veronika2811</a>
-      <a class="footer__link_rsschool" href="https://rs.school/js-stage0/" target="_blank"></a>
-    </div>
-  </footer>
-  <script type="module" src="./scripts/index.js"></script>
-</body>
+    </header>
+    <main class="main">
+      <div class="wrapper main__wrapper"></div>
+    </main>
+    <footer class="footer">
+      <div class="wrapper footer__wrapper">
+        <p class="footer__year">© 2023</p>
+        <a
+          class="footer__link_github"
+          href="https://github.com/Veronika2811"
+          target="_blank"
+        >
+          Veronika2811
+        </a>
+        <a
+          class="footer__link_rsschool"
+          href="https://rs.school/js-stage0/"
+          target="_blank"
+        ></a>
+      </div>
+    </footer>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
 </html>
